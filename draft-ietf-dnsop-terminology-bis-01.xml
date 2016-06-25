@@ -719,13 +719,25 @@ label'." (Quoted from <xref target="RFC4592"/>, Section 2.1.1)</t>
 leftmost or least significant) label be asterisk label."
 (Quoted from <xref target="RFC4592"/>, Section 2.1.1)</t>
 
-<t hangText='Closest Encloser:'>
-"The closest encloser is the node in the zone's tree of existing
+<t hangText='Closest encloser:'>
+"The longest existing ancestor of a name."
+(Quoted from <xref target="RFC5155"/>, Section 1.3)
+An earlier definition is "The node in the zone's tree of existing
 domain names that has the most labels matching the query name
 (consecutively, counting from the root label downward).  Each match
 is a 'label match' and the order of the labels is the same."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)
-"the longest existing ancestor of a name."
+</t>
+
+<t hangText='Closest provable encloser:'>
+"The longest ancestor of a name that can
+be proven to exist.  Note that this is only different from the
+closest encloser in an Opt-Out zone."
+(Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
+
+<t hangText='Next closer name:'>
+"The name one label longer than the closest
+provable encloser of a name."
 (Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
 
 <t hangText='Source of Synthesis:'>
@@ -735,17 +747,6 @@ encloser, provided that this wildcard domain name exists.
 'Immediately descending' means that the source of synthesis has a
 name of the form: &gt;asterisk label&lt;.&gt;closest encloser&lt;."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)</t>
-
-<t hangText='Closest provable encloser:'>
-"the longest ancestor of a name that can
-be proven to exist.  Note that this is only different from the
-closest encloser in an Opt-Out zone."
-(Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
-
-<t hangText='Next closer name:'>
-"the name one label longer than the closest
-provable encloser of a name."
-(Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
 
 <t hangText='Occluded name:'>
 "The addition of a delegation point via dynamic update will render all subordinate
