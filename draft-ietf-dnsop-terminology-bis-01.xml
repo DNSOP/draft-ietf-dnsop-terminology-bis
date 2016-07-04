@@ -923,6 +923,18 @@ that are used as ZSKs, while in those cases where a distinction between a KSK an
 SEP flag is only a hint, and its presence or absence may not be used to disqualify a given
 DNSKEY RR from use as a KSK or ZSK during validation.</t>
 
+<t>The oginal defintion of SEPs was in <xref target="RFC3757"/>. That definition
+clearly indicated that the SEP was a key, not just a bit in the key. The
+abstract of <xref target="RFC3757"/> says:
+"With the Delegation Signer (DS) resource record (RR), the concept of
+a public key acting as a secure entry point (SEP) has been
+introduced.  During exchanges of public keys with the parent there is
+a need to differentiate SEP keys from other public keys in the Domain
+Name System KEY (DNSKEY) resource record set.  A flag bit in the
+DNSKEY RR is defined to indicate that DNSKEY is to be used as a SEP."
+That definition of the SEP as a key was made obsolete by <xref target="RFC4034"/>,
+and the definition from <xref target="RFC6781"/> is consistent with <xref target="RFC4034"/>.
+
 <t hangText='DNSSEC Policy (DP):'>
 A statement that "sets forth the security requirements and
 standards to be implemented for a DNSSEC-signed zone." (Quoted from <xref target="RFC6841"/>,
@@ -1067,6 +1079,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.0819.xml" ?>
 <?rfc include="reference.RFC.0952.xml" ?>
 <?rfc include="reference.RFC.1995.xml" ?>
+<?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
 <?rfc include="reference.RFC.4641.xml" ?>
 <?rfc include="reference.RFC.4697.xml" ?>
