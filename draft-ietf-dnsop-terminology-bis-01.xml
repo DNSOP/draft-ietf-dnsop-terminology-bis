@@ -14,6 +14,17 @@
 <rfc docName="draft-ietf-dnsop-terminology-bis-01" ipr="trust200902" category="bcp"
      obsoletes="7719">
 
+<!--
+
+##### Notes between the authors will go here
+
+Need to check the examples in "public suffix".
+
+Paul will go through all the comments on the pre-7719 drafts and find where we pushed
+  off discussion for the -bis.
+
+-->
+
 <front>
 <title abbrev="DNS Terminology">DNS Terminology</title>
 
