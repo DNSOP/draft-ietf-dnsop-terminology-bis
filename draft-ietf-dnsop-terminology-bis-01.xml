@@ -139,7 +139,7 @@ Any label in a domain name can contain any octet value.</t>
 <!-- #################### Mention draft-lewis-domain-names if it gets published as an RFC ############### -->
 
 <t>The term "domain name" was defined before <xref target="RFC1034"/>, most likely in
-<xref target="RFC799"/>, which precedes the existence of the DNS. In this document,
+<xref target="RFC0799"/>, which precedes the existence of the DNS. In this document,
 domain names are only described in terms of the DNS.</t>
 
 <t hangText='Fully qualified domain name (FQDN):'>
@@ -940,7 +940,7 @@ a need to differentiate SEP keys from other public keys in the Domain
 Name System KEY (DNSKEY) resource record set.  A flag bit in the
 DNSKEY RR is defined to indicate that DNSKEY is to be used as a SEP."
 That definition of the SEP as a key was made obsolete by <xref target="RFC4034"/>,
-and the definition from <xref target="RFC6781"/> is consistent with <xref target="RFC4034"/>.
+and the definition from <xref target="RFC6781"/> is consistent with <xref target="RFC4034"/>.</t>
 
 <t hangText='DNSSEC Policy (DP):'>
 A statement that "sets forth the security requirements and
@@ -1068,6 +1068,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6841.xml" ?>
 <?rfc include="reference.RFC.6891.xml" ?>
 <?rfc include="reference.RFC.7344.xml" ?>
+<?rfc include="reference.RFC.7719.xml" ?>
 
 </references>
 
