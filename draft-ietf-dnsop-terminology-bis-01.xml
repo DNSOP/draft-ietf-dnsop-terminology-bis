@@ -136,6 +136,12 @@ total number of octets that represent a domain name (i.e., the sum of all label 
 lengths) is limited to 255."
 Any label in a domain name can contain any octet value.</t>
 
+<!-- #################### Mention draft-lewis-domain-names if it gets published as an RFC ############### -->
+
+<t>The term "domain name" was defined before <xref target="RFC1034"/>, most likely in
+<xref target="RFC799"/>, which precedes the existence of the DNS. In this document,
+domain names are only described in terms of the DNS.</t>
+
 <t hangText='Fully qualified domain name (FQDN):'>
 This is often just a clear way
 of saying the same thing as "domain name of a node", as outlined
@@ -1077,6 +1083,7 @@ position as to whether they need to be reconciled.</t>
 </front>
 </reference>
 
+<?rfc include="reference.RFC.0799.xml" ?>
 <?rfc include="reference.RFC.0819.xml" ?>
 <?rfc include="reference.RFC.0952.xml" ?>
 <?rfc include="reference.RFC.1995.xml" ?>
