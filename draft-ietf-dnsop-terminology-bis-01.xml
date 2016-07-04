@@ -82,26 +82,24 @@ meanings than they did in 1987.</t>
 been precisely defined in earlier RFCs, some have been loosely defined in earlier
 RFCs, and some are not defined in any earlier RFC at all.</t>
 
-<!-- ################### Fix this in the -01 ###################### -->
-
-<t>[[ The following two paragraphs will be majorly changed in future versions
-of this draft as the DNSOP WG works on the document. ]]</t>
+<!-- ################### Fix the following paragraph before WG Last Call ###################### -->
 
 <t>Most of the definitions here are the consensus definition of the DNS
 community -- both protocol developers and operators. Some of the definitions
 differ from earlier RFCs, and those differences are noted.
 In this document, where the consensus definition is the same as the one in
 an RFC, that RFC is quoted. Where the consensus definition has changed somewhat,
-the RFC is mentioned but the new stand-alone definition is given.</t>
+the RFC is mentioned but the new stand-alone definition is given.
+During the progression of this draft, it is expected that, where the consensus
+definition is different than the RFC, the RFC will then be updated by
+this document.</t>
 
 <t>It is important to note that,
 during the development of this document, it became clear that some DNS-related terms
 are interpreted quite differently by different DNS experts. Further, some terms
 that are defined in early DNS RFCs now have definitions that are generally agreed to, but
-that are different from the original definitions. Therefore, the authors intend
-to follow this document with a substantial revision in the not-distant future.
-That revision will probably have more in-depth discussion of some terms as well
-as new terms; it will also update some of the RFCs with new definitions.</t>
+that are different from the original definitions.
+Therefore, this document is a substantial revision to <xref target="RFC7719"/>.</t>
 
 <t>The terms are
 organized loosely by topic. Some definitions are for new terms for things that
