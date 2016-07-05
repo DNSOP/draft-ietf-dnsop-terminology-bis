@@ -788,15 +788,11 @@ IP6.ARPA zones are said to support the 'reverse DNS'."
 </t>
 
 <t hangText='Forward lookup:'>
-Forward lookup is hostname-to-address translation.
-This term first appeared in <xref target="RFC2133"/> and recent document is
-<xref target="RFC3493" />.
-In this document, 
-"Both forward lookup (hostname-to-address translation) and reverse lookup
-(address-to-hostname translation) need to be supported."
+"Hostname-to-address translation". (Quoted from 
+<xref target="RFC2133" />, Section 6)
 </t>
 
-<t hangText='Address and Routing Parameter Area Domain ("arpa"):'>
+<t hangText='arpa: Address and Routing Parameter Area Domain:'>
 "The 'arpa' domain was originally established as part of the initial
 deployment of the DNS, to provide a transition mechanism from the
 Host Tables that were common in the ARPANET, as well as a home for
@@ -807,11 +803,12 @@ reducing confusion with the earlier network name."
 </t>
 
 <t hangText='Infrastructure domain:'>
-The "arpa" domain is termed an "infrastructure domain".
+A domain whose "role is to
+support the operating infrastructure of the Internet".
 (Quoted from <xref target="RFC3172"/>, Section 2.)
 </t>
 
-<t hangText='Service Name:'>
+<t hangText='Service name:'>
 "Service names are the unique key in the Service Name and Transport
 Protocol Port Number registry.  This unique symbolic name for a
 service may also be used for other purposes, such as in DNS SRV
@@ -1140,7 +1137,6 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.1995.xml" ?>
 <?rfc include="reference.RFC.2133.xml" ?>
 <?rfc include="reference.RFC.3172.xml" ?>
-<?rfc include="reference.RFC.3493.xml" ?>
 <?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
 <?rfc include="reference.RFC.4641.xml" ?>
