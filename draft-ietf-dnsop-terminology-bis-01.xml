@@ -780,6 +780,44 @@ ascertain all the hosts.  It should be noted that the technique also works
 with AAAA records, but such use is not frequently observed on the
 Internet as of this writing.</t>
 
+<t hangText='Reverse DNS, reverse lookup:'>
+"The process of mapping an address to a name is
+generally known as a 'reverse lookup', and the IN-ADDR.ARPA and
+IP6.ARPA zones are said to support the 'reverse DNS'."
+(Quoted from <xref target="RFC5855"/>, Section 1)
+</t>
+
+<t hangText='Forward lookup:'>
+Forward lookup is hostname-to-address translation.
+This term first appeared in <xref target="RFC2133"/> and recent document is
+<xref target="RFC3493" />.
+In this document, 
+"Both forward lookup (hostname-to-address translation) and reverse lookup
+(address-to-hostname translation) need to be supported."
+</t>
+
+<t hangText='Address and Routing Parameter Area Domain ("arpa"):'>
+"The 'arpa' domain was originally established as part of the initial
+deployment of the DNS, to provide a transition mechanism from the
+Host Tables that were common in the ARPANET, as well as a home for
+the IPv4 reverse mapping domain.  During 2000, the abbreviation was
+redesignated to 'Address and Routing Parameter Area' in the hope of
+reducing confusion with the earlier network name."
+(Quoted from <xref target="RFC3172"/>, Section 2.)
+</t>
+
+<t hangText='Infrastructure domain:'>
+The "arpa" domain is termed an "infrastructure domain".
+(Quoted from <xref target="RFC3172"/>, Section 2.)
+</t>
+
+<t hangText='Service Name:'>
+"Service names are the unique key in the Service Name and Transport
+Protocol Port Number registry.  This unique symbolic name for a
+service may also be used for other purposes, such as in DNS SRV
+records." (Quoted from <xref target="RFC6335"/>, Section 5.)
+</t>
+
 </list></t>
 </section>
 
@@ -1071,6 +1109,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.4592.xml" ?>
 <?rfc include="reference.RFC.5155.xml" ?>
 <?rfc include="reference.RFC.5730.xml" ?>
+<?rfc include="reference.RFC.5855.xml" ?>
 <?rfc include="reference.RFC.5936.xml" ?>
 <?rfc include="reference.RFC.6561.xml" ?>
 <?rfc include="reference.RFC.6672.xml" ?>
@@ -1099,6 +1138,9 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.0819.xml" ?>
 <?rfc include="reference.RFC.0952.xml" ?>
 <?rfc include="reference.RFC.1995.xml" ?>
+<?rfc include="reference.RFC.2133.xml" ?>
+<?rfc include="reference.RFC.3172.xml" ?>
+<?rfc include="reference.RFC.3493.xml" ?>
 <?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
 <?rfc include="reference.RFC.4641.xml" ?>
@@ -1113,6 +1155,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.5894.xml" ?>
 <?rfc include="reference.RFC.6055.xml" ?>
 <?rfc include="reference.RFC.6265.xml" ?>
+<?rfc include="reference.RFC.6335.xml" ?>
 <?rfc include="reference.RFC.6365.xml" ?>
 <?rfc include="reference.RFC.7129.xml" ?>
 <?rfc include="reference.RFC.7480.xml" ?>
@@ -1120,7 +1163,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7482.xml" ?>
 <?rfc include="reference.RFC.7483.xml" ?>
 <?rfc include="reference.RFC.7484.xml" ?> 
-<?rfc include="reference.RFC.7485" ?>
+<?rfc include="reference.RFC.7485.xml" ?>
 
 </references>
 
