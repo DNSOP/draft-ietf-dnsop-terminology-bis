@@ -23,6 +23,11 @@ Need to check the examples in "public suffix".
 Paul will go through all the comments on the pre-7719 drafts and find where we pushed
   off discussion for the -bis.
 
+From John Dickinson:
+Because of its unusual nature I think a definition for the NSEC3PARAM RR would be useful.
+Also I guess we need to add catalog zones.
+
+
 -->
 
 <front>
@@ -269,7 +274,7 @@ in that diagram. For example, the response codes are called "RCODEs",
 the data for a record is called the "RDATA", and the
 authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
 
-<t>Some of response codes that are defined in <xref target="RFC1035"/> have gotten their own
+<t>Some of response codes that are defined in <xref target="RFC1035"/> have acquired their own
 shorthand names. Some common response code names that appear without
 reference to the numeric value are "FORMERR", "SERVFAIL", and "NXDOMAIN"
 (the latter of which is also referred to as "Name Error"). All of
@@ -1176,7 +1181,8 @@ John Klensin, David Black,
 and many others in the DNSOP Working Group helped shape RFC 7719.</t>
 
 <t>Additional people contributed to this document, including: 
-MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE.</t>
+John Dickinson
+[[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
 
 </section>
 
