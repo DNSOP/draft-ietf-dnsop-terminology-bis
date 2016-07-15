@@ -766,7 +766,7 @@ provable encloser of a name."
 as that wildcard domain name immediately descending from the closest
 encloser, provided that this wildcard domain name exists.
 'Immediately descending' means that the source of synthesis has a
-name of the form: &gt;asterisk label&lt;.&gt;closest encloser&lt;."
+name of the form: &lt;asterisk label&gt;.&lt;closest encloser&gt;."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)</t>
 
 <t hangText='Occluded name:'>
@@ -981,7 +981,7 @@ that are used as ZSKs, while in those cases where a distinction between a KSK an
 SEP flag is only a hint, and its presence or absence may not be used to disqualify a given
 DNSKEY RR from use as a KSK or ZSK during validation.</t>
 
-<t>The oginal defintion of SEPs was in <xref target="RFC3757"/>. That definition
+<t>The original defintion of SEPs was in <xref target="RFC3757"/>. That definition
 clearly indicated that the SEP was a key, not just a bit in the key. The
 abstract of <xref target="RFC3757"/> says:
 "With the Delegation Signer (DS) resource record (RR), the concept of
@@ -1181,7 +1181,7 @@ John Klensin, David Black,
 and many others in the DNSOP Working Group helped shape RFC 7719.</t>
 
 <t>Additional people contributed to this document, including: 
-John Dickinson
+John Dickinson, Bob Harold,
 [[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
 
 </section>
