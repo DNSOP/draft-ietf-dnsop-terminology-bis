@@ -16,6 +16,7 @@
 
 <!--
 
+##################################################################
 ##### Notes between the authors will go here
 
 Need to check the examples in "public suffix".
@@ -27,7 +28,15 @@ From John Dickinson:
 Because of its unusual nature I think a definition for the NSEC3PARAM RR would be useful.
 Also I guess we need to add catalog zones.
 
+From Kazunori:
+Trust Anchor
+Root Hints
+(DNSSEC) validation(validate)
+(DNSSEC) authentication(authenticate)
+(DNSSEC) verification(verify)
+Paul notes that "trust anchor" is defined in 4033, but the other terms are not
 
+##################################################################
 -->
 
 <front>
