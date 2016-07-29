@@ -12,7 +12,9 @@
 <?rfc subcompact="no"?>
 
 <rfc docName="draft-ietf-dnsop-terminology-bis-02" ipr="trust200902" category="bcp"
-     obsoletes="7719">
+     obsoletes="7719"
+     updates="2308, 3757"
+>
 
 <!--
 
@@ -116,7 +118,8 @@ an RFC, that RFC is quoted. Where the consensus definition has changed somewhat,
 the RFC is mentioned but the new stand-alone definition is given.
 During the progression of this draft, it is expected that, where the consensus
 definition is different than the RFC, the RFC will then be updated by
-this document.</t>
+this document. See <xref target="updates-list"/> for a list of the definitions
+that this document updates.</t>
 
 <t>It is important to note that,
 during the development of this document, it became clear that some DNS-related terms
@@ -1182,6 +1185,20 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7485.xml" ?>
 
 </references>
+
+<section anchor="updates-list" title="Definitions Updated by this Document">
+
+<t>The following definitions from RFCs are updated by this document:
+
+<list style="symbols">
+
+<t>Secure Entry Point (SEP) in <xref target="RFC3757"/></t>
+
+<t>Forwarder in <xref target="RFC2308"/></t>
+
+</list></t>
+
+</section>
 
 <section anchor="acknowledgements" title="Acknowledgements" numbered="no">
 
