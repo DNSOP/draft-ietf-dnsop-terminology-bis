@@ -29,12 +29,11 @@ Because of its unusual nature I think a definition for the NSEC3PARAM RR would b
 Also I guess we need to add catalog zones.
 
 From Kazunori:
-Trust Anchor
 Root Hints
 (DNSSEC) validation(validate)
 (DNSSEC) authentication(authenticate)
 (DNSSEC) verification(verify)
-Paul notes that "trust anchor" is defined in 4033, but the other terms are not
+Paul notes that none of these are defined in RFC 403*, and "root hints" isn't mentioned until 7706
 
 ##################################################################
 -->
@@ -1001,6 +1000,13 @@ Name System KEY (DNSKEY) resource record set.  A flag bit in the
 DNSKEY RR is defined to indicate that DNSKEY is to be used as a SEP."
 That definition of the SEP as a key was made obsolete by <xref target="RFC4034"/>,
 and the definition from <xref target="RFC6781"/> is consistent with <xref target="RFC4034"/>.</t>
+
+<t hangText='Trust anchor:'>
+"A configured DNSKEY RR or DS RR hash of a DNSKEY RR.  A
+validating security-aware resolver uses this public key or hash as
+a starting point for building the authentication chain to a signed
+DNS response." (Quoted from <xref target="RFC4033"/>, Section 2)
+</t>
 
 <t hangText='DNSSEC Policy (DP):'>
 A statement that "sets forth the security requirements and
