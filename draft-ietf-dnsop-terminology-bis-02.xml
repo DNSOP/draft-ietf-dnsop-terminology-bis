@@ -37,6 +37,9 @@ Root Hints
 (DNSSEC) verification(verify)
 Paul notes that none of these are defined in RFC 403*, and "root hints" isn't mentioned until 7706
 
+Paul adds:
+Split DNS (RFC 2775)
+
 ##################################################################
 -->
 
@@ -623,7 +626,6 @@ redundant service for the data in a zone." (Quoted from <xref target="RFC1034"/>
 <t hangText='Child:'>
 "The entity on record that has the delegation of the domain from the
 Parent." (Quoted from <xref target="RFC7344"/>, Section 1.1)</t>
-
 
 <t hangText='Parent:'>
 "The domain in which the Child is registered." (Quoted from <xref target="RFC7344"/>, Section 1.1) Earlier,
