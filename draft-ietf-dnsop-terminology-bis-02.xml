@@ -31,11 +31,10 @@ Because of its unusual nature I think a definition for the NSEC3PARAM RR would b
 Also I guess we need to add catalog zones.
 
 From Kazunori:
-Root Hints
 (DNSSEC) validation(validate)
 (DNSSEC) authentication(authenticate)
 (DNSSEC) verification(verify)
-Paul notes that none of these are defined in RFC 403*, and "root hints" isn't mentioned until 7706
+Paul notes that none of these are defined in RFC 403*
 
 Paul adds:
 Split DNS (RFC 2775)
@@ -43,24 +42,6 @@ Split DNS (RFC 2775)
 From Kazunori:
 I would like to have a section "new terminologies" which are not defined by
 previous RFCs.
-
-After IANA updates its page:
-<t hangText='Root Hints:'>
-"Operators who manage a DNS recursive resolver typically need to configure
-a 'root hints file'. This file contains the names and IP addresses of
-the root zone, so the software can bootstrap the DNS resolution process.
-For many pieces of software, this list comes built into the software."
-(Quoted from <xref target="IANA_RootFiles"/>)</t>
-<reference anchor="IANA_RootFiles" target="http://www.iana.org/domains/root/files">
-  <front>
-    <title>IANA Root Files</title>
-      <author>
-        <organization>Internet Assigned Numbers Authority</organization>
-      </author>
-    <date year="2016"/>
-  </front>
-</reference>
-
 
 ##################################################################
 -->
@@ -494,6 +475,14 @@ The mechanism used by a resolver to determine where
 to send queries before there is anything in the resolver's cache.
 Priming is most often done from a configuration setting that contains a
 list of authoritative servers for the root zone.</t>
+
+<t hangText='Root hints:'>
+"Operators who manage a DNS recursive resolver typically need to configure
+a 'root hints file'.
+This file contains the names and IP addresses of the authoritative name servers
+for the root zone, so the software can bootstrap the DNS resolution process. 
+For many pieces of software, this list comes built into the software."
+(Quoted from <xref target="IANA_RootFiles"/>)</t>
 
 <t hangText='Negative caching:'>
 "The storage of knowledge that something does not exist, cannot
@@ -1138,6 +1127,16 @@ position as to whether they need to be reconciled.</t>
 
 <references title='Normative References'>
 
+<reference anchor="IANA_RootFiles" target="http://www.iana.org/domains/root/files">
+<front>
+<title>IANA Root Files</title>
+<author>
+<organization>Internet Assigned Numbers Authority</organization>
+</author>
+<date year="2016"/>
+</front>
+</reference>
+
 <?rfc include="reference.RFC.0882.xml" ?>
 <?rfc include="reference.RFC.1034.xml" ?>
 <?rfc include="reference.RFC.1035.xml" ?>
@@ -1174,7 +1173,7 @@ position as to whether they need to be reconciled.</t>
 <author>
 <organization>IETF</organization>
 </author>
-<date year="2015"/>
+<date year="2016"/>
 </front>
 </reference>
 
