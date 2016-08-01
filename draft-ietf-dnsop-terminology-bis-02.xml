@@ -40,6 +40,28 @@ Paul notes that none of these are defined in RFC 403*, and "root hints" isn't me
 Paul adds:
 Split DNS (RFC 2775)
 
+From Kazunori:
+I would like to have a section "new terminologies" which are not defined by
+previous RFCs.
+
+After IANA updates its page:
+<t hangText='Root Hints:'>
+"Operators who manage a DNS recursive resolver typically need to configure
+a 'root hints file'. This file contains the names and IP addresses of
+the root zone, so the software can bootstrap the DNS resolution process.
+For many pieces of software, this list comes built into the software."
+(Quoted from <xref target="IANA_RootFiles"/>)</t>
+<reference anchor="IANA_RootFiles" target="http://www.iana.org/domains/root/files">
+  <front>
+    <title>IANA Root Files</title>
+      <author>
+        <organization>Internet Assigned Numbers Authority</organization>
+      </author>
+    <date year="2016"/>
+  </front>
+</reference>
+
+
 ##################################################################
 -->
 
