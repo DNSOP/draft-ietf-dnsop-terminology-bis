@@ -13,7 +13,6 @@
 
 <rfc docName="draft-ietf-dnsop-terminology-bis-02" ipr="trust200902" category="bcp"
      obsoletes="7719"
-     updates="2308, 3757"
 >
 
 <!--
@@ -42,6 +41,11 @@ Split DNS (RFC 2775)
 From Kazunori:
 I would like to have a section "new terminologies" which are not defined by
 previous RFCs.
+
+From Kazunori:
+I would like to add DNS threats and attack terms from RFC 3833 Threat
+analysis, RFF 5358 Reflector attack and RFC 7873 Cookies.
+	From Paul: Hesitant other than the terms in 7873
 
 ##################################################################
 -->
@@ -94,7 +98,7 @@ has sometimes changed in the decades since the DNS was first defined. This docum
 gives current definitions for many of the terms used in the DNS in a single
 document.</t>
 
-<t>This document will be the successor to RFC 7719. It will update many of the original RFCs.</t>
+<t>This document will be the successor to RFC 7719.</t>
 
 </abstract>
 
@@ -122,9 +126,7 @@ differ from earlier RFCs, and those differences are noted.
 In this document, where the consensus definition is the same as the one in
 an RFC, that RFC is quoted. Where the consensus definition has changed somewhat,
 the RFC is mentioned but the new stand-alone definition is given.
-During the progression of this draft, it is expected that, where the consensus
-definition is different than the RFC, the RFC will then be updated by
-this document. See <xref target="updates-list"/> for a list of the definitions
+See <xref target="updates-list"/> for a list of the definitions
 that this document updates.</t>
 
 <t>It is important to note that,
@@ -1215,9 +1217,9 @@ position as to whether they need to be reconciled.</t>
 
 <list style="symbols">
 
-<t>Secure Entry Point (SEP) in <xref target="RFC3757"/></t>
-
 <t>Forwarder in <xref target="RFC2308"/></t>
+
+<t>Secure Entry Point (SEP) in <xref target="RFC3757"/></t>
 
 </list></t>
 
