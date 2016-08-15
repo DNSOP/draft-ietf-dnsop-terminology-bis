@@ -47,6 +47,13 @@ I would like to add DNS threats and attack terms from RFC 3833 Threat
 analysis, RFF 5358 Reflector attack and RFC 7873 Cookies.
 	From Paul: Hesitant other than the terms in 7873
 
+From Dan York:
+"signing software" (probably should also cover signing hardware)
+
+Tony Finch:
+It's probably worth explicitly describing how DNS usage differs from RFC 4949.
+
+
 ##################################################################
 -->
 
