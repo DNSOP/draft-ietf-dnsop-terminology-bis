@@ -49,6 +49,21 @@ analysis, RFF 5358 Reflector attack and RFC 7873 Cookies.
 
 From Dan York:
 "signing software" (probably should also cover signing hardware)
+In writing the draft about crypto algorithm agility (
+https://tools.ietf.org/html/draft-york-dnsop-deploying-dnssec-crypto-algs-01 ) we ran into an issue
+where we needed to talk about "signing software". (section 2.3)  This is software such as
+OpenDNSSEC that is used in the current DNS infrastructure to do the actual signing of zones.  I
+seem to recall various vendors also having services that would do the signing on the fly for you.
+
+This software is of course part of an "authoritative server" defined in your section 5 -
+https://tools.ietf.org/html/draft-ietf-dnsop-terminology-bis-02#section-5 - but also can be
+operated on a separate server.
+
+I don't know if you / others feel this warrants having an entry in the DNS terminology, but I
+thought I would point it out.  We're also definitely open to adjusting the crypto agility draft to
+use another term if someone has a better suggestion than "signing software".
+
+
 
 Tony Finch:
 It's probably worth explicitly describing how DNS usage differs from RFC 4949.
