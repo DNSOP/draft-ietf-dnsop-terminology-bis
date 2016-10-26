@@ -25,18 +25,11 @@ Need to check the examples in "public suffix".
 Paul will go through all the comments on the pre-7719 drafts and find where we pushed
   off discussion for the -bis.
 
-From John Dickinson:
-Because of its unusual nature I think a definition for the NSEC3PARAM RR would be useful.
-Also I guess we need to add catalog zones.
-
 From Kazunori:
 (DNSSEC) validation(validate)
 (DNSSEC) authentication(authenticate)
 (DNSSEC) verification(verify)
 Paul notes that none of these are defined in RFC 403*
-
-Paul adds:
-Split DNS (RFC 2775)
 
 From Kazunori:
 I would like to have a section "new terminologies" which are not defined by
@@ -47,27 +40,8 @@ I would like to add DNS threats and attack terms from RFC 3833 Threat
 analysis, RFF 5358 Reflector attack and RFC 7873 Cookies.
 	From Paul: Hesitant other than the terms in 7873
 
-From Dan York:
-"signing software" (probably should also cover signing hardware)
-In writing the draft about crypto algorithm agility (
-https://tools.ietf.org/html/draft-york-dnsop-deploying-dnssec-crypto-algs-01 ) we ran into an issue
-where we needed to talk about "signing software". (section 2.3)  This is software such as
-OpenDNSSEC that is used in the current DNS infrastructure to do the actual signing of zones.  I
-seem to recall various vendors also having services that would do the signing on the fly for you.
-
-This software is of course part of an "authoritative server" defined in your section 5 -
-https://tools.ietf.org/html/draft-ietf-dnsop-terminology-bis-02#section-5 - but also can be
-operated on a separate server.
-
-I don't know if you / others feel this warrants having an entry in the DNS terminology, but I
-thought I would point it out.  We're also definitely open to adjusting the crypto agility draft to
-use another term if someone has a better suggestion than "signing software".
-
-
-
-Tony Finch:
-It's probably worth explicitly describing how DNS usage differs from RFC 4949.
-
+QNAME redefinition in RFC 2308
+	From Paul: We need to do this, but it will be contentious
 
 ##################################################################
 -->
@@ -643,6 +617,13 @@ as "find all names which have A records of a particular value".</t>
 locations, such that datagrams sent are routed to one of several available locations."
 (Quoted from <xref target="RFC4786"/>, Section 2)</t>
 
+<t hangText='Split DNS:'>
+"Where a corporate network serves up partly or completely different DNS inside and outside
+its firewall. There are many possible variants on this; the basic point is that the
+correspondence between a given FQDN (fully qualified domain name) and a given IPv4 address
+is no longer universal and stable over long periods."
+(Quoted from <xref target="RFC2775"/>, Section 3.8)</t>
+
 </list></t>
 </section>
 
@@ -953,7 +934,8 @@ so the whole zone needs to be handled in some way.</t>
 <t>It should also be noted that, since the publication of <xref target="RFC6840"/>, NSEC records are no
 longer required for signed zones: a signed zone might include NSEC3 records instead.
 <xref target="RFC7129"/> provides additional background commentary and some context for the NSEC and
-NSEC3 mechanisms used by DNSSEC to provide authenticated denial-of-existence responses.</t>
+NSEC3 mechanisms used by DNSSEC to provide authenticated denial-of-existence responses.
+NSEC and NSEC3 are described below.</t>
 
 <t hangText='Unsigned zone:'>
 Section 2 of <xref target="RFC4033"/> defines this as "a zone that is not signed". Section 2 of
@@ -978,7 +960,9 @@ of RR types present at the NSEC RR's owner name." (Quoted from Section 4 of RFC 
 <t hangText='NSEC3:'>
 Like the NSEC record, the NSEC3 record also provides authenticated denial of existence; however,
 NSEC3 records mitigate against zone enumeration and support Opt-Out.
-NSEC3 resource records are defined in <xref target="RFC5155"/>.</t>
+NSEC resource records require associated NSEC3PARAM resource records.
+NSEC3 and NSEC3PARAM resource records are defined in <xref target="RFC5155"/>.</t>
+
 <t>Note that <xref target="RFC6840"/> says that <xref target="RFC5155"/> "is now considered part of the DNS Security Document Family
 as described by Section 10 of <xref target="RFC4033"/>". This means that some of the definitions from earlier RFCs that
 only talk about NSEC records should probably be considered to be talking about both NSEC and NSEC3.</t>
@@ -1058,6 +1042,18 @@ Section 2)</t>
 support and be a supplemental document to the DNSSEC Policy (if such exists),
 and it states how the management of a given zone implements procedures and
 controls at a high level." (Quoted from <xref target="RFC6841"/>, Section 2)</t>
+
+<t hangText='Hardware security module (HSM):'>
+A specialized piece of hardware that is used to create keys for signatures and to
+sign messages. In DNSSEC, HSMs are often used to hold the private keys for
+KSKs and ZSKs and to create the RRSIG records at periodic intervals.</t>
+
+<t hangText='Signing software:'>
+Authoritative DNS servers that supports DNSSEC often contains software that
+facilitates the creation and maintenance of DNSSEC signatures in zones.
+There is also stand-alone software that can be used to sign a zone regardless
+of whether the authoritative server itself supports signing. Sometimes
+signing software can support particular HSMs as part of the signing process.</t>
 
 </list></t>
 </section>
@@ -1206,6 +1202,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.0952.xml" ?>
 <?rfc include="reference.RFC.1995.xml" ?>
 <?rfc include="reference.RFC.2133.xml" ?>
+<?rfc include="reference.RFC.2775.xml" ?>
 <?rfc include="reference.RFC.3172.xml" ?>
 <?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
