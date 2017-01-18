@@ -22,15 +22,10 @@
 
 Need to check the examples in "public suffix".
 
+The following comments really and truly should be open issues in the GitHub repo.
+
 Paul will go through all the comments on the pre-7719 drafts and find where we pushed
   off discussion for the -bis.
-
-From Kazunori:
-(DNSSEC) validation(validate)
-(DNSSEC) authentication(authenticate)
-(DNSSEC) verification(verify)
-	Paul notes that none of these are defined in RFC 403*
-	Casey sent some suggestions to the list on August 11
 
 From Kazunori:
 I would like to have a section "new terminologies" which are not defined by
@@ -983,6 +978,47 @@ insecure delegations. (Adapted from <xref target="RFC7129"/>, Section 5.1)</t>
 Zone enumeration is different from zone content guessing where the guesser uses a large dictionary
 of possible labels and sends successive queries for them, or matches the contents of NSEC3 records
 against such a dictionary.</t>
+
+<t hangText='Validation:'>
+Validation, in the context of DNSSEC, refers to the following:
+
+<list style="symbols">
+
+<t>Checking the validity of DNSSEC signatures</t>
+
+<t>Checking the validity of DNS responses, such as those including authenticated denial of
+existence</t>
+
+<t>Building an authentication chain from a trust anchor to a DNS response or individual
+DNS RRsets in a response</t>
+
+</list></t> 
+
+<t>The first two definitions above consider the only validity of individual DNSSEC
+components such as the RRSIG validity or NSEC proof validity. The third definition
+considers the components of the entire DNSSEC authentication chain, and thus requires
+"configured knowledge of at least one authenticated DNSKEY or DS RR" (as described in
+<xref target="RFC4035"/>, Section 5).</t>
+
+<t><xref target="RFC4033"/>, Section 2, says that a "Validating Security-Aware Stub
+Resolver... performs signature validation" and uses a trust anchor "as a starting point
+for building the authentication chain to a signed DNS response", and thus uses the first
+and third definitions above.  The process of validating an RRSIG RR is described in <xref
+target="RFC4035"/>, Section 5.3.</t>
+
+<t><xref target="RFC5155"/> refers to validating responses throughout the document, in the
+context of hashed authenticated denial of existence; this uses the second definition
+above.</t>
+
+<t>The terms "authentication" and "verification" are used interchangeably with
+"validation" in the sense of the third definition above. <xref target="RFC4033"/>, Section
+2, describes the chain linking trust anchor to DNS data as the "authentication chain".  A
+response is considered to be authentic if "all RRsets in the Answer and Authority sections
+of the response [are considered] to be authentic" (<xref target="RFC4035"/>).  DNS data or
+responses deemed to be authentic or validated have a security status of "secure" (<xref
+target="RFC4035"/>, Section 4.3; <xref target="RFC4033"/>, Section 5).  "Authenticating
+both DNS keys and data is a matter of local policy, which may extend or even override the
+[DNSSEC] protocol extensions" (<xref target="RFC4033"/>, Section 3.1).</t>
 
 <t hangText='Key signing key (KSK):'>
 DNSSEC keys that "only sign the apex DNSKEY RRset in a zone."(Quoted from

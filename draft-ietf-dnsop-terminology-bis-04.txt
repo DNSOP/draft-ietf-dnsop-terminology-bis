@@ -6,9 +6,9 @@ Network Working Group                                         P. Hoffman
 Internet-Draft                                                     ICANN
 Obsoletes: 7719 (if approved)                                A. Sullivan
 Intended status: Best Current Practice                               Dyn
-Expires: May 4, 2017                                         K. Fujiwara
+Expires: July 22, 2017                                       K. Fujiwara
                                                                     JPRS
-                                                        October 31, 2016
+                                                        January 18, 2017
 
 
                             DNS Terminology
@@ -40,11 +40,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 4, 2017.
+   This Internet-Draft will expire on July 22, 2017.
 
 Copyright Notice
 
-   Copyright (c) 2016 IETF Trust and the persons identified as the
+   Copyright (c) 2017 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 1]
+Hoffman, et al.           Expires July 22, 2017                 [Page 1]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    publication of this document.  Please review these documents
@@ -75,7 +75,7 @@ Table of Contents
    6.  Zones . . . . . . . . . . . . . . . . . . . . . . . . . . . .  13
    7.  Registration Model  . . . . . . . . . . . . . . . . . . . . .  18
    8.  General DNSSEC  . . . . . . . . . . . . . . . . . . . . . . .  19
-   9.  DNSSEC States . . . . . . . . . . . . . . . . . . . . . . . .  22
+   9.  DNSSEC States . . . . . . . . . . . . . . . . . . . . . . . .  23
    10. Security Considerations . . . . . . . . . . . . . . . . . . .  24
    11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  24
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  24
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 2]
+Hoffman, et al.           Expires July 22, 2017                 [Page 2]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    stand-alone definition is given.  See Appendix A for a list of the
@@ -165,9 +165,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 3]
+Hoffman, et al.           Expires July 22, 2017                 [Page 3]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    Fully qualified domain name (FQDN):  This is often just a clear way
@@ -221,9 +221,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 4]
+Hoffman, et al.           Expires July 22, 2017                 [Page 4]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       Domains (gTLDs), and others; the division is a matter of policy,
@@ -277,9 +277,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 5]
+Hoffman, et al.           Expires July 22, 2017                 [Page 5]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       is the Public Suffix List (PSL) maintained by Mozilla
@@ -333,9 +333,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 6]
+Hoffman, et al.           Expires July 22, 2017                 [Page 6]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       answer.  Sections 2 and 7 of [RFC2308] describe the types of
@@ -389,9 +389,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 7]
+Hoffman, et al.           Expires July 22, 2017                 [Page 7]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       are MNAME, RNAME, SERIAL, REFRESH, RETRY, EXPIRE, and MINIMUM.
@@ -445,9 +445,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 8]
+Hoffman, et al.           Expires July 22, 2017                 [Page 8]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
 5.  DNS Servers and Clients
@@ -501,9 +501,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                  [Page 9]
+Hoffman, et al.           Expires July 22, 2017                 [Page 9]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       not be what was intended by "full resolver" in [RFC1035].  This
@@ -557,9 +557,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 10]
+Hoffman, et al.           Expires July 22, 2017                [Page 10]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       Transfer") mechanism to copy the full zone (described in
@@ -613,9 +613,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 11]
+Hoffman, et al.           Expires July 22, 2017                [Page 11]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    Forwarding:  The process of one server sending a DNS query with the
@@ -669,9 +669,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 12]
+Hoffman, et al.           Expires July 22, 2017                [Page 12]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    Passive DNS:  A mechanism to collect large amounts of DNS data by
@@ -725,9 +725,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 13]
+Hoffman, et al.           Expires July 22, 2017                [Page 13]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       (Quoted from [RFC2181], Section 6.)  These days, this sense of
@@ -781,9 +781,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 14]
+Hoffman, et al.           Expires July 22, 2017                [Page 14]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       A later definition is that glue "includes any record in a zone
@@ -837,9 +837,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 15]
+Hoffman, et al.           Expires July 22, 2017                [Page 15]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       no RRsets, but that "_sip._tcp.example.com" has (at least) an SRV
@@ -893,9 +893,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 16]
+Hoffman, et al.           Expires July 22, 2017                [Page 16]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
       that the source of synthesis has a name of the form: <asterisk
@@ -949,9 +949,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 17]
+Hoffman, et al.           Expires July 22, 2017                [Page 17]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
 7.  Registration Model
@@ -1005,9 +1005,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 18]
+Hoffman, et al.           Expires July 22, 2017                [Page 18]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
 8.  General DNSSEC
@@ -1061,9 +1061,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 19]
+Hoffman, et al.           Expires July 22, 2017                [Page 19]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    NSEC:  "The NSEC record allows a security-aware resolver to
@@ -1108,23 +1108,75 @@ Internet-Draft               DNS Terminology                October 2016
       successive queries for them, or matches the contents of NSEC3
       records against such a dictionary.
 
+   Validation:  Validation, in the context of DNSSEC, refers to the
+      following:
+
+      *  Checking the validity of DNSSEC signatures
+
+
+
+
+
+Hoffman, et al.           Expires July 22, 2017                [Page 20]
+
+Internet-Draft               DNS Terminology                January 2017
+
+
+      *  Checking the validity of DNS responses, such as those including
+         authenticated denial of existence
+
+      *  Building an authentication chain from a trust anchor to a DNS
+         response or individual DNS RRsets in a response
+
+      The first two definitions above consider the only validity of
+      individual DNSSEC components such as the RRSIG validity or NSEC
+      proof validity.  The third definition considers the components of
+      the entire DNSSEC authentication chain, and thus requires
+      "configured knowledge of at least one authenticated DNSKEY or DS
+      RR" (as described in [RFC4035], Section 5).
+
+      [RFC4033], Section 2, says that a "Validating Security-Aware Stub
+      Resolver... performs signature validation" and uses a trust anchor
+      "as a starting point for building the authentication chain to a
+      signed DNS response", and thus uses the first and third
+      definitions above.  The process of validating an RRSIG RR is
+      described in [RFC4035], Section 5.3.
+
+      [RFC5155] refers to validating responses throughout the document,
+      in the context of hashed authenticated denial of existence; this
+      uses the second definition above.
+
+      The terms "authentication" and "verification" are used
+      interchangeably with "validation" in the sense of the third
+      definition above.  [RFC4033], Section 2, describes the chain
+      linking trust anchor to DNS data as the "authentication chain".  A
+      response is considered to be authentic if "all RRsets in the
+      Answer and Authority sections of the response [are considered] to
+      be authentic" ([RFC4035]).  DNS data or responses deemed to be
+      authentic or validated have a security status of "secure"
+      ([RFC4035], Section 4.3; [RFC4033], Section 5).  "Authenticating
+      both DNS keys and data is a matter of local policy, which may
+      extend or even override the [DNSSEC] protocol extensions"
+      ([RFC4033], Section 3.1).
+
    Key signing key (KSK):  DNSSEC keys that "only sign the apex DNSKEY
       RRset in a zone."(Quoted from [RFC6781], Section 3.1)
 
    Zone signing key (ZSK):  "DNSSEC keys that can be used to sign all
       the RRsets in a zone that require signatures, other than the apex
       DNSKEY RRset."  (Quoted from [RFC6781], Section 3.1) Note that the
-
-
-
-Hoffman, et al.            Expires May 4, 2017                 [Page 20]
-
-Internet-Draft               DNS Terminology                October 2016
-
-
       roles KSK and ZSK are not mutually exclusive: a single key can be
       both KSK and ZSK at the same time.  Also note that a ZSK is
       sometimes used to sign the apex DNSKEY RRset.
+
+
+
+
+
+Hoffman, et al.           Expires July 22, 2017                [Page 21]
+
+Internet-Draft               DNS Terminology                January 2017
+
 
    Combined signing key (CSK):  "In cases where the differentiation
       between the KSK and ZSK is not made, i.e., where keys have the
@@ -1169,20 +1221,18 @@ Internet-Draft               DNS Terminology                October 2016
       requirements and standards to be implemented for a DNSSEC-signed
       zone."  (Quoted from [RFC6841], Section 2)
 
-
-
-
-
-Hoffman, et al.            Expires May 4, 2017                 [Page 21]
-
-Internet-Draft               DNS Terminology                October 2016
-
-
    DNSSEC Practice Statement (DPS):  "A practices disclosure document
       that may support and be a supplemental document to the DNSSEC
       Policy (if such exists), and it states how the management of a
       given zone implements procedures and controls at a high level."
       (Quoted from [RFC6841], Section 2)
+
+
+
+Hoffman, et al.           Expires July 22, 2017                [Page 22]
+
+Internet-Draft               DNS Terminology                January 2017
+
 
    Hardware security module (HSM):  A specialized piece of hardware that
       is used to create keys for signatures and to sign messages.  In
@@ -1208,32 +1258,6 @@ Internet-Draft               DNS Terminology                October 2016
 
    Section 5 of [RFC4033] says:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Hoffman, et al.            Expires May 4, 2017                 [Page 22]
-
-Internet-Draft               DNS Terminology                October 2016
-
-
       A validating resolver can determine the following 4 states:
 
       Secure: The validating resolver has a trust anchor, has a chain
@@ -1258,37 +1282,15 @@ Internet-Draft               DNS Terminology                October 2016
          specific portion of the tree is secure.  This is the default
          operation mode.
 
-   Section 4.3 of [RFC4035] says:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Hoffman, et al.            Expires May 4, 2017                 [Page 23]
+Hoffman, et al.           Expires July 22, 2017                [Page 23]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
+
+   Section 4.3 of [RFC4035] says:
 
       A security-aware resolver must be able to distinguish between four
       cases:
@@ -1339,11 +1341,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-
-
-Hoffman, et al.            Expires May 4, 2017                 [Page 24]
+Hoffman, et al.           Expires July 22, 2017                [Page 24]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC0882]  Mockapetris, P., "Domain names: Concepts and facilities",
@@ -1397,9 +1397,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 25]
+Hoffman, et al.           Expires July 22, 2017                [Page 25]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC4035]  Arends, R., Austein, R., Larson, M., Massey, D., and S.
@@ -1453,9 +1453,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 26]
+Hoffman, et al.           Expires July 22, 2017                [Page 26]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC6841]  Ljunggren, F., Eklund Lowinder, AM., and T. Okubo, "A
@@ -1509,9 +1509,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 27]
+Hoffman, et al.           Expires July 22, 2017                [Page 27]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC2775]  Carpenter, B., "Internet Transparency", RFC 2775,
@@ -1565,9 +1565,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 28]
+Hoffman, et al.           Expires July 22, 2017                [Page 28]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC5892]  Faltstrom, P., Ed., "The Unicode Code Points and
@@ -1621,9 +1621,9 @@ Internet-Draft               DNS Terminology                October 2016
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 29]
+Hoffman, et al.           Expires July 22, 2017                [Page 29]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
    [RFC7481]  Hollenbeck, S. and N. Kong, "Security Services for the
@@ -1677,9 +1677,9 @@ Acknowledgements
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 30]
+Hoffman, et al.           Expires July 22, 2017                [Page 30]
 
-Internet-Draft               DNS Terminology                October 2016
+Internet-Draft               DNS Terminology                January 2017
 
 
 Authors' Addresses
@@ -1733,4 +1733,4 @@ Authors' Addresses
 
 
 
-Hoffman, et al.            Expires May 4, 2017                 [Page 31]
+Hoffman, et al.           Expires July 22, 2017                [Page 31]
