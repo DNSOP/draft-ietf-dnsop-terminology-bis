@@ -16,30 +16,12 @@
 >
 
 <!--
-
-##################################################################
-##### Notes between the authors will go here
+##### Notes for things to do before finishing the draft go here######
 
 Need to check the examples in "public suffix".
 
-The following comments really and truly should be open issues in the GitHub repo.
+Need to check the status of the DBOUND WG
 
-Paul will go through all the comments on the pre-7719 drafts and find where we pushed
-  off discussion for the -bis.
-
-From Kazunori:
-I would like to have a section "new terminologies" which are not defined by
-previous RFCs.
-
-From Kazunori:
-I would like to add DNS threats and attack terms from RFC 3833 Threat
-analysis, RFF 5358 Reflector attack and RFC 7873 Cookies.
-	From Paul: Hesitant other than the terms in 7873
-
-QNAME redefinition in RFC 2308
-	From Paul: We need to do this, but it will be contentious
-
-##################################################################
 -->
 
 <front>
@@ -101,16 +83,16 @@ document.</t>
 <section anchor="introduction" title="Introduction">
 
 <t>The Domain Name System (DNS) is a simple query-response protocol whose messages in both directions
-have the same format. The protocol and message format are defined in <xref target="RFC1034"/>
+have the same format. (See <xref target="names"/> for a fuller definition.)
+The protocol and message format are defined in <xref target="RFC1034"/>
 and <xref target="RFC1035"/>. These RFCs defined some terms, but later documents defined
-others. Some of the terms from RFCs 1034 and 1035 now have somewhat different
+others. Some of the terms from <xref target="RFC1034"/>
+and <xref target="RFC1035"/> now have somewhat different
 meanings than they did in 1987.</t>
 
 <t>This document collects a wide variety of DNS-related terms. Some of them have
 been precisely defined in earlier RFCs, some have been loosely defined in earlier
 RFCs, and some are not defined in any earlier RFC at all.</t>
-
-<!-- ################### Fix the following paragraph before WG Last Call ###################### -->
 
 <t>Most of the definitions here are the consensus definition of the DNS
 community -- both protocol developers and operators. Some of the definitions
@@ -141,7 +123,8 @@ https://specs.webplatform.org/url/webspecs/develop/.</t>
 combination of the following: a commonly used naming scheme for objects on the Internet; a distributed database representing
 the names and certain properties of these objects; an architecture providing distributed
 maintenance, resilience, and loose coherency for this database; and a simple query-response protocol
-(as mentioned below) implementing this architecture.</t>
+(as mentioned below) implementing this architecture. <xref target="names"/> defines
+"global DNS" and "private DNS" as a way to deal with these differing definitions.</t>
 
 <t>Capitalization in DNS terms is often inconsistent among RFCs and
 various DNS practitioners. The capitalization used in this document is a best
@@ -155,19 +138,116 @@ from different RFCs.</t>
 <section anchor="names" title="Names">
 <t><list style="hanging">
 
+<t hangText='Naming system:'>
+A naming system associates names with data. Naming systems have many significant facets
+that help differentiate them. Some commonly-identified facets include:</t>
+
+<t><list style="symbols">
+<t>Composition of names</t>
+<t>Format of names</t>
+<t>Administration of names</t>
+<t>Types of data that can be associated with names</t>
+<t>Types of metadata for names</t>
+<t>Protocol for getting data from a name</t>
+</list></t>
+
+<t>Note that this list is a small subset of facets that people have identified over time
+for naming systems, and the IETF has yet to agree on a good set of facets that can be used
+to compare naming systems. For example, other facets might include "protocol to update
+data in a name", "privacy of names", and "privacy of data associated with names", but
+those do not not have a clear definitions as the ones listed above. The list here is
+chosen because it helps describe the DNS and naming systems similar to the DNS.</t>
+
 <t hangText='Domain name:'>
-Section 3.1 of <xref target="RFC1034"/> talks of "the domain name space" as a tree structure. "Each
-node has a label, which is zero to 63 octets in length. ... The domain name of a node is the list of
-the labels on the path from the node to the root of the tree. ... To simplify implementations, the
-total number of octets that represent a domain name (i.e., the sum of all label octets and label
-lengths) is limited to 255."
-Any label in a domain name can contain any octet value.</t>
+An ordered list of zero or more labels.</t>
 
-<!-- #################### Mention draft-lewis-domain-names if it gets published as an RFC ############### -->
+<t>Note that this is a definition independent of the DNS RFCs, and the definition here
+also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
+name space" using mathematical trees and their nodes in graph theory, and the definition
+in <xref target="RFC1034"/> has the same practical result as the definition here. Using
+graph theory, a domain name is a list of labels identifying a portion along one edge of an
+acyclic directed graph. A domain name can be relative to other parts of the tree, or it
+can be fully qualified (in which case, it ends at the common root of the graph).</t>
 
-<t>The term "domain name" was defined before <xref target="RFC1034"/>, most likely in
-<xref target="RFC0799"/>, which precedes the existence of the DNS. In this document,
-domain names are only described in terms of the DNS.</t>
+<t>Also note that different IETF and non-IETF documents have used the term "domain name"
+in many different ways. It is common for earlier documents to use "domain name" to mean
+"names that match the syntax in <xref target="RFC1035"/>", but possibly with additional
+rules such as "and are, or will be, resolvable in the global DNS" or "but only using the
+presentation format".</t>
+
+<t hangText='Label:'>
+An ordered list of zero or more octets and which makes up a portion of a domain name.
+Using graph theory, a label identifies one node in a portion of the graph of all possible
+domain names.</t>
+
+<t hangText='Global DNS:'>
+Using the short set of facets listed in "Naming system", the global DNS can be defined as
+follows. Most of the rules here come from <xref target="RFC1034"/> and <xref
+target="RFC1035"/>, although the term "global DNS" has not been defined before now.</t>
+
+<t>Composition of names -- A name in the global DNS has one or more labels.  The length of
+each label is between 0 and 63 octets inclusive. In a fully-qualified domain name, the
+first label is 0 octets long; it is the only label whose length may be 0 octets, and it is
+called the "root" or "root label". A domain name in the global DNS has a maximum total
+length of 255 octets; the root represents one octet for this calculation.</t>
+
+<t>Format of names -- Names in the global DNS are domain names. There are three formats:
+wire format,  presentation format, and common display.</t>
+
+<t>The basic wire format for names in the global DNS is a list of labels with the root
+label last. Each label is preceded by a length octet. <xref target="RFC1035"/> also
+defines a compression scheme that modifies this format.</t>
+
+<t>The presentation format for names in the global DNS is a list of labels, encoded as
+ASCII, with the root label last, and a "." character between each label. In presentation
+format, a fully-qualified domain name includes the root label and the associated separator
+dot. In presentation format, a fully-qualified domain name with two additional labels is
+always shown as "example.tld." instead of "example.tld". <xref target="RFC1035"/> defines
+a method for showing octets that do not display in ASCII.</t>
+
+<t>The common display format is used in applications and free text. It is the same as the
+presentation format, but showing the root label and the "." before it is optional and is
+rarely done. In common display format, a fully-qualified domain name with two additional
+labels is usually shown as "example.tld" instead of "example.tld.". Names in the common
+display format are normally written such that the first label in the ordered list is in
+the last position from the point of view of the directionality of the writing system (so,
+in both English and C the first label is the right-most label; but in Arabic it may be the
+left-most label, depending on local conventions).</t>
+
+<t>Administration of names -- Administration is specified by delegation (see the
+definition of to "delegation" in <xref target="zones"/>).  Policies for administration of
+the root zone in the global DNS are determined by the names operational community, which
+convenes itself in the Internet Corporation for Assigned Names and Numbers (ICANN).  The
+names operational community selects the IANA Functions Operator for the global DNS root
+zone. At the time this document is published, that operator is Public Technical
+Identifiers (PTI). The name servers that serve the root zone are provided by independent
+root operators. Other zones in the global DNS have their own policies for
+administration.</t>
+
+<t>Types of data that can be associated with names -- A name can have zero or more
+resource records associated with it. There are numerous types of resource records with
+unique data structures defined in many different RFCs and in the IANA registry at <xref
+target="IANA_Resource_Registry"/>.</t>
+
+<t>Types of metadata for names -- Any name that is published in the DNS appears as a set
+of resource records (see the definition of "RRset" in <xref target="rrs"/>).  Some names
+do not themselves have data associated with them in the DNS, but "appear" in the DNS
+anyway because they form part of a longer name that does have data associated with it (see
+the defintion of "empty non-terminals" in <xref target="zones"/>).</t>
+
+<t>Protocol for getting data from a name -- The protocol described in <xref
+target="RFC1035"/>.</t>
+
+<t hangText='Private DNS:'>
+Names that use the protocol described in <xref target="RFC1035"/> but that do not rely on
+the global DNS root zone, or names that are otherwise not generally available on the
+Internet but are using the protocol described in <xref target="RFC1035"/>.  A system can
+use both the global DNS and one or more private DNS systems; for example, see "Split DNS"
+in Section 7.</t>
+
+<t>Note that domain names that do not appear in the DNS, and that are intended never to be
+looked up using the DNS protocol, are not part of the global DNS or a private DNS even
+though they are domain names.</t>
 
 <t hangText='Fully qualified domain name (FQDN):'>
 This is often just a clear way
@@ -183,10 +263,6 @@ are often written relative to the root.</t>
 <t>The need for the term "fully qualified domain name" comes from the existence
 of partially qualified domain names, which are names where some of the
 right-most names are left off and are understood only by context.</t>
-
-<t hangText='Label:'>
-The identifier of an individual node in the sequence of nodes identified by
-a fully qualified domain name.</t>
 
 <t hangText='Host name:'>
 This term and its equivalent, "hostname", have been
@@ -258,7 +334,6 @@ A common definition for this term is a domain under which subdomains can be regi
 There is no indication in a domain name whether it is a public suffix; that  can only be
 determined by outside means.
 In fact, both a domain and a subdomain of that domain can be public suffixes.
-<!-- ################## Update this if the WG is shut down or actually gets somewhere ################# -->
 At the time this document is published,
 the IETF DBOUND Working Group <xref target="DBOUND"/> is dealing with issues concerning public suffixes.</t>
 <t>There is nothing inherent in a domain name to indicate whether it is
@@ -342,6 +417,17 @@ data. (Definition from <xref target="RFC2181"/>)  Also spelled RRSet in some doc
 In addition, <xref target="RFC2181"/> states that "the TTLs of all RRs in an RRSet must be the same".
 (This definition is definitely not the same as "the response one gets to a query for QTYPE=ANY",
 which is an unfortunate misunderstanding.)</t>
+
+<t hangText='Master file:'>
+"Master files are text files that contain RRs in text form.  Since the contents of a zone
+can be expressed in the form of a list of RRs a master file is most often used to define a
+zone, though it can be used to list a cache's contents." (<xref target="RFC1035"/>,
+Section 5.)</t>
+
+<t hangText='Presentation format:'>
+The text format used in master files. This format is shown but not formally defined in
+<xref target="RFC1034"/> and <xref target="RFC1035"/>. The term "presentation format"
+first appears in <xref target="RFC4034"/>.</t>
 
 <t hangText='EDNS:'>
 The extension mechanisms for DNS, defined in <xref
@@ -1234,7 +1320,16 @@ position as to whether they need to be reconciled.</t>
 </front>
 </reference>
 
-<?rfc include="reference.RFC.0799.xml" ?>
+<reference anchor="IANA_Resource_Registry" target="http://www.iana.org/assignments/dns-parameters/">
+<front>
+<title>Resource Record (RR) TYPEs</title>
+<author>
+<organization>Internet Assigned Numbers Authority</organization>
+</author>
+<date year="2017"/>
+</front>
+</reference>
+
 <?rfc include="reference.RFC.0819.xml" ?>
 <?rfc include="reference.RFC.0952.xml" ?>
 <?rfc include="reference.RFC.1995.xml" ?>
