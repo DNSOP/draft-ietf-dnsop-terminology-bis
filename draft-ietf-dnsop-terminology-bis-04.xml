@@ -643,7 +643,7 @@ Parent." (Quoted from <xref target="RFC7344"/>, Section 1.1)</t>
 "The domain in which the Child is registered." (Quoted from <xref target="RFC7344"/>, Section 1.1) Earlier,
 "parent name server" was defined in <xref target="RFC0882"/> as "the name server that has authority over the place
 in the domain name space that will hold the new domain".  (Note
-that [RFC0882] was obsoleted by [RFC1034] and [RFC1035].) <xref target="RFC0819"/> also has some description of
+that <xref target="RFC0882"/> was obsoleted by <xref target="RFC1034"/> and <xref target="RFC1035"/>.) <xref target="RFC0819"/> also has some description of
 the relationship between parents and children.</t>
 
 <t hangText='Origin:'>
