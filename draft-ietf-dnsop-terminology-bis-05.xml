@@ -818,7 +818,7 @@ themselves authoritative data.</t>
 The zone whose apex is the zero-length label. 
 Also sometimes called "the DNS root".</t>
 
-<t hangText='Empty non-terminals:'>
+<t hangText='Empty non-terminals (ENT):'>
 "Domain names that own no resource records but have subdomains that do."
 (Quoted from <xref target="RFC4592"/>, Section 2.2.2.)
 A typical example is in SRV records: in the name
