@@ -6,9 +6,9 @@ Network Working Group                                         P. Hoffman
 Internet-Draft                                                     ICANN
 Obsoletes: 7719 (if approved)                                A. Sullivan
 Intended status: Best Current Practice                               Dyn
-Expires: September 10, 2017                                  K. Fujiwara
+Expires: September 14, 2017                                  K. Fujiwara
                                                                     JPRS
-                                                           March 9, 2017
+                                                          March 13, 2017
 
 
                             DNS Terminology
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 10, 2017.
+   This Internet-Draft will expire on September 14, 2017.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 1]
+Hoffman, et al.        Expires September 14, 2017               [Page 1]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 2]
+Hoffman, et al.        Expires September 14, 2017               [Page 2]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -165,7 +165,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 3]
+Hoffman, et al.        Expires September 14, 2017               [Page 3]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -221,7 +221,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 4]
+Hoffman, et al.        Expires September 14, 2017               [Page 4]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -277,7 +277,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 5]
+Hoffman, et al.        Expires September 14, 2017               [Page 5]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -333,7 +333,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 6]
+Hoffman, et al.        Expires September 14, 2017               [Page 6]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -389,7 +389,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 7]
+Hoffman, et al.        Expires September 14, 2017               [Page 7]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -445,7 +445,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 8]
+Hoffman, et al.        Expires September 14, 2017               [Page 8]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -501,7 +501,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017               [Page 9]
+Hoffman, et al.        Expires September 14, 2017               [Page 9]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -557,7 +557,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 10]
+Hoffman, et al.        Expires September 14, 2017              [Page 10]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -613,7 +613,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 11]
+Hoffman, et al.        Expires September 14, 2017              [Page 11]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -669,7 +669,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 12]
+Hoffman, et al.        Expires September 14, 2017              [Page 12]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -725,7 +725,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 13]
+Hoffman, et al.        Expires September 14, 2017              [Page 13]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -781,7 +781,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 14]
+Hoffman, et al.        Expires September 14, 2017              [Page 14]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -837,7 +837,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 15]
+Hoffman, et al.        Expires September 14, 2017              [Page 15]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -893,7 +893,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 16]
+Hoffman, et al.        Expires September 14, 2017              [Page 16]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -949,7 +949,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 17]
+Hoffman, et al.        Expires September 14, 2017              [Page 17]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 18]
+Hoffman, et al.        Expires September 14, 2017              [Page 18]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 19]
+Hoffman, et al.        Expires September 14, 2017              [Page 19]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 20]
+Hoffman, et al.        Expires September 14, 2017              [Page 20]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 21]
+Hoffman, et al.        Expires September 14, 2017              [Page 21]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 22]
+Hoffman, et al.        Expires September 14, 2017              [Page 22]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 23]
+Hoffman, et al.        Expires September 14, 2017              [Page 23]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 24]
+Hoffman, et al.        Expires September 14, 2017              [Page 24]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1397,7 +1397,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 25]
+Hoffman, et al.        Expires September 14, 2017              [Page 25]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1453,7 +1453,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 26]
+Hoffman, et al.        Expires September 14, 2017              [Page 26]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1509,7 +1509,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 27]
+Hoffman, et al.        Expires September 14, 2017              [Page 27]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1565,7 +1565,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 28]
+Hoffman, et al.        Expires September 14, 2017              [Page 28]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1621,7 +1621,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 29]
+Hoffman, et al.        Expires September 14, 2017              [Page 29]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1677,7 +1677,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 30]
+Hoffman, et al.        Expires September 14, 2017              [Page 30]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1733,7 +1733,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 31]
+Hoffman, et al.        Expires September 14, 2017              [Page 31]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1789,7 +1789,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 32]
+Hoffman, et al.        Expires September 14, 2017              [Page 32]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1845,7 +1845,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 33]
+Hoffman, et al.        Expires September 14, 2017              [Page 33]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1901,7 +1901,7 @@ Acknowledgements
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 34]
+Hoffman, et al.        Expires September 14, 2017              [Page 34]
 
 Internet-Draft               DNS Terminology                  March 2017
 
@@ -1957,4 +1957,4 @@ Authors' Addresses
 
 
 
-Hoffman, et al.        Expires September 10, 2017              [Page 35]
+Hoffman, et al.        Expires September 14, 2017              [Page 35]
