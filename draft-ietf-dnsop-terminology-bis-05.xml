@@ -160,7 +160,7 @@ those do not not have a clear definitions as the ones listed above. The list her
 chosen because it helps describe the DNS and naming systems similar to the DNS.</t>
 
 <t hangText='Domain name:'>
-An ordered list of zero or more labels.</t>
+An ordered list of one or more labels.</t>
 
 <t>Note that this is a definition independent of the DNS RFCs, and the definition here
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
