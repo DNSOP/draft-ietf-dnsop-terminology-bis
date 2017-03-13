@@ -149,6 +149,7 @@ that help differentiate them. Some commonly-identified facets include:</t>
 <t>Types of data that can be associated with names</t>
 <t>Types of metadata for names</t>
 <t>Protocol for getting data from a name</t>
+<t>Context for resolving a name</t>
 </list></t>
 
 <t>Note that this list is a small subset of facets that people have identified over time
@@ -189,7 +190,7 @@ target="RFC1035"/>, although the term "global DNS" has not been defined before n
 each label is between 0 and 63 octets inclusive. In a fully-qualified domain name, the
 first label is 0 octets long; it is the only label whose length may be 0 octets, and it is
 called the "root" or "root label". A domain name in the global DNS has a maximum total
-length of 255 octets; the root represents one octet for this calculation.</t>
+length of 255 octets in the wire format; the root represents one octet for this calculation.</t>
 
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
 wire format,  presentation format, and common display.</t>
@@ -238,6 +239,8 @@ the defintion of "empty non-terminals" in <xref target="zones"/>).</t>
 <t>Protocol for getting data from a name -- The protocol described in <xref
 target="RFC1035"/>.</t>
 
+<t>Context for resolving a name -- The global DNS root zone distributed by PTI.</t>
+
 <t hangText='Private DNS:'>
 Names that use the protocol described in <xref target="RFC1035"/> but that do not rely on
 the global DNS root zone, or names that are otherwise not generally available on the
@@ -248,6 +251,18 @@ in Section 7.</t>
 <t>Note that domain names that do not appear in the DNS, and that are intended never to be
 looked up using the DNS protocol, are not part of the global DNS or a private DNS even
 though they are domain names.</t>
+
+<t hangText='Locally served DNS zone:'>
+A locally served DNS zone is a special case of private DNS.
+Names are resolved using the DNS protocol in a local context. 
+<xref target="RFC6303"/> defines subdomains of IN-ADDR.ARPA
+tha are locally served zones.
+Resolution of names through locally served zones may result in ambiguous results.
+For example, the same name may resolve to different results in different locally served DNS
+zone contexts.
+The context through which a locally served zone may be explicit, for example, as defined in 
+<xref target="RFC6303"/>, or implicit, as defined by local DNS administration and not known to the
+resolution client.</t>
 
 <t hangText='Fully qualified domain name (FQDN):'>
 This is often just a clear way
@@ -359,6 +374,27 @@ the header diagram in Sections 4.1.1 through 4.1.3 of <xref target="RFC1035"/> a
 in that diagram. For example, the response codes are called "RCODEs",
 the data for a record is called the "RDATA", and the
 authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
+
+<t><list style="hanging">
+
+<t hangText='QNAME'>
+The most commonly-used definitions are that the QNAME is a field in
+the Question section of a query.
+"A standard query specifies a target domain name (QNAME), query type
+(QTYPE), and query class (QCLASS) and asks for RRs which match."
+(Quoted from <xref target="RFC1034"/>, Section 3.7.1.)
+</t>
+
+<t>
+<xref target="RFC2308"/>, however, has an alternate definition that
+puts the QNAME in the answer (or series of answers) instead of the query.
+It defines QNAME as: "...the name in the query section of an answer, or where this
+resolves to a CNAME, or CNAME chain, the data field of the last
+CNAME.  The last CNAME in this sense is that which contains a value
+which does not resolve to another CNAME."
+</t>
+
+</list></t>
 
 <t>Some of response codes that are defined in <xref target="RFC1035"/> have acquired their own
 shorthand names. Some common response code names that appear without
@@ -549,6 +585,11 @@ This term is not properly defined in any RFC.</t>
 Section 6.1.3.1 of <xref target="RFC1123"/> defines this term
 to mean a resolver that acts in recursive mode with a cache (and meets
 other requirements).</t>
+
+<t hangText='Recursive resolver:'>
+A resolver that acts in recursive mode.
+In general, a recursive resolver is expected to cache the answers it receives
+(which would make it a full-service resolver), but some recursive resolvers might not cache.</t>
 
 <t hangText='Priming:'>
 The mechanism used by a resolver to determine where
@@ -1080,7 +1121,7 @@ DNS RRsets in a response</t>
 
 </list></t> 
 
-<t>The first two definitions above consider the only validity of individual DNSSEC
+<t>The first two definitions above consider only the validity of individual DNSSEC
 components such as the RRSIG validity or NSEC proof validity. The third definition
 considers the components of the entire DNSSEC authentication chain, and thus requires
 "configured knowledge of at least one authenticated DNSKEY or DS RR" (as described in
@@ -1096,8 +1137,10 @@ target="RFC4035"/>, Section 5.3.</t>
 context of hashed authenticated denial of existence; this uses the second definition
 above.</t>
 
-<t>The terms "authentication" and "verification" are used interchangeably with
-"validation" in the sense of the third definition above. <xref target="RFC4033"/>, Section
+<t>
+The term "authentication" is used interchangeably with "validation", in the sense of the
+third definition above.
+<xref target="RFC4033"/>, Section
 2, describes the chain linking trust anchor to DNS data as the "authentication chain".  A
 response is considered to be authentic if "all RRsets in the Answer and Authority sections
 of the response [are considered] to be authentic" (<xref target="RFC4035"/>).  DNS data or
@@ -1105,6 +1148,8 @@ responses deemed to be authentic or validated have a security status of "secure"
 target="RFC4035"/>, Section 4.3; <xref target="RFC4033"/>, Section 5).  "Authenticating
 both DNS keys and data is a matter of local policy, which may extend or even override the
 [DNSSEC] protocol extensions" (<xref target="RFC4033"/>, Section 3.1).</t>
+
+<t>The term "verification", when used, is usually synonym for "validation".</t>
 
 <t hangText='Key signing key (KSK):'>
 DNSSEC keys that "only sign the apex DNSKEY RRset in a zone."(Quoted from
@@ -1350,6 +1395,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.5894.xml" ?>
 <?rfc include="reference.RFC.6055.xml" ?>
 <?rfc include="reference.RFC.6265.xml" ?>
+<?rfc include="reference.RFC.6303.xml" ?>
 <?rfc include="reference.RFC.6335.xml" ?>
 <?rfc include="reference.RFC.6365.xml" ?>
 <?rfc include="reference.RFC.7129.xml" ?>
