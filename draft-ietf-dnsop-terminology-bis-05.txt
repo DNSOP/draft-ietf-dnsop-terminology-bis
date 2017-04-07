@@ -188,7 +188,7 @@ Internet-Draft               DNS Terminology                  April 2017
       because it helps describe the DNS and naming systems similar to
       the DNS.
 
-   Domain name:  An ordered list of zero or more labels.
+   Domain name:  An ordered list of one or more labels.
 
       Note that this is a definition independent of the DNS RFCs, and
       the definition here also applies to systems other than the DNS.
