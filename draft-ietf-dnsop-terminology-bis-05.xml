@@ -256,7 +256,7 @@ though they are domain names.</t>
 A locally served DNS zone is a special case of private DNS.
 Names are resolved using the DNS protocol in a local context. 
 <xref target="RFC6303"/> defines subdomains of IN-ADDR.ARPA
-tha are locally served zones.
+that are locally served zones.
 Resolution of names through locally served zones may result in ambiguous results.
 For example, the same name may resolve to different results in different locally served DNS
 zone contexts.
