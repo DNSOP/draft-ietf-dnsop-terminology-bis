@@ -6,9 +6,9 @@ Network Working Group                                         P. Hoffman
 Internet-Draft                                                     ICANN
 Obsoletes: 7719 (if approved)                                A. Sullivan
 Intended status: Best Current Practice                               Dyn
-Expires: September 14, 2017                                  K. Fujiwara
+Expires: October 9, 2017                                     K. Fujiwara
                                                                     JPRS
-                                                          March 13, 2017
+                                                           April 7, 2017
 
 
                             DNS Terminology
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 14, 2017.
+   This Internet-Draft will expire on October 9, 2017.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 1]
+Hoffman, et al.          Expires October 9, 2017                [Page 1]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
    publication of this document.  Please review these documents
@@ -72,10 +72,10 @@ Table of Contents
    3.  DNS Header and Response Codes . . . . . . . . . . . . . . . .   9
    4.  Resource Records  . . . . . . . . . . . . . . . . . . . . . .  10
    5.  DNS Servers and Clients . . . . . . . . . . . . . . . . . . .  12
-   6.  Zones . . . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+   6.  Zones . . . . . . . . . . . . . . . . . . . . . . . . . . . .  17
    7.  Registration Model  . . . . . . . . . . . . . . . . . . . . .  21
    8.  General DNSSEC  . . . . . . . . . . . . . . . . . . . . . . .  22
-   9.  DNSSEC States . . . . . . . . . . . . . . . . . . . . . . . .  26
+   9.  DNSSEC States . . . . . . . . . . . . . . . . . . . . . . . .  27
    10. Security Considerations . . . . . . . . . . . . . . . . . . .  28
    11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
    12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  28
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 2]
+Hoffman, et al.          Expires October 9, 2017                [Page 2]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
    stand-alone definition is given.  See Appendix A for a list of the
@@ -165,9 +165,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 3]
+Hoffman, et al.          Expires October 9, 2017                [Page 3]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       *  Types of data that can be associated with names
@@ -221,9 +221,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 4]
+Hoffman, et al.          Expires October 9, 2017                [Page 4]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       inclusive.  In a fully-qualified domain name, the first label is 0
@@ -277,9 +277,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 5]
+Hoffman, et al.          Expires October 9, 2017                [Page 5]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       Types of data that can be associated with names -- A name can have
@@ -316,7 +316,7 @@ Internet-Draft               DNS Terminology                  March 2017
 
    Locally served DNS zone:  A locally served DNS zone is a special case
       of private DNS.  Names are resolved using the DNS protocol in a
-      local context.  [RFC6303] defines subdomains of IN-ADDR.ARPA tha
+      local context.  [RFC6303] defines subdomains of IN-ADDR.ARPA that
       are locally served zones.  Resolution of names through locally
       served zones may result in ambiguous results.  For example, the
       same name may resolve to different results in different locally
@@ -333,9 +333,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 6]
+Hoffman, et al.          Expires October 9, 2017                [Page 6]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       written "www.example.net." (note the terminating dot).  But
@@ -389,9 +389,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 7]
+Hoffman, et al.          Expires October 9, 2017                [Page 7]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       documents define many IDN-specific terms such as "LDH label",
@@ -445,9 +445,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 8]
+Hoffman, et al.          Expires October 9, 2017                [Page 8]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       Note that the term "public suffix" is controversial in the DNS
@@ -466,11 +466,11 @@ Internet-Draft               DNS Terminology                  March 2017
    record is called the "RDATA", and the authoritative answer bit is
    often called "the AA flag" or "the AA bit".
 
-   QNAME  The most commonly-used definitions are that the QNAME is a
-      field in the Question section of a query.  "A standard query
-      specifies a target domain name (QNAME), query type (QTYPE), and
-      query class (QCLASS) and asks for RRs which match."  (Quoted from
-      [RFC1034], Section 3.7.1.)
+   QNAME  The most commonly-used definition is that the QNAME is a field
+      in the Question section of a query.  "A standard query specifies a
+      target domain name (QNAME), query type (QTYPE), and query class
+      (QCLASS) and asks for RRs which match."  (Quoted from [RFC1034],
+      Section 3.7.1.)
 
       [RFC2308], however, has an alternate definition that puts the
       QNAME in the answer (or series of answers) instead of the query.
@@ -501,9 +501,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017               [Page 9]
+Hoffman, et al.          Expires October 9, 2017                [Page 9]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       The term "NXRRSET" is sometimes used as a synonym for NODATA.
@@ -557,9 +557,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017              [Page 10]
+Hoffman, et al.          Expires October 9, 2017               [Page 10]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       number.  EDNS allows DNS clients and servers to specify message
@@ -613,9 +613,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017              [Page 11]
+Hoffman, et al.          Expires October 9, 2017               [Page 11]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       RRsets (such as when the authoritative data has a very short TTL)
@@ -637,6 +637,11 @@ Internet-Draft               DNS Terminology                  March 2017
 
    This section defines the terms used for the systems that act as DNS
    clients, DNS servers, or both.
+
+   For teminology specific to the public DNS root server system, see
+   [RSSAC026].  That document defines terms such as "root server", "root
+   server operator", and terms that are specific to the way that the
+   root zone of the public DNS is served.
 
    Resolver:  A program "that extract[s] information from name servers
       in response to client requests."  (Quoted from [RFC1034],
@@ -660,20 +665,21 @@ Internet-Draft               DNS Terminology                  March 2017
       queries and responds with a referral to another server.
       Section 2.3 of [RFC1034] describes this as "The server refers the
       client to another server and lets the client pursue the query".  A
+
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 12]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       resolver that works in iterative mode is sometimes called an
       "iterative resolver".
 
    Recursive mode:  A resolution mode of a server that receives DNS
       queries and either responds to those queries from a local cache or
       sends queries to other servers in order to get the final answers
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 12]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       to the original queries.  Section 2.3 of [RFC1034] describes this
       as "The first server pursues the query for the client at another
       server".  A server operating in recursive mode may be thought of
@@ -717,19 +723,18 @@ Internet-Draft               DNS Terminology                  March 2017
       exist, cannot give an answer, or does not give an answer."
       (Quoted from [RFC2308], Section 1)
 
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 13]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    Authoritative server:  "A server that knows the content of a DNS zone
       from local knowledge, and thus can answer queries about that zone
       without needing to query other servers."  (Quoted from [RFC2182],
       Section 2.)  It is a system that responds to DNS queries with
       information about zones for which it has been configured to answer
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 13]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       with the AA flag in the response header set to 1.  It is a server
       that has authority over one or more DNS zones.  Note that it is
       possible for an authoritative server to respond to a query without
@@ -774,18 +779,17 @@ Internet-Draft               DNS Terminology                  March 2017
       "master", the current common usage has shifted to "primary".
       Primary servers are also discussed in [RFC1034].
 
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 14]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    Master server:  See primary server.
 
    Primary master:  "The primary master is named in the zone's SOA MNAME
       field and optionally by an NS RR".  (Quoted from [RFC1996],
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 14]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       Section 2.1).  [RFC2136] defines "primary master" as "Master
       server at the root of the AXFR/IXFR dependency graph.  The primary
       master is named in the zone's SOA MNAME field and optionally by an
@@ -830,18 +834,18 @@ Internet-Draft               DNS Terminology                  March 2017
       that changes some of the answers that it returns based on policy
       criteria, such as to prevent access to malware sites or
       objectionable content.  In general, a stub resolver has no idea
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 15]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       whether upstream resolvers implement such policy or, if they do,
       the exact policy about what changes will be made.  In some cases,
       the user of the stub resolver has selected the policy-implementing
       resolver with the explicit intention of using it to implement the
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 15]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       policies.  In other cases, policies are imposed without the user
       of the stub resolver being informed.
 
@@ -877,9 +881,23 @@ Internet-Draft               DNS Terminology                  March 2017
       datagrams sent are routed to one of several available locations."
       (Quoted from [RFC4786], Section 2)
 
+   Instance:  "When anycast routing is used to allow more than one
+      server to have the same IP address, each one of those servers is
+      commonly referred to as an 'instance'."  "An instance of a server,
+      such as a root server, is often referred to as an 'Anycast
+      instance'."  (Quoted from [RSSAC026])
+
    Split DNS:  "Where a corporate network serves up partly or completely
       different DNS inside and outside its firewall.  There are many
       possible variants on this; the basic point is that the
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 16]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       correspondence between a given FQDN (fully qualified domain name)
       and a given IPv4 address is no longer universal and stable over
       long periods."  (Quoted from [RFC2775], Section 3.8)
@@ -888,15 +906,6 @@ Internet-Draft               DNS Terminology                  March 2017
 
    This section defines terms that are used when discussing zones that
    are being served or retrieved.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 16]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    Zone:  "Authoritative information is organized into units called
       'zones', and these zones can be automatically distributed to the
@@ -937,6 +946,14 @@ Internet-Draft               DNS Terminology                  March 2017
       description of a tree structure, and "origin" is the name of the
       same concept when it is implemented in zone files.  The
       distinction is not always maintained in use, however, and one can
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 17]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       find uses that conflict subtly with this definition.  [RFC1034]
       uses the term "top node of the zone" as a synonym of "apex", but
       that term is not widely used.  These days, the first sense of
@@ -944,15 +961,6 @@ Internet-Draft               DNS Terminology                  March 2017
 
    Zone cut:  The delimitation point between two zones where the origin
       of one of the zones is the child of the other zone.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 17]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
       "Zones are delimited by 'zone cuts'.  Each zone cut separates a
       'child' zone (below the cut) from a 'parent' zone (above the cut).
@@ -995,21 +1003,19 @@ Internet-Draft               DNS Terminology                  March 2017
       (using the first of the definitions of "glue records" in the
       definition above).
 
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 18]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       (b) Data for which the server is either authoritative, or else
       authoritative for an ancestor of the owner name.  This sense of
       the term normally is used when discussing the relevancy of glue
       records in a response.  For example, the server for the parent
       zone "example.com" might reply with glue records for
       "ns.child.example.com".  Because the "child.example.com" zone is a
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 18]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       descendant of the "example.com" zone, the glue records are in-
       bailiwick.
 
@@ -1052,19 +1058,17 @@ Internet-Draft               DNS Terminology                  March 2017
 
    Asterisk label:  "The first octet is the normal label type and length
       for a 1-octet-long label, and the second octet is the ASCII
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 19]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       representation for the '*' character.  A descriptive name of a
       label equaling that value is an 'asterisk label'."  (Quoted from
       [RFC4592], Section 2.1.1)
-
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 19]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    Wildcard domain name:  "A 'wildcard domain name' is defined by having
       its initial (i.e., leftmost or least significant) label be
@@ -1110,17 +1114,16 @@ Internet-Draft               DNS Terminology                  March 2017
       corrected) It is often used to deliver malware.  Because the
       addresses change so rapidly, it is difficult to ascertain all the
       hosts.  It should be noted that the technique also works with AAAA
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 20]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       records, but such use is not frequently observed on the Internet
       as of this writing.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 20]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    Reverse DNS, reverse lookup:  "The process of mapping an address to a
       name is generally known as a 'reverse lookup', and the IN-
@@ -1167,16 +1170,16 @@ Internet-Draft               DNS Terminology                  March 2017
 
    Registrar:  A service provider that acts as a go-between for
       registrants and registries.  Not all registrations require a
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 21]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       registrar, though it is common to have registrars involved in
       registrations in TLDs.
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 21]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    EPP:  The Extensible Provisioning Protocol (EPP), which is commonly
       used for communication of registration information between
@@ -1223,17 +1226,17 @@ Internet-Draft               DNS Terminology                  March 2017
       properly constructed DNSKEY, Resource Record Signature (RRSIG),
       Next Secure (NSEC), and (optionally) DS records."  (Quoted from
       [RFC4033], Section 2.)  It has been noted in other contexts that
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 22]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       the zone itself is not really signed, but all the relevant RRsets
       in the zone are signed.  Nevertheless, if a zone that should be
       signed contains any RRsets that are not signed (or opted out),
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 22]
-
-Internet-Draft               DNS Terminology                  March 2017
-
-
       those RRsets will be treated as bogus, so the whole zone needs to
       be handled in some way.
 
@@ -1278,17 +1281,17 @@ Internet-Draft               DNS Terminology                  March 2017
       Note that [RFC6840] says that [RFC5155] "is now considered part of
       the DNS Security Document Family as described by Section 10 of
       [RFC4033]".  This means that some of the definitions from earlier
+
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 23]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       RFCs that only talk about NSEC records should probably be
       considered to be talking about both NSEC and NSEC3.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 23]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    Opt-out:  "The Opt-Out Flag indicates whether this NSEC3 RR may cover
       unsigned delegations."  (Quoted from [RFC5155], Section 3.1.2.1.)
@@ -1333,18 +1336,19 @@ Internet-Draft               DNS Terminology                  March 2017
       definitions above.  The process of validating an RRSIG RR is
       described in [RFC4035], Section 5.3.
 
+
+
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 24]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       [RFC5155] refers to validating responses throughout the document,
       in the context of hashed authenticated denial of existence; this
       uses the second definition above.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 24]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
       The term "authentication" is used interchangeably with
       "validation", in the sense of the third definition above.
@@ -1390,17 +1394,17 @@ Internet-Draft               DNS Terminology                  March 2017
       a KSK and ZSK is not made (i.e., for a Single-Type Signing
       Scheme), it is suggested that the SEP flag be set on all keys."
       (Quoted from [RFC6781], Section 3.2.3.)  Note that the SEP flag is
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 25]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
       only a hint, and its presence or absence may not be used to
       disqualify a given DNSKEY RR from use as a KSK or ZSK during
       validation.
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 25]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
       The original defintion of SEPs was in [RFC3757].  That definition
       clearly indicated that the SEP was a key, not just a bit in the
@@ -1442,6 +1446,18 @@ Internet-Draft               DNS Terminology                  March 2017
       Sometimes signing software can support particular HSMs as part of
       the signing process.
 
+
+
+
+
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 26]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
 9.  DNSSEC States
 
    A validating resolver can determine that a response is in one of four
@@ -1450,13 +1466,6 @@ Internet-Draft               DNS Terminology                  March 2017
    differ a bit.  This document makes no effort to reconcile the two
    definitions, and takes no position as to whether they need to be
    reconciled.
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 26]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    Section 5 of [RFC4033] says:
 
@@ -1500,18 +1509,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-
-
-
-
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 27]
+Hoffman, et al.          Expires October 9, 2017               [Page 27]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
       A security-aware resolver must be able to distinguish between four
@@ -1565,9 +1565,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017              [Page 28]
+Hoffman, et al.          Expires October 9, 2017               [Page 28]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
    [RFC0882]  Mockapetris, P., "Domain names: Concepts and facilities",
@@ -1621,9 +1621,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017              [Page 29]
+Hoffman, et al.          Expires October 9, 2017               [Page 29]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
    [RFC4035]  Arends, R., Austein, R., Larson, M., Massey, D., and S.
@@ -1677,9 +1677,9 @@ Internet-Draft               DNS Terminology                  March 2017
 
 
 
-Hoffman, et al.        Expires September 14, 2017              [Page 30]
+Hoffman, et al.          Expires October 9, 2017               [Page 30]
 
-Internet-Draft               DNS Terminology                  March 2017
+Internet-Draft               DNS Terminology                  April 2017
 
 
    [RFC6841]  Ljunggren, F., Eklund Lowinder, AM., and T. Okubo, "A
@@ -1700,6 +1700,12 @@ Internet-Draft               DNS Terminology                  March 2017
    [RFC7719]  Hoffman, P., Sullivan, A., and K. Fujiwara, "DNS
               Terminology", RFC 7719, DOI 10.17487/RFC7719, December
               2015, <http://www.rfc-editor.org/info/rfc7719>.
+
+   [RSSAC026]
+              Root Server System Advisory Committee (RSSAC), "RSSAC
+              Lexicon", 2017,
+              <https://www.icann.org/en/system/files/files/rssac-
+              026-14mar17-en.pdf>.
 
 12.2.  Informative References
 
@@ -1724,19 +1730,18 @@ Internet-Draft               DNS Terminology                  March 2017
               DOI 10.17487/RFC1995, August 1996,
               <http://www.rfc-editor.org/info/rfc1995>.
 
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 31]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    [RFC2133]  Gilligan, R., Thomson, S., Bound, J., and W. Stevens,
               "Basic Socket Interface Extensions for IPv6", RFC 2133,
               DOI 10.17487/RFC2133, April 1997,
               <http://www.rfc-editor.org/info/rfc2133>.
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 31]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    [RFC2775]  Carpenter, B., "Internet Transparency", RFC 2775,
               DOI 10.17487/RFC2775, February 2000,
@@ -1781,18 +1786,18 @@ Internet-Draft               DNS Terminology                  March 2017
               RFC 5890, DOI 10.17487/RFC5890, August 2010,
               <http://www.rfc-editor.org/info/rfc5890>.
 
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 32]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    [RFC5891]  Klensin, J., "Internationalized Domain Names in
               Applications (IDNA): Protocol", RFC 5891,
               DOI 10.17487/RFC5891, August 2010,
               <http://www.rfc-editor.org/info/rfc5891>.
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 32]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    [RFC5892]  Faltstrom, P., Ed., "The Unicode Code Points and
               Internationalized Domain Names for Applications (IDNA)",
@@ -1838,17 +1843,17 @@ Internet-Draft               DNS Terminology                  March 2017
               Existence in the DNS", RFC 7129, DOI 10.17487/RFC7129,
               February 2014, <http://www.rfc-editor.org/info/rfc7129>.
 
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 33]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    [RFC7480]  Newton, A., Ellacott, B., and N. Kong, "HTTP Usage in the
               Registration Data Access Protocol (RDAP)", RFC 7480,
               DOI 10.17487/RFC7480, March 2015,
               <http://www.rfc-editor.org/info/rfc7480>.
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 33]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
    [RFC7481]  Hollenbeck, S. and N. Kong, "Security Services for the
               Registration Data Access Protocol (RDAP)", RFC 7481,
@@ -1892,19 +1897,21 @@ Acknowledgements
    Bortzmeyer, Niall O'Reilly, Colm MacCarthaigh, Ray Bellis, John
    Kristoff, Robert Edmonds, Paul Wouters, Shumon Huque, Paul Ebersman,
    David Lawrence, Matthijs Mekking, Casey Deccio, Bob Harold, Ed Lewis,
+
+
+
+
+Hoffman, et al.          Expires October 9, 2017               [Page 34]
+
+Internet-Draft               DNS Terminology                  April 2017
+
+
    John Klensin, David Black, and many others in the DNSOP Working Group
    helped shape RFC 7719.
 
    Additional people contributed to this document, including: John
    Dickinson, Bob Harold, [[ MORE NAMES WILL APPEAR HERE AS FOLKS
    CONTRIBUTE]].
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 34]
-
-Internet-Draft               DNS Terminology                  March 2017
-
 
 Authors' Addresses
 
@@ -1950,11 +1957,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Hoffman, et al.        Expires September 14, 2017              [Page 35]
+Hoffman, et al.          Expires October 9, 2017               [Page 35]

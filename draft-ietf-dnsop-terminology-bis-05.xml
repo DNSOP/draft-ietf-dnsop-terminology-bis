@@ -378,7 +378,7 @@ authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
 <t><list style="hanging">
 
 <t hangText='QNAME'>
-The most commonly-used definitions are that the QNAME is a field in
+The most commonly-used definition is that the QNAME is a field in
 the Question section of a query.
 "A standard query specifies a target domain name (QNAME), query type
 (QTYPE), and query class (QCLASS) and asks for RRs which match."
@@ -528,6 +528,10 @@ DNS class of the record, or the meaning is undefined for classes other than IN (
 
 <t>This section defines the terms used for the systems that act as DNS clients, DNS
 servers, or both.</t>
+
+<t>For teminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
+That document defines terms such as "root server", "root server operator", and terms
+that are specific to the way that the root zone of the public DNS is served.</t>
 
 <t><list style="hanging">
 
@@ -739,6 +743,13 @@ as "find all names which have A records of a particular value".</t>
 "The practice of making a particular service address available in multiple, discrete, autonomous
 locations, such that datagrams sent are routed to one of several available locations."
 (Quoted from <xref target="RFC4786"/>, Section 2)</t>
+
+<t hangText='Instance:'>
+"When anycast routing is used to allow more than one server to have the same IP
+address, each one of those servers is commonly referred to as an 'instance'."
+"An instance of a server, such as a root server, is often referred to as an 'Anycast
+instance'."
+(Quoted from <xref target="RSSAC026" />)</t> 
 
 <t hangText='Split DNS:'>
 "Where a corporate network serves up partly or completely different DNS inside and outside
@@ -1350,6 +1361,17 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6891.xml" ?>
 <?rfc include="reference.RFC.7344.xml" ?>
 <?rfc include="reference.RFC.7719.xml" ?>
+
+<reference anchor="RSSAC026" target="https://www.icann.org/en/system/files/files/rssac-026-14mar17-en.pdf">
+<front>
+<title>RSSAC Lexicon</title>
+<author>
+<organization>Root Server System Advisory Committee (RSSAC)</organization>
+</author>
+<date year="2017"/>
+</front>
+</reference>
+
 
 </references>
 
