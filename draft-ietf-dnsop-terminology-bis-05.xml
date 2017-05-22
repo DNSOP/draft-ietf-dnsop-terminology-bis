@@ -841,20 +841,35 @@ necessarily beyond.</t>
 
 <t hangText='In-bailiwick:'>
 </t>
-<t>(a) An adjective to describe a name server whose name
+<t>An adjective to describe a name server whose name
 is either subordinate to or (rarely) the same as the zone
-origin.  In-bailiwick name servers require glue records in their parent
-zone (using the first of the definitions of "glue records" in the definition above).</t>
-<t>(b) Data for which the server is either authoritative, or else
-authoritative for an ancestor of the owner name.  This sense of the
-term normally is used when discussing the relevancy of glue records in
-a response.  For example, the server for the parent zone "example.com"
-might reply with glue records for "ns.child.example.com".  Because the
-"child.example.com" zone is a descendant of the "example.com" zone, the
-glue records are in-bailiwick.</t>
+origin.  In-bailiwick name servers may have glue records in their parent
+zone (using the first of the definitions of "glue records" in the definition above).
+'In-bailiwick' names are divided into two type of name server names:
+'in-domain' names and 'Sibling domain' names.</t>
+
+<t hangText='In-domain:'>
+An adjective to describe a name server whose name
+is either subordinate to or (rarely) the same as the ownwer name of the NS resource records.
+In-domain name server name MUST have glue records or name resolution fails.
+For example, a delegation for "child.example.com" may have "in-domain" name server name "ns.child.example.com".
+</t>
+
+<t hangText='Sibling domain:'>
+A name server's name that is
+either subordinate to or (rarely) the same as the zone origin
+and not subordinate to or the same as the owner name of the NS resource records.
+Glue records for sibling domains are allowed, but not necessary.
+For example, a delegation for "child.example.com" in "example.com" zone
+may have "Sibling" name server name "ns.another.example.com".
+</t>
 
 <t hangText='Out-of-bailiwick:'>
-The antonym of in-bailiwick.</t>
+The antonym of in-bailiwick.
+An adjective to describe a name server whose name
+is not subordinate to or the same as the zone origin.
+Glue records for out-of-bailiwick name servers are useless.
+</t>
 
 <t hangText='Authoritative data:'>
 "All of the RRs attached to all of the nodes from the top node of the zone
@@ -1458,6 +1473,7 @@ and many others in the DNSOP Working Group helped shape RFC 7719.</t>
 
 <t>Additional people contributed to this document, including: 
 John Dickinson, Bob Harold,
+Peter Koch,
 [[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
 
 </section>
