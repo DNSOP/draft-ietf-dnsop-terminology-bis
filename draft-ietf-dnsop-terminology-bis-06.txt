@@ -5,7 +5,7 @@
 Network Working Group                                         P. Hoffman
 Internet-Draft                                                     ICANN
 Obsoletes: 7719 (if approved)                                A. Sullivan
-Updates: 2308, 3757 (if approved)                                    Dyn
+Updates: 2308, 3757 (if approved)                                 Oracle
 Intended status: Best Current Practice                       K. Fujiwara
 Expires: January 1, 2018                                            JPRS
                                                            June 30, 2017
@@ -84,7 +84,7 @@ Table of Contents
    Appendix A.  Definitions Updated by this Document . . . . . . . .  34
    Appendix B.  Definitions First Defined in this Document . . . . .  34
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  36
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  36
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  37
 
 1.  Introduction
 
@@ -226,11 +226,12 @@ Hoffman, et al.          Expires January 1, 2018                [Page 4]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-      inclusive.  In a fully-qualified domain name, the first label is 0
-      octets long; it is the only label whose length may be 0 octets,
-      and it is called the "root" or "root label".  A domain name in the
-      global DNS has a maximum total length of 255 octets in the wire
-      format; the root represents one octet for this calculation.
+      inclusive.  In a fully-qualified domain name, the first label
+      (logically speaking) is 0 octets long; it is the only label whose
+      length may be 0 octets, and it is called the "root" or "root
+      label".  A domain name in the global DNS has a maximum total
+      length of 255 octets in the wire format; the root represents one
+      octet for this calculation.
 
       Format of names -- Names in the global DNS are domain names.
       There are three formats: wire format, presentation format, and
@@ -273,7 +274,6 @@ Internet-Draft               DNS Terminology                   June 2017
       Identifiers (PTI).  The name servers that serve the root zone are
       provided by independent root operators.  Other zones in the global
       DNS have their own policies for administration.
-
 
 
 
@@ -427,9 +427,7 @@ Internet-Draft               DNS Terminology                   June 2017
       which HTTP cookies ([RFC6265]) should not be set.  There is no
       indication in a domain name whether it is a public suffix; that
       can only be determined by outside means.  In fact, both a domain
-      and a subdomain of that domain can be public suffixes.  At the
-      time this document is published, the IETF DBOUND Working Group
-      [DBOUND] is dealing with issues concerning public suffixes.
+      and a subdomain of that domain can be public suffixes.
 
       There is nothing inherent in a domain name to indicate whether it
       is a public suffix.  One resource for identifying public suffixes
@@ -442,6 +440,8 @@ Internet-Draft               DNS Terminology                   June 2017
 
       Note that the term "public suffix" is controversial in the DNS
       community for many reasons, and may be significantly changed in
+      the future.  One example of the difficulty of calling a domain a
+      public suffix is that designation can change over time as the
 
 
 
@@ -450,10 +450,8 @@ Hoffman, et al.          Expires January 1, 2018                [Page 8]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-      the future.  One example of the difficulty of calling a domain a
-      public suffix is that designation can change over time as the
-      registration policy for the zone changes, such as the case of the
-      "uk" TLD around the time this document is published.
+      registration policy for the zone changes, such as was the case
+      with the "uk" TLD in 2014.
 
 3.  DNS Header and Response Codes
 
@@ -496,7 +494,9 @@ Internet-Draft               DNS Terminology                   June 2017
       Section 2.2.)  Note that referrals have a similar format to NODATA
       replies; [RFC2308] explains how to distinguish them.
 
-
+      The term "NXRRSET" is sometimes used as a synonym for NODATA.
+      However, this is a mistake, given that NXRRSET is a specific error
+      code defined in [RFC2136].
 
 
 
@@ -505,10 +505,6 @@ Hoffman, et al.          Expires January 1, 2018                [Page 9]
 
 Internet-Draft               DNS Terminology                   June 2017
 
-
-      The term "NXRRSET" is sometimes used as a synonym for NODATA.
-      However, this is a mistake, given that NXRRSET is a specific error
-      code defined in [RFC2136].
 
    Negative response:  A response that indicates that a particular RRset
       does not exist, or whose RCODE indicates the nameserver cannot
@@ -554,6 +550,10 @@ Internet-Draft               DNS Terminology                   June 2017
 
    EDNS:  The extension mechanisms for DNS, defined in [RFC6891].
       Sometimes called "EDNS0" or "EDNS(0)" to indicate the version
+      number.  EDNS allows DNS clients and servers to specify message
+      sizes larger than the original 512 octet limit, to expand the
+      response code space, and potentially to carry additional options
+      that affect the handling of a DNS query.
 
 
 
@@ -561,11 +561,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 10]
 
 Internet-Draft               DNS Terminology                   June 2017
 
-
-      number.  EDNS allows DNS clients and servers to specify message
-      sizes larger than the original 512 octet limit, to expand the
-      response code space, and potentially to carry additional options
-      that affect the handling of a DNS query.
 
    OPT:  A pseudo-RR (sometimes called a "meta-RR") that is used only to
       contain control information pertaining to the question-and-answer
@@ -609,7 +604,12 @@ Internet-Draft               DNS Terminology                   June 2017
       values over a certain number.  Also, if a value is flushed from
       the cache when its value is still positive, the value effectively
       becomes zero.  Some servers are known to ignore the TTL on some
+      RRsets (such as when the authoritative data has a very short TTL)
+      even though this is against the advice in RFC 1035.
 
+      There is also the concept of a "default TTL" for a zone, which can
+      be a configuration parameter in the server software.  This is
+      often expressed by a default for the entire server, and a default
 
 
 
@@ -618,12 +618,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 11]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-      RRsets (such as when the authoritative data has a very short TTL)
-      even though this is against the advice in RFC 1035.
-
-      There is also the concept of a "default TTL" for a zone, which can
-      be a configuration parameter in the server software.  This is
-      often expressed by a default for the entire server, and a default
       for a zone using the $TTL directive in a zone file.  The $TTL
       directive was added to the master file format by [RFC2308].
 
@@ -638,7 +632,7 @@ Internet-Draft               DNS Terminology                   June 2017
    This section defines the terms used for the systems that act as DNS
    clients, DNS servers, or both.
 
-   For teminology specific to the public DNS root server system, see
+   For terminology specific to the public DNS root server system, see
    [RSSAC026].  That document defines terms such as "root server", "root
    server operator", and terms that are specific to the way that the
    root zone of the public DNS is served.
@@ -665,7 +659,13 @@ Internet-Draft               DNS Terminology                   June 2017
       queries and responds with a referral to another server.
       Section 2.3 of [RFC1034] describes this as "The server refers the
       client to another server and lets the client pursue the query".  A
+      resolver that works in iterative mode is sometimes called an
+      "iterative resolver".
 
+   Recursive mode:  A resolution mode of a server that receives DNS
+      queries and either responds to those queries from a local cache or
+      sends queries to other servers in order to get the final answers
+      to the original queries.  Section 2.3 of [RFC1034] describes this
 
 
 
@@ -674,13 +674,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 12]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-      resolver that works in iterative mode is sometimes called an
-      "iterative resolver".
-
-   Recursive mode:  A resolution mode of a server that receives DNS
-      queries and either responds to those queries from a local cache or
-      sends queries to other servers in order to get the final answers
-      to the original queries.  Section 2.3 of [RFC1034] describes this
       as "The first server pursues the query for the client at another
       server".  A server operating in recursive mode may be thought of
       as having a name server side (which is what answers the query) and
@@ -721,15 +714,6 @@ Internet-Draft               DNS Terminology                   June 2017
       process.  For many pieces of software, this list comes built into
       the software."  (Quoted from [IANA_RootFiles])
 
-
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 13]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
    Negative caching:  "The storage of knowledge that something does not
       exist, cannot give an answer, or does not give an answer."
       (Quoted from [RFC2308], Section 1)
@@ -738,6 +722,14 @@ Internet-Draft               DNS Terminology                   June 2017
       from local knowledge, and thus can answer queries about that zone
       without needing to query other servers."  (Quoted from [RFC2182],
       Section 2.)  It is a system that responds to DNS queries with
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 13]
+
+Internet-Draft               DNS Terminology                   June 2017
+
+
       information about zones for which it has been configured to answer
       with the AA flag in the response header set to 1.  It is a server
       that has authority over one or more DNS zones.  Note that it is
@@ -778,6 +770,14 @@ Internet-Draft               DNS Terminology                   June 2017
       source of zone transfer for one or more [secondary] servers"
       (Quoted from [RFC1996], Section 2.1) or, more specifically, "an
       authoritative server configured to be the source of AXFR or IXFR
+      data for one or more [secondary] servers" (Quoted from [RFC2136]).
+      Although early DNS RFCs such as [RFC1996] referred to this as a
+      "master", the current common usage has shifted to "primary".
+      Primary servers are also discussed in [RFC1034].
+
+   Master server:  See primary server.
+
+
 
 
 
@@ -785,13 +785,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 14]
 
 Internet-Draft               DNS Terminology                   June 2017
 
-
-      data for one or more [secondary] servers" (Quoted from [RFC2136]).
-      Although early DNS RFCs such as [RFC1996] referred to this as a
-      "master", the current common usage has shifted to "primary".
-      Primary servers are also discussed in [RFC1034].
-
-   Master server:  See primary server.
 
    Primary master:  "The primary master is named in the zone's SOA MNAME
       field and optionally by an NS RR".  (Quoted from [RFC1996],
@@ -835,6 +828,13 @@ Internet-Draft               DNS Terminology                   June 2017
       recursive servers.  [RFC2308] is silent on whether a forwarder is
       iterative-only or can be a full-service resolver.
 
+   Policy-implementing resolver:  A resolver acting in recursive mode
+      that changes some of the answers that it returns based on policy
+      criteria, such as to prevent access to malware sites or
+      objectionable content.  In general, a stub resolver has no idea
+      whether upstream resolvers implement such policy or, if they do,
+      the exact policy about what changes will be made.  In some cases,
+
 
 
 Hoffman, et al.          Expires January 1, 2018               [Page 15]
@@ -842,12 +842,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 15]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-   Policy-implementing resolver:  A resolver acting in recursive mode
-      that changes some of the answers that it returns based on policy
-      criteria, such as to prevent access to malware sites or
-      objectionable content.  In general, a stub resolver has no idea
-      whether upstream resolvers implement such policy or, if they do,
-      the exact policy about what changes will be made.  In some cases,
       the user of the stub resolver has selected the policy-implementing
       resolver with the explicit intention of using it to implement the
       policies.  In other cases, policies are imposed without the user
@@ -890,6 +884,12 @@ Internet-Draft               DNS Terminology                   June 2017
       such as a root server, is often referred to as an 'Anycast
       instance'."  (Quoted from [RSSAC026])
 
+   Split DNS:  "Where a corporate network serves up partly or completely
+      different DNS inside and outside its firewall.  There are many
+      possible variants on this; the basic point is that the
+      correspondence between a given FQDN (fully qualified domain name)
+      and a given IPv4 address is no longer universal and stable over
+      long periods."  (Quoted from [RFC2775], Section 3.8)
 
 
 
@@ -897,13 +897,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 16]
 
 Internet-Draft               DNS Terminology                   June 2017
 
-
-   Split DNS:  "Where a corporate network serves up partly or completely
-      different DNS inside and outside its firewall.  There are many
-      possible variants on this; the basic point is that the
-      correspondence between a given FQDN (fully qualified domain name)
-      and a given IPv4 address is no longer universal and stable over
-      long periods."  (Quoted from [RFC2775], Section 3.8)
 
 6.  Zones
 
@@ -946,14 +939,6 @@ Internet-Draft               DNS Terminology                   June 2017
       authoritative NS RRset.  This is also called the "zone apex".
       [RFC4033] defines it as "the name at the child's side of a zone
       cut".  The "apex" can usefully be thought of as a data-theoretic
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 17]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       description of a tree structure, and "origin" is the name of the
       same concept when it is implemented in zone files.  The
       distinction is not always maintained in use, however, and one can
@@ -961,6 +946,13 @@ Internet-Draft               DNS Terminology                   June 2017
       uses the term "top node of the zone" as a synonym of "apex", but
       that term is not widely used.  These days, the first sense of
       "origin" (above) and "apex" are often used interchangeably.
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 17]
+
+Internet-Draft               DNS Terminology                   June 2017
+
 
    Zone cut:  The delimitation point between two zones where the origin
       of one of the zones is the child of the other zone.
@@ -1002,14 +994,6 @@ Internet-Draft               DNS Terminology                   June 2017
       either subordinate to or (rarely) the same as the zone origin.
       In-bailiwick name servers may have glue records in their parent
       zone (using the first of the definitions of "glue records" in the
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 18]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       definition above).  "In-bailiwick" names are divided into two type
       of name server names: "in-domain" names and "sibling domain"
       names:
@@ -1018,6 +1002,14 @@ Internet-Draft               DNS Terminology                   June 2017
          is either subordinate to or (rarely) the same as the owner name
          of the NS resource records.  An in-domain name server name MUST
          have glue records or name resolution fails.  For example, a
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 18]
+
+Internet-Draft               DNS Terminology                   June 2017
+
+
          delegation for "child.example.com" may have "in-domain" name
          server name "ns.child.example.com".
 
@@ -1058,14 +1050,6 @@ Internet-Draft               DNS Terminology                   June 2017
    Delegation-centric zone:  A zone that consists mostly of delegations
       to child zones.  This term is used in contrast to a zone that
       might have some delegations to child zones, but also has many data
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 19]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       resource records for the zone itself and/or for child zones.  The
       term is used in [RFC4956] and [RFC5155], but is not defined there.
 
@@ -1074,6 +1058,14 @@ Internet-Draft               DNS Terminology                   June 2017
       RRs with owner names starting with the label "*".  "Such RRs are
       called 'wildcards'.  Wildcard RRs can be thought of as
       instructions for synthesizing RRs."  (Quoted from [RFC1034],
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 19]
+
+Internet-Draft               DNS Terminology                   June 2017
+
+
       Section 4.3.3) For an extended discussion of wildcards, including
       clearer definitions, see [RFC4592].
 
@@ -1114,14 +1106,6 @@ Internet-Draft               DNS Terminology                   June 2017
 
    Occluded name:  "The addition of a delegation point via dynamic
       update will render all subordinate domain names to be in a limbo,
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 20]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       still part of the zone, but not available to the lookup process.
       The addition of a DNAME resource record has the same impact.  The
       subordinate names are said to be 'occluded'."  (Quoted from
@@ -1130,6 +1114,14 @@ Internet-Draft               DNS Terminology                   June 2017
    Fast flux DNS:  This "occurs when a domain is found in DNS using A
       records to multiple IP addresses, each of which has a very short
       Time-to-Live (TTL) value associated with it.  This means that the
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 20]
+
+Internet-Draft               DNS Terminology                   June 2017
+
+
       domain resolves to varying IP addresses over a short period of
       time."  (Quoted from [RFC6561], Section 1.1.5, with typo
       corrected) It is often used to deliver malware.  Because the
@@ -1170,14 +1162,6 @@ Internet-Draft               DNS Terminology                   June 2017
       registration of names within that zone.  People often use this
       term to refer only to those organizations that perform
       registration in large delegation-centric zones (such as TLDs); but
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 21]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       formally, whoever decides what data goes into a zone is the
       registry for that zone.  This definition of "registry" is from a
       DNS point of view; for some zones, the policies that determine
@@ -1186,6 +1170,14 @@ Internet-Draft               DNS Terminology                   June 2017
 
    Registrant:  An individual or organization on whose behalf a name in
       a zone is registered by the registry.  In many zones, the registry
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 21]
+
+Internet-Draft               DNS Terminology                   June 2017
+
+
       and the registrant may be the same entity, but in TLDs they often
       are not.
 
@@ -1226,14 +1218,6 @@ Internet-Draft               DNS Terminology                   June 2017
 
    DNSSEC-aware and DNSSEC-unaware:  These two terms, which are used in
       some RFCs, have not been formally defined.  However, Section 2 of
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 22]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       [RFC4033] defines many types of resolvers and validators,
       including "non-validating security-aware stub resolver", "non-
       validating stub resolver", "security-aware name server",
@@ -1241,7 +1225,14 @@ Internet-Draft               DNS Terminology                   June 2017
       "security-aware stub resolver", and "security-oblivious
       'anything'".  (Note that the term "validating resolver", which is
       used in some places in DNSSEC-related documents, is also not
-      defined.)
+      defined in those RFCs, but is defined below.)
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 22]
+
+Internet-Draft               DNS Terminology                   June 2017
+
 
    Signed zone:  "A zone whose RRsets are signed and that contains
       properly constructed DNSKEY, Resource Record Signature (RRSIG),
@@ -1282,14 +1273,6 @@ Internet-Draft               DNS Terminology                   June 2017
       "The NSEC resource record lists two separate things: the next
       owner name (in the canonical ordering of the zone) that contains
       authoritative data or a delegation point NS RRset, and the set of
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 23]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       RR types present at the NSEC RR's owner name."  (Quoted from
       Section 4 of RFC 4034)
 
@@ -1298,6 +1281,14 @@ Internet-Draft               DNS Terminology                   June 2017
       against zone enumeration and support Opt-Out.  NSEC resource
       records require associated NSEC3PARAM resource records.  NSEC3 and
       NSEC3PARAM resource records are defined in [RFC5155].
+
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 23]
+
+Internet-Draft               DNS Terminology                   June 2017
+
 
       Note that [RFC6840] says that [RFC5155] "is now considered part of
       the DNS Security Document Family as described by Section 10 of
@@ -1338,14 +1329,6 @@ Internet-Draft               DNS Terminology                   June 2017
       individual DNSSEC components such as the RRSIG validity or NSEC
       proof validity.  The third definition considers the components of
       the entire DNSSEC authentication chain, and thus requires
-
-
-
-Hoffman, et al.          Expires January 1, 2018               [Page 24]
-
-Internet-Draft               DNS Terminology                   June 2017
-
-
       "configured knowledge of at least one authenticated DNSKEY or DS
       RR" (as described in [RFC4035], Section 5).
 
@@ -1355,6 +1338,13 @@ Internet-Draft               DNS Terminology                   June 2017
       signed DNS response", and thus uses the first and third
       definitions above.  The process of validating an RRSIG resource
       record is described in [RFC4035], Section 5.3.
+
+
+
+Hoffman, et al.          Expires January 1, 2018               [Page 24]
+
+Internet-Draft               DNS Terminology                   June 2017
+
 
       [RFC5155] refers to validating responses throughout the document,
       in the context of hashed authenticated denial of existence; this
@@ -1376,6 +1366,14 @@ Internet-Draft               DNS Terminology                   June 2017
       The term "verification", when used, is usually synonym for
       "validation".
 
+   Validating resolver:  A security-aware recursive name server,
+      security-aware resolver, or security-aware stub resolver that is
+      applying at least one of the definitions of validation (above), as
+      appropriate to the resolution context.  For the same reason that
+      the generic term "resolver" is sometimes ambiguous and needs to be
+      evaluated in context (see Section 5), "validating resolver" is a
+      context-sensitive term.
+
    Key signing key (KSK):  DNSSEC keys that "only sign the apex DNSKEY
       RRset in a zone."(Quoted from [RFC6781], Section 3.1)
 
@@ -1394,6 +1392,8 @@ Internet-Draft               DNS Terminology                   June 2017
       practice, not protocol, that determines whether a particular key
       is a ZSK, a KSK, or a CSK.
 
+   Secure Entry Point (SEP):  A flag in the DNSKEY RDATA that "can be
+      used to distinguish between keys that are intended to be used as
 
 
 
@@ -1402,8 +1402,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 25]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-   Secure Entry Point (SEP):  A flag in the DNSKEY RDATA that "can be
-      used to distinguish between keys that are intended to be used as
       the secure entry point into the zone when building chains of
       trust, i.e., they are (to be) pointed to by parental DS RRs or
       configured as a trust anchor.  Therefore, it is suggested that the
@@ -1450,6 +1448,8 @@ Internet-Draft               DNS Terminology                   June 2017
 
    Signing software:  Authoritative DNS servers that supports DNSSEC
       often contains software that facilitates the creation and
+      maintenance of DNSSEC signatures in zones.  There is also stand-
+      alone software that can be used to sign a zone regardless of
 
 
 
@@ -1458,8 +1458,6 @@ Hoffman, et al.          Expires January 1, 2018               [Page 26]
 Internet-Draft               DNS Terminology                   June 2017
 
 
-      maintenance of DNSSEC signatures in zones.  There is also stand-
-      alone software that can be used to sign a zone regardless of
       whether the authoritative server itself supports signing.
       Sometimes signing software can support particular HSMs as part of
       the signing process.
@@ -1500,6 +1498,8 @@ Internet-Draft               DNS Terminology                   June 2017
          operation mode.
 
    Section 4.3 of [RFC4035] says:
+
+
 
 
 
@@ -1982,6 +1982,8 @@ Internet-Draft               DNS Terminology                   June 2017
 
    o  "TLD" in Section 2
 
+   o  "Validating resolver" in Section 8
+
    o  "Validation" in Section 8
 
    o  "View" in Section 5
@@ -2005,8 +2007,6 @@ Acknowledgements
    Dickinson, Bob Harold, Peter Koch, [[ MORE NAMES WILL APPEAR HERE AS
    FOLKS CONTRIBUTE]].
 
-Authors' Addresses
-
 
 
 
@@ -2018,6 +2018,8 @@ Hoffman, et al.          Expires January 1, 2018               [Page 36]
 Internet-Draft               DNS Terminology                   June 2017
 
 
+Authors' Addresses
+
    Paul Hoffman
    ICANN
 
@@ -2025,12 +2027,12 @@ Internet-Draft               DNS Terminology                   June 2017
 
 
    Andrew Sullivan
-   Dyn
-   150 Dow Street, Tower 2
-   Manchester, NH  03101
-   United States
+   Oracle
+   100 Milverton Drive
+   Mississauga, ON  L5R 4H1
+   Canada
 
-   Email: asullivan@dyn.com
+   Email: andrew.s.sullivan@oracle.com
 
 
    Kazunori Fujiwara
@@ -2041,8 +2043,6 @@ Internet-Draft               DNS Terminology                   June 2017
 
    Phone: +81 3 5215 8451
    Email: fujiwara@jprs.co.jp
-
-
 
 
 
