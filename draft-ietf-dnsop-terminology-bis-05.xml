@@ -12,7 +12,7 @@
 <?rfc subcompact="no"?>
 
 <rfc docName="draft-ietf-dnsop-terminology-bis-05" ipr="trust200902" category="bcp"
-     obsoletes="7719"
+     obsoletes="7719" updates="2308, 3757"
 >
 
 <!--
@@ -117,7 +117,10 @@ defined for them.</t>
 
 <t>Other organizations sometimes define DNS-related terms their own way.
 For example, the W3C defines "domain" at
-https://specs.webplatform.org/url/webspecs/develop/.</t>
+https://specs.webplatform.org/url/webspecs/develop/.
+The Root Server System Advisory Committee (RSSAC) has a good
+lexicon <xref target="RSSAC026"/>.
+</t>
 
 <t>Note that there is no single consistent definition of "the DNS". It can be considered to be some
 combination of the following: a commonly used naming scheme for objects on the Internet; a distributed database representing
@@ -140,9 +143,9 @@ from different RFCs.</t>
 
 <t hangText='Naming system:'>
 A naming system associates names with data. Naming systems have many significant facets
-that help differentiate them. Some commonly-identified facets include:</t>
+that help differentiate them. Some commonly-identified facets include:
 
-<t><list style="symbols">
+<list style="symbols">
 <t>Composition of names</t>
 <t>Format of names</t>
 <t>Administration of names</t>
@@ -234,7 +237,7 @@ target="IANA_Resource_Registry"/>.</t>
 of resource records (see the definition of "RRset" in <xref target="rrs"/>).  Some names
 do not themselves have data associated with them in the DNS, but "appear" in the DNS
 anyway because they form part of a longer name that does have data associated with it (see
-the definition of "empty non-terminals" in <xref target="zones"/>).</t>
+the defintion of "empty non-terminals" in <xref target="zones"/>).</t>
 
 <t>Protocol for getting data from a name -- The protocol described in <xref
 target="RFC1035"/>.</t>
@@ -327,7 +330,7 @@ example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn
 
 <t hangText='Alias:'>
 The owner of a CNAME resource record, or a subdomain of the owner of a
-DNAME resource record <xref target="RFC6672"/>. See also "canonical name".</t>
+DNAME resource record. See also "canonical name".</t>
 
 <t hangText='Canonical name:'>
 A CNAME resource record "identifies its owner name as an
@@ -529,7 +532,7 @@ DNS class of the record, or the meaning is undefined for classes other than IN (
 <t>This section defines the terms used for the systems that act as DNS clients, DNS
 servers, or both.</t>
 
-<t>For terminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
+<t>For teminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
 That document defines terms such as "root server", "root server operator", and terms
 that are specific to the way that the root zone of the public DNS is served.</t>
 
@@ -596,8 +599,9 @@ In general, a recursive resolver is expected to cache the answers it receives
 (which would make it a full-service resolver), but some recursive resolvers might not cache.</t>
 
 <t hangText='Priming:'>
-The mechanism used by a resolver to determine where
-to send queries before there is anything in the resolver's cache.
+"The act of finding the list of root servers from a
+configuration that lists some or all of the purported IP addresses of
+some or all of those root servers." (Quoted from <xref target="RFC8109"/>, Section 2.)
 Priming is most often done from a configuration setting that contains a
 list of authoritative servers for the root zone.</t>
 
@@ -731,13 +735,15 @@ than to those "outside" that network.  Views are not a standardized
 part of the DNS, but they are widely implemented in server software.</t>
 
 <t hangText='Passive DNS:'>
-A mechanism to collect large amounts of DNS data by storing DNS responses from
-servers. Some of these systems also collect the DNS queries associated with the responses; this can
-raise privacy issues.
-Passive DNS databases can be used to answer historical questions about DNS
-zones such as which records were available for them at what times in the past.
-Passive DNS databases allow searching of the stored records on keys other than just the name, such
-as "find all names which have A records of a particular value".</t>
+A mechanism to collect DNS data by storing DNS transactions from name servers.
+Some of these systems also collect the DNS queries associated with the
+responses.
+Passive DNS databases can be used to answer historical questions about DNS zones
+such as which answers were witnessed at what times in the past.
+Passive DNS databases allow searching of the stored records on keys other than
+just the name and type, such as "find all names which have A records of a
+particular value".
+</t>
 
 <t hangText='Anycast:'>
 "The practice of making a particular service address available in multiple, discrete, autonomous
@@ -840,29 +846,31 @@ suggests it is intended to apply to the use of glue within the document itself a
 necessarily beyond.</t>
 
 <t hangText='In-bailiwick:'>
-</t>
-<t>An adjective to describe a name server whose name
+An adjective to describe a name server whose name
 is either subordinate to or (rarely) the same as the zone
 origin.  In-bailiwick name servers may have glue records in their parent
 zone (using the first of the definitions of "glue records" in the definition above).
-'In-bailiwick' names are divided into two type of name server names:
-'in-domain' names and 'Sibling domain' names.</t>
+"In-bailiwick" names are divided into two type of name server names:
+"in-domain" names and "sibling domain" names:
 
-<t hangText='In-domain:'>
-An adjective to describe a name server whose name
-is either subordinate to or (rarely) the same as the owner name of the NS resource records.
-In-domain name server name MUST have glue records or name resolution fails.
-For example, a delegation for "child.example.com" may have "in-domain" name server name "ns.child.example.com".
+<list style="symbols">
+
+<t>In-domain -- an adjective to describe a name server whose name is either
+subordinate to or (rarely) the same as the owner name of the NS resource records.
+An in-domain name server name MUST have glue records or name resolution fails.
+For example, a delegation for "child.example.com" may have "in-domain" name
+server name "ns.child.example.com".
 </t>
 
-<t hangText='Sibling domain:'>
-A name server's name that is
-either subordinate to or (rarely) the same as the zone origin
-and not subordinate to or the same as the owner name of the NS resource records.
+<t>Sibling domain: -- a name server's name that is either subordinate to or
+(rarely) the same as the zone origin and not subordinate to or the same as the
+owner name of the NS resource records.
 Glue records for sibling domains are allowed, but not necessary.
-For example, a delegation for "child.example.com" in "example.com" zone
-may have "Sibling" name server name "ns.another.example.com".
+For example, a delegation for "child.example.com" in "example.com" zone may have
+"sibling" name server name "ns.another.example.com".
 </t>
+
+</list></t>
 
 <t hangText='Out-of-bailiwick:'>
 The antonym of in-bailiwick.
@@ -882,7 +890,7 @@ authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
 
 <t hangText='Root zone:'>
-The zone whose apex is the zero-length label. 
+The zone of a DNS-based tree whose apex is the zero-length label.
 Also sometimes called "the DNS root".</t>
 
 <t hangText='Empty non-terminals (ENT):'>
@@ -1156,7 +1164,7 @@ considers the components of the entire DNSSEC authentication chain, and thus req
 <t><xref target="RFC4033"/>, Section 2, says that a "Validating Security-Aware Stub
 Resolver... performs signature validation" and uses a trust anchor "as a starting point
 for building the authentication chain to a signed DNS response", and thus uses the first
-and third definitions above.  The process of validating an RRSIG RR is described in <xref
+and third definitions above.  The process of validating an RRSIG resource record is described in <xref
 target="RFC4035"/>, Section 5.3.</t>
 
 <t><xref target="RFC5155"/> refers to validating responses throughout the document, in the
@@ -1207,7 +1215,7 @@ that are used as ZSKs, while in those cases where a distinction between a KSK an
 SEP flag is only a hint, and its presence or absence may not be used to disqualify a given
 DNSKEY RR from use as a KSK or ZSK during validation.</t>
 
-<t>The original definition of SEPs was in <xref target="RFC3757"/>. That definition
+<t>The original defintion of SEPs was in <xref target="RFC3757"/>. That definition
 clearly indicated that the SEP was a key, not just a bit in the key. The
 abstract of <xref target="RFC3757"/> says:
 "With the Delegation Signer (DS) resource record (RR), the concept of
@@ -1369,7 +1377,6 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.5855.xml" ?>
 <?rfc include="reference.RFC.5936.xml" ?>
 <?rfc include="reference.RFC.6561.xml" ?>
-<?rfc include="reference.RFC.6672.xml" ?>
 <?rfc include="reference.RFC.6781.xml" ?>
 <?rfc include="reference.RFC.6840.xml" ?>
 <?rfc include="reference.RFC.6841.xml" ?>
@@ -1442,6 +1449,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7483.xml" ?>
 <?rfc include="reference.RFC.7484.xml" ?> 
 <?rfc include="reference.RFC.7485.xml" ?>
+<?rfc include="reference.RFC.8109.xml" ?>
 
 </references>
 
@@ -1454,6 +1462,58 @@ position as to whether they need to be reconciled.</t>
 <t>Forwarder in <xref target="RFC2308"/></t>
 
 <t>Secure Entry Point (SEP) in <xref target="RFC3757"/></t>
+
+</list></t>
+
+</section>
+
+<section anchor="new-def" title="Definitions First Defined in this Document">
+
+<t>The following definitions are first defined in this document:
+
+<list style="symbols">
+
+<t>"Alias" in <xref target="names"/></t>
+<t>"Apex" in <xref target="zones"/></t>
+<t>"arpa" in <xref target="zones"/></t>
+<t>"Class independent" in <xref target="rrs"/></t>
+<t>"Delegation-centric zone" in <xref target="zones"/></t>
+<t>"Delegation" in <xref target="zones"/></t>
+<t>"DNS operator" in <xref target="reg-model"/></t>
+<t>"DNSSEC-aware" in <xref target="dnssec-general"/></t>
+<t>"DNSSEC-unaware" in <xref target="dnssec-general"/></t>
+<t>"Forwarding" in <xref target="dns-servers-and-clients"/></t>
+<t>"Full resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Fully qualified domain name" in <xref target="names"/></t>
+<t>"Global DNS" in <xref target="names"/></t>
+<t>"Hardware Security Module (HSM)" in <xref target="dnssec-general"/></t>
+<t>"Host name" in <xref target="names"/></t>
+<t>"IDN" in <xref target="names"/></t>
+<t>"In-bailiwick" in <xref target="zones"/></t>
+<t>"Label" in <xref target="names"/></t>
+<t>"Locally served DNS zone" in <xref target="names"/></t>
+<t>"Naming system" in <xref target="names"/></t>
+<t>"Negative response" in <xref target="dns-header-and-response-codes"/></t>
+<t>"Open resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Out-of-bailiwick" in <xref target="zones"/></t>
+<t>"Passive DNS" in <xref target="dns-servers-and-clients"/></t>
+<t>"Policy-implementing resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Presentation format" in <xref target="rrs"/></t>
+<t>"Priming" in <xref target="dns-servers-and-clients"/></t>
+<t>"Private DNS" in <xref target="names"/></t>
+<t>"Recursive resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Referrals" in <xref target="dns-header-and-response-codes"/></t>
+<t>"Registrant" in <xref target="reg-model"/></t>
+<t>"Registrar" in <xref target="reg-model"/></t>
+<t>"Registry" in <xref target="reg-model"/></t>
+<t>"Root zone" in <xref target="zones"/></t>
+<t>"Secure Entry Point (SEP)" in <xref target="dnssec-general"/></t>
+<t>"Signing software" in <xref target="dnssec-general"/></t>
+<t>"Stub resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"TLD" in <xref target="names"/></t>
+<t>"Validation" in <xref target="dnssec-general"/></t>
+<t>"View" in <xref target="dns-servers-and-clients"/></t>
+<t>"Zone transfer" in <xref target="dns-servers-and-clients"/></t>
 
 </list></t>
 
