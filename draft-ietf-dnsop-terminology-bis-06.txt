@@ -12,7 +12,7 @@ Expires: January 1, 2018                                            JPRS
 
 
                             DNS Terminology
-                  draft-ietf-dnsop-terminology-bis-05
+                  draft-ietf-dnsop-terminology-bis-06
 
 Abstract
 
