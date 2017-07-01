@@ -20,8 +20,6 @@
 
 Need to check the examples in "public suffix".
 
-Need to check the status of the DBOUND WG
-
 -->
 
 <front>
@@ -72,7 +70,8 @@ has sometimes changed in the decades since the DNS was first defined. This docum
 gives current definitions for many of the terms used in the DNS in a single
 document.</t>
 
-<t>This document will be the successor to RFC 7719.</t>
+<t>This document will be the successor to RFC 7719, and thus will
+obsolete RFC 7719. It will also update RFC 2308 and RFC 3758.</t>
 
 </abstract>
 
@@ -1396,30 +1395,9 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7344.xml" ?>
 <?rfc include="reference.RFC.7719.xml" ?>
 
-<reference anchor="RSSAC026" target="https://www.icann.org/en/system/files/files/rssac-026-14mar17-en.pdf">
-<front>
-<title>RSSAC Lexicon</title>
-<author>
-<organization>Root Server System Advisory Committee (RSSAC)</organization>
-</author>
-<date year="2017"/>
-</front>
-</reference>
-
-
 </references>
 
 <references title='Informative References'>
-
-<reference anchor="DBOUND" target="https://datatracker.ietf.org/wg/dbound/charter/">
-<front>
-<title>Domain Boundaries (dbound) Working Group</title>
-<author>
-<organization>IETF</organization>
-</author>
-<date year="2016"/>
-</front>
-</reference>
 
 <reference anchor="IANA_Resource_Registry" target="http://www.iana.org/assignments/dns-parameters/">
 <front>
@@ -1462,6 +1440,16 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7484.xml" ?> 
 <?rfc include="reference.RFC.7485.xml" ?>
 <?rfc include="reference.RFC.8109.xml" ?>
+
+<reference anchor="RSSAC026" target="https://www.icann.org/en/system/files/files/rssac-026-14mar17-en.pdf">
+<front>
+<title>RSSAC Lexicon</title>
+<author>
+<organization>Root Server System Advisory Committee (RSSAC)</organization>
+</author>
+<date year="2017"/>
+</front>
+</reference>
 
 </references>
 
