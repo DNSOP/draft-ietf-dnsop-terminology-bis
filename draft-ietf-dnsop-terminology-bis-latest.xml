@@ -170,7 +170,7 @@ name space" using mathematical trees and their nodes in graph theory, and the de
 in <xref target="RFC1034"/> has the same practical result as the definition here. Using
 graph theory, a domain name is a list of labels identifying a portion along one edge of a
 directed acyclic graph. A domain name can be relative to other parts of the tree, or it
-can be fully qualified (in which case, it ends at the common root of the graph).</t>
+can be fully qualified (in which case, it begins at the common root of the graph).</t>
 
 <t>Also note that different IETF and non-IETF documents have used the term "domain name"
 in many different ways. It is common for earlier documents to use "domain name" to mean
@@ -200,12 +200,12 @@ calculation.</t>
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
 wire format,  presentation format, and common display.</t>
 
-<t>The basic wire format for names in the global DNS is a list of labels with the root
+<t>The basic wire format for names in the global DNS is a list of labels ordered by decreasing distance from the root, with the root
 label last. Each label is preceded by a length octet. <xref target="RFC1035"/> also
 defines a compression scheme that modifies this format.</t>
 
-<t>The presentation format for names in the global DNS is a list of labels, encoded as
-ASCII, with the root label last, and a "." character between each label. In presentation
+<t>The presentation format for names in the global DNS is a list of labels ordered by decreasing distance from the root, encoded as
+ASCII, with a "." character between each label. In presentation
 format, a fully-qualified domain name includes the root label and the associated separator
 dot (for example, in presentation format, a fully-qualified domain name with two non-root
 labels is always shown as "example.tld." instead of "example.tld").
