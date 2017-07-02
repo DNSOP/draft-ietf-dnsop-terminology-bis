@@ -158,8 +158,8 @@ that help differentiate them. Some commonly-identified facets include:
 for naming systems, and the IETF has yet to agree on a good set of facets that can be used
 to compare naming systems. For example, other facets might include "protocol to update
 data in a name", "privacy of names", and "privacy of data associated with names", but
-those are not as well-defined as the ones listed above. The list here is
-chosen because it helps describe the DNS and naming systems similar to the DNS.</t>
+those are not as well-defined as the ones listed above. The list here is chosen because it
+helps describe the DNS and naming systems similar to the DNS.</t>
 
 <t hangText='Domain name:'>
 An ordered list of one or more labels.</t>
@@ -207,18 +207,19 @@ defines a compression scheme that modifies this format.</t>
 <t>The presentation format for names in the global DNS is a list of labels, encoded as
 ASCII, with the root label last, and a "." character between each label. In presentation
 format, a fully-qualified domain name includes the root label and the associated separator
-dot (for example, in presentation format, a fully-qualified domain name with two non-root labels is
-always shown as "example.tld." instead of "example.tld"). <xref target="RFC1035"/> defines
-a method for showing octets that do not display in ASCII.</t>
+dot (for example, in presentation format, a fully-qualified domain name with two non-root
+labels is always shown as "example.tld." instead of "example.tld").
+<xref target="RFC1035"/> defines a method for showing octets that do not display in ASCII.
+</t>
 
 <t>The common display format is used in applications and free text. It is the same as the
 presentation format, but showing the root label and the "." before it is optional and is
-rarely done (for example, in common display format, a fully-qualified domain name with two non-root
-labels is usually shown as "example.tld" instead of "example.tld."). Names in the common
-display format are normally written such that the directionality of the writing system
-presents labels by decreasing distance from the root (so, in both English and C the first
-label in the ordered list is right-most; but in Arabic it may be left-most, depending on
-local conventions).</t>
+rarely done (for example, in common display format, a fully-qualified domain name with two
+non-root labels is usually shown as "example.tld" instead of "example.tld."). Names in the
+common display format are normally written such that the directionality of the writing
+system presents labels by decreasing distance from the root (so, in both English and C the
+first label in the ordered list is right-most; but in Arabic it may be left-most,
+depending on local conventions).</t>
 
 <t>Administration of names -- Administration is specified by delegation (see the
 definition of to "delegation" in <xref target="zones"/>).  Policies for administration of
@@ -680,12 +681,13 @@ This is "like a slave server except not listed in an NS RR for
 the zone." (Quoted from <xref target="RFC1996"/>, Section 2.1)</t>
 
 <t hangText='Hidden master:'>
-A stealth server that is a primary server for zone transfers. "In this arrangement, the master name
-server that processes the updates is unavailable to general hosts on the Internet; it is
-not listed in the NS RRset." (Quoted from <xref target="RFC6781"/>, Section 3.4.3.)
-An earlier RFC, <xref target="RFC4641"/>, said that the hidden master's name appears in the SOA RRs MNAME field,
-although in some setups, the name does not appear at all in the public DNS.
-A hidden master can also be a secondary server itself.</t>
+A stealth server that is a primary server for zone transfers. "In this arrangement, the
+master name server that processes the updates is unavailable to general hosts on the
+Internet; it is not listed in the NS RRset." (Quoted from
+<xref target="RFC6781"/>, Section 3.4.3).  An earlier RFC, <xref target="RFC4641"/>, said
+that the hidden master's name "appears in the SOA RRs MNAME field", although in some
+setups, the name does not appear at all in the public DNS.  A hidden master can also be a
+secondary server itself.</t>
 
 <t hangText='Forwarding:'>
 The process of one server sending a DNS query with the
