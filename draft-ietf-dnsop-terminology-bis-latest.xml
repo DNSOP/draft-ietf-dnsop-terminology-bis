@@ -200,17 +200,18 @@ calculation.</t>
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
 wire format,  presentation format, and common display.</t>
 
-<t>The basic wire format for names in the global DNS is a list of labels ordered by decreasing distance from the root, with the root
-label last. Each label is preceded by a length octet. <xref target="RFC1035"/> also
-defines a compression scheme that modifies this format.</t>
+<t>The basic wire format for names in the global DNS is a list of labels ordered by
+decreasing distance from the root, with the root label last. Each label is preceded by a
+length octet. <xref target="RFC1035"/> also defines a compression scheme that modifies
+this format.</t>
 
-<t>The presentation format for names in the global DNS is a list of labels ordered by decreasing distance from the root, encoded as
-ASCII, with a "." character between each label. In presentation
-format, a fully-qualified domain name includes the root label and the associated separator
-dot (for example, in presentation format, a fully-qualified domain name with two non-root
-labels is always shown as "example.tld." instead of "example.tld").
-<xref target="RFC1035"/> defines a method for showing octets that do not display in ASCII.
-</t>
+<t>The presentation format for names in the global DNS is a list of labels ordered by
+decreasing distance from the root, encoded as ASCII, with a "." character between each
+label. In presentation format, a fully-qualified domain name includes the root label and
+the associated separator dot (for example, in presentation format, a fully-qualified
+domain name with two non-root labels is always shown as "example.tld." instead of
+"example.tld"). <xref target="RFC1035"/> defines a method for showing octets that do not
+display in ASCII.</t>
 
 <t>The common display format is used in applications and free text. It is the same as the
 presentation format, but showing the root label and the "." before it is optional and is
