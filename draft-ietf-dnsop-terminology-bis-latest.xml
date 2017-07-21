@@ -158,8 +158,8 @@ that help differentiate them. Some commonly-identified facets include:
 for naming systems, and the IETF has yet to agree on a good set of facets that can be used
 to compare naming systems. For example, other facets might include "protocol to update
 data in a name", "privacy of names", and "privacy of data associated with names", but
-those do not not have a clear definitions as the ones listed above. The list here is
-chosen because it helps describe the DNS and naming systems similar to the DNS.</t>
+those are not as well-defined as the ones listed above. The list here is chosen because it
+helps describe the DNS and naming systems similar to the DNS.</t>
 
 <t hangText='Domain name:'>
 An ordered list of one or more labels.</t>
@@ -168,9 +168,9 @@ An ordered list of one or more labels.</t>
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
 name space" using mathematical trees and their nodes in graph theory, and the definition
 in <xref target="RFC1034"/> has the same practical result as the definition here. Using
-graph theory, a domain name is a list of labels identifying a portion along one edge of an
-acyclic directed graph. A domain name can be relative to other parts of the tree, or it
-can be fully qualified (in which case, it ends at the common root of the graph).</t>
+graph theory, a domain name is a list of labels identifying a portion along one edge of a
+directed acyclic graph. A domain name can be relative to other parts of the tree, or it
+can be fully qualified (in which case, it begins at the common root of the graph).</t>
 
 <t>Also note that different IETF and non-IETF documents have used the term "domain name"
 in many different ways. It is common for earlier documents to use "domain name" to mean
@@ -191,7 +191,7 @@ target="RFC1035"/>, although the term "global DNS" has not been defined before n
 <t>Composition of names -- A name in the global DNS has one or more
 labels.  The length of each label is between 0 and 63 octets
 inclusive. In a fully-qualified domain name, the first label
-(logically speaking) is 0 octets long; it is the only label whose
+in the ordered list is 0 octets long; it is the only label whose
 length may be 0 octets, and it is called the "root" or "root label".
 A domain name in the global DNS has a maximum total length of 255
 octets in the wire format; the root represents one octet for this
@@ -200,25 +200,27 @@ calculation.</t>
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
 wire format,  presentation format, and common display.</t>
 
-<t>The basic wire format for names in the global DNS is a list of labels with the root
-label last. Each label is preceded by a length octet. <xref target="RFC1035"/> also
-defines a compression scheme that modifies this format.</t>
+<t>The basic wire format for names in the global DNS is a list of labels ordered by
+decreasing distance from the root, with the root label last. Each label is preceded by a
+length octet. <xref target="RFC1035"/> also defines a compression scheme that modifies
+this format.</t>
 
-<t>The presentation format for names in the global DNS is a list of labels, encoded as
-ASCII, with the root label last, and a "." character between each label. In presentation
-format, a fully-qualified domain name includes the root label and the associated separator
-dot. In presentation format, a fully-qualified domain name with two additional labels is
-always shown as "example.tld." instead of "example.tld". <xref target="RFC1035"/> defines
-a method for showing octets that do not display in ASCII.</t>
+<t>The presentation format for names in the global DNS is a list of labels ordered by
+decreasing distance from the root, encoded as ASCII, with a "." character between each
+label. In presentation format, a fully-qualified domain name includes the root label and
+the associated separator dot (for example, in presentation format, a fully-qualified
+domain name with two non-root labels is always shown as "example.tld." instead of
+"example.tld"). <xref target="RFC1035"/> defines a method for showing octets that do not
+display in ASCII.</t>
 
 <t>The common display format is used in applications and free text. It is the same as the
 presentation format, but showing the root label and the "." before it is optional and is
-rarely done. In common display format, a fully-qualified domain name with two additional
-labels is usually shown as "example.tld" instead of "example.tld.". Names in the common
-display format are normally written such that the first label in the ordered list is in
-the last position from the point of view of the directionality of the writing system (so,
-in both English and C the first label is the right-most label; but in Arabic it may be the
-left-most label, depending on local conventions).</t>
+rarely done (for example, in common display format, a fully-qualified domain name with two
+non-root labels is usually shown as "example.tld" instead of "example.tld."). Names in the
+common display format are normally written such that the directionality of the writing
+system presents labels by decreasing distance from the root (so, in both English and C the
+first label in the ordered list is right-most; but in Arabic it may be left-most,
+depending on local conventions).</t>
 
 <t>Administration of names -- Administration is specified by delegation (see the
 definition of to "delegation" in <xref target="zones"/>).  Policies for administration of
@@ -273,7 +275,7 @@ resolution client.</t>
 This is often just a clear way
 of saying the same thing as "domain name of a node", as outlined
 above.  However, the term is ambiguous.  Strictly speaking, a fully qualified
-domain name would include every label, including the final, zero-length label
+domain name would include every label, including the zero-length label
 of the root: such a name would be written "www.example.net."
 (note the terminating dot).  But because every name eventually shares
 the common root, names are often written relative to the root
@@ -281,8 +283,9 @@ the common root, names are often written relative to the root
 This term first appeared in <xref target="RFC0819"/>. In this document, names
 are often written relative to the root.</t>
 <t>The need for the term "fully qualified domain name" comes from the existence
-of partially qualified domain names, which are names where some of the
-right-most names are left off and are understood only by context.</t>
+of partially qualified domain names, which are names where one or more
+of the earliest labels in the ordered list are omitted (for example, "www").
+Such relative names are understood only by context.</t>
 
 <t hangText='Host name:'>
 This term and its equivalent, "hostname", have been
@@ -679,12 +682,13 @@ This is "like a slave server except not listed in an NS RR for
 the zone." (Quoted from <xref target="RFC1996"/>, Section 2.1)</t>
 
 <t hangText='Hidden master:'>
-A stealth server that is a master for zone transfers. "In this arrangement, the master name
-server that processes the updates is unavailable to general hosts on the Internet; it is
-not listed in the NS RRset." (Quoted from <xref target="RFC6781"/>, Section 3.4.3.)
-An earlier RFC, <xref target="RFC4641"/>, said that the hidden master's name appears in the SOA RRs MNAME field,
-although in some setups, the name does not appear at all in the public DNS.
-A hidden master can be either a secondary or a primary master.</t>
+A stealth server that is a primary server for zone transfers. "In this arrangement, the
+master name server that processes the updates is unavailable to general hosts on the
+Internet; it is not listed in the NS RRset." (Quoted from
+<xref target="RFC6781"/>, Section 3.4.3).  An earlier RFC, <xref target="RFC4641"/>, said
+that the hidden master's name "appears in the SOA RRs MNAME field", although in some
+setups, the name does not appear at all in the public DNS.  A hidden master can also be a
+secondary server itself.</t>
 
 <t hangText='Forwarding:'>
 The process of one server sending a DNS query with the
