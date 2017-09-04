@@ -726,7 +726,8 @@ policies are imposed without the user of the stub resolver being informed.</t>
 A full-service resolver that accepts and processes queries from any (or nearly any) stub
 resolver. This is sometimes also called a "public resolver", although the term "public resolver"
 is used more with open resolvers that are meant to be open, as compared to the vast majority of open
-resolvers that are probably misconfigured to be open.</t>
+resolvers that are probably misconfigured to be open.
+Open resolvers are discussed in <xref target="RFC5358"/></t>
 
 <t hangText='View:'>
 A configuration for a DNS server that allows it to provide
@@ -1388,6 +1389,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.4035.xml" ?>
 <?rfc include="reference.RFC.4592.xml" ?>
 <?rfc include="reference.RFC.5155.xml" ?>
+<?rfc include="reference.RFC.5358.xml" ?>
 <?rfc include="reference.RFC.5730.xml" ?>
 <?rfc include="reference.RFC.5855.xml" ?>
 <?rfc include="reference.RFC.5936.xml" ?>
