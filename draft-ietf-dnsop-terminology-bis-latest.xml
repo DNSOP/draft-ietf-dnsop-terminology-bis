@@ -141,6 +141,7 @@ from different RFCs.</t>
 <t><list style="hanging">
 
 <t hangText='Naming system:'>
+<iref item='Naming system'/>
 A naming system associates names with data. Naming systems have many significant facets
 that help differentiate them. Some commonly-identified facets include:
 
@@ -162,6 +163,7 @@ those are not as well-defined as the ones listed above. The list here is chosen 
 helps describe the DNS and naming systems similar to the DNS.</t>
 
 <t hangText='Domain name:'>
+<iref item='Domain name'/>
 An ordered list of one or more labels.</t>
 
 <t>Note that this is a definition independent of the DNS RFCs, and the definition here
@@ -179,11 +181,13 @@ rules such as "and are, or will be, resolvable in the global DNS" or "but only u
 presentation format".</t>
 
 <t hangText='Label:'>
+<iref item='Label'/>
 An ordered list of zero or more octets and which makes up a portion of a domain name.
 Using graph theory, a label identifies one node in a portion of the graph of all possible
 domain names.</t>
 
 <t hangText='Global DNS:'>
+<iref item='Global DNS'/>
 Using the short set of facets listed in "Naming system", the global DNS can be defined as
 follows. Most of the rules here come from <xref target="RFC1034"/> and <xref
 target="RFC1035"/>, although the term "global DNS" has not been defined before now.</t>
@@ -249,6 +253,7 @@ target="RFC1035"/>.</t>
 <t>Context for resolving a name -- The global DNS root zone distributed by PTI.</t>
 
 <t hangText='Private DNS:'>
+<iref item='Private DNS'/>
 Names that use the protocol described in <xref target="RFC1035"/> but that do not rely on
 the global DNS root zone, or names that are otherwise not generally available on the
 Internet but are using the protocol described in <xref target="RFC1035"/>.  A system can
@@ -260,6 +265,7 @@ looked up using the DNS protocol, are not part of the global DNS or a private DN
 though they are domain names.</t>
 
 <t hangText='Locally served DNS zone:'>
+<iref item='Locally served DNS zone'/>
 A locally served DNS zone is a special case of private DNS.
 Names are resolved using the DNS protocol in a local context. 
 <xref target="RFC6303"/> defines subdomains of IN-ADDR.ARPA
@@ -272,6 +278,7 @@ The context through which a locally served zone may be explicit, for example, as
 resolution client.</t>
 
 <t hangText='Fully qualified domain name (FQDN):'>
+<iref item='Fully qualified domain name (FQDN)'/>
 This is often just a clear way
 of saying the same thing as "domain name of a node", as outlined
 above.  However, the term is ambiguous.  Strictly speaking, a fully qualified
@@ -288,6 +295,7 @@ of the earliest labels in the ordered list are omitted (for example, "www").
 Such relative names are understood only by context.</t>
 
 <t hangText='Host name:'>
+<iref item='Host name'/>
 This term and its equivalent, "hostname", have been
 widely used but are not defined in <xref target="RFC1034"/>, <xref target="RFC1035"/>,
 <xref target="RFC1123"/>, or <xref target="RFC2181"/>. The
@@ -309,6 +317,7 @@ describe any name that refers to a machine, and those might include
 labels that do not conform to the "preferred name syntax".</t>
 
 <t hangText='TLD:'>
+<iref item='TLD'/>
 A Top-Level Domain, meaning a zone that is one layer below the
 root, such as "com" or "jp".  There is nothing special, from the point
 of view of the DNS, about TLDs.  Most of them are also
@@ -319,6 +328,7 @@ TLDs are often divided into sub-groups such as Country Code Top-Level Domains
 division is a matter of policy, and beyond the scope of this document.</t>
 
 <t hangText='IDN:'>
+<iref item='IDN'/>
 The common abbreviation for "Internationalized Domain Name". The IDNA protocol is the standard
 mechanism for handling domain names with non-ASCII characters in applications in the DNS. The current standard,
 normally called "IDNA2008", is defined in <xref target="RFC5890"/>, <xref target="RFC5891"/>, <xref target="RFC5892"/>,
@@ -328,16 +338,19 @@ These documents define many IDN-specific terms such as "LDH label", "A-label", a
 and <xref target="RFC6055"/> has a much more extensive discussion of IDNs, including some new terminology.</t>
 
 <t hangText='Subdomain:'>
+<iref item='Subdomain'/>
 "A domain is a subdomain of another domain if it is contained within that domain.  This relationship can be tested by
 seeing if the subdomain's name ends with the containing domain's name." (Quoted
 from <xref target="RFC1034"/>, Section 3.1). For
 example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn.mmm.example.com" are subdomains of "example.com".</t>
 
 <t hangText='Alias:'>
+<iref item='Alias'/>
 The owner of a CNAME resource record, or a subdomain of the owner of a
 DNAME resource record. See also "canonical name".</t>
 
 <t hangText='Canonical name:'>
+<iref item='Canonical name'/>
 A CNAME resource record "identifies its owner name as an
 alias, and specifies the corresponding canonical name in the RDATA
 section of the RR." (Quoted from <xref target="RFC1034"/>, Section 3.6.2)
@@ -345,12 +358,14 @@ This usage of the word "canonical" is related to the mathematical
 concept of "canonical form".</t>
 
 <t hangText='CNAME:'>
+<iref item='CNAME'/>
 "It is traditional to refer to the owner of a CNAME record
 as 'a CNAME'. This is unfortunate, as 'CNAME' is an abbreviation
 of 'canonical name', and the owner of a CNAME record is an alias,
 not a canonical name." (Quoted from <xref target="RFC2181"/>, Section 10.1.1)</t>
 
 <t hangText='Public suffix:'>
+<iref item='Public suffix'/>
 "A domain that is controlled by a public registry." (Quoted from <xref target="RFC6265"/>, Section 5.3)
 A common definition for this term is a domain under which subdomains can be registered, and on which HTTP cookies
 (<xref target="RFC6265"/>) should not be set.
@@ -413,6 +428,7 @@ that site uses mixed-case capitalization, while most documents use all-caps.</t>
 <t><list style="hanging">
 
 <t hangText='NODATA:'>
+<iref item='NODATA'/>
 "A pseudo RCODE which indicates that the name is valid for
 the given class, but there are no records of the given type.  A NODATA
 response has to be inferred from the answer." (Quoted from <xref target="RFC2308"/>, Section 1.)
@@ -425,11 +441,13 @@ explains how to distinguish them.</t>
 that NXRRSET is a specific error code defined in <xref target="RFC2136"/>.</t>
 
 <t hangText='Negative response:'>
+<iref item='Negative response'/>
 A response that indicates that a particular RRset does not exist,
 or whose RCODE indicates the nameserver cannot answer.
 Sections 2 and 7 of <xref target="RFC2308"/> describe the types of negative responses in detail.</t>
 
 <t hangText='Referrals:'>
+<iref item='Referrals'/>
 Data from the authority section of a non-authoritative answer.
 <xref target="RFC1035"/> Section 2.1 defines "authoritative" data. 
 However, referrals at zone cuts (defined in <xref target="zones"/>) are not authoritative. Referrals may be zone
@@ -450,9 +468,11 @@ practice has declined.</t>
 <t><list style="hanging">
 
 <t hangText='RR:'>
+<iref item='RR'/>
 An acronym for resource record.  (<xref target="RFC1034"/>, Section 3.6.)</t>
 
 <t hangText='RRset:'>
+<iref item='RRset'/>
 A set of resource records with the same label, class and type, but with different
 data. (Definition from <xref target="RFC2181"/>)  Also spelled RRSet in some documents. As a clarification,
 "same label" in this definition means "same owner name".
@@ -461,17 +481,20 @@ In addition, <xref target="RFC2181"/> states that "the TTLs of all RRs in an RRS
 which is an unfortunate misunderstanding.)</t>
 
 <t hangText='Master file:'>
+<iref item='Master file'/>
 "Master files are text files that contain RRs in text form.  Since the contents of a zone
 can be expressed in the form of a list of RRs a master file is most often used to define a
 zone, though it can be used to list a cache's contents." (<xref target="RFC1035"/>,
 Section 5.)</t>
 
 <t hangText='Presentation format:'>
+<iref item='Presentation format'/>
 The text format used in master files. This format is shown but not formally defined in
 <xref target="RFC1034"/> and <xref target="RFC1035"/>. The term "presentation format"
 first appears in <xref target="RFC4034"/>.</t>
 
 <t hangText='EDNS:'>
+<iref item='EDNS'/>
 The extension mechanisms for DNS, defined in <xref
 target="RFC6891"/>. Sometimes called "EDNS0" or "EDNS(0)"
 to indicate the version number. EDNS allows DNS clients and servers to specify message
@@ -479,16 +502,19 @@ sizes larger than the original 512 octet limit, to expand the response code spac
 potentially to carry additional options that affect the handling of a DNS query.</t>
 
 <t hangText='OPT:'>
+<iref item='OPT'/>
 A pseudo-RR (sometimes called a "meta-RR") that is used only to contain
 control information pertaining to the question-and-answer sequence of a specific
 transaction. (Definition from <xref target="RFC6891"/>, Section 6.1.1)
 It is used by EDNS.</t>
 
 <t hangText='Owner:'>
+<iref item='Owner'/>
 The domain name where a RR is found (<xref target="RFC1034"/>, Section 3.6).
 Often appears in the term "owner name".</t>
 
 <t hangText='SOA field names:'>
+<iref item='SOA field names'/>
 DNS documents, including the definitions here, often refer to the fields in the
 RDATA of an SOA resource record by field name. Those fields are defined in Section 3.3.13 of <xref target="RFC1035"/>.
 The names (in the order they appear in the SOA RDATA) are MNAME, RNAME, SERIAL, REFRESH, RETRY,
@@ -498,6 +524,7 @@ is that the MINIMUM field is only "the TTL to be used for negative responses".
 This document tends to use field names instead of terms that describe the fields.</t>
 
 <t hangText='TTL:'>
+<iref item='TTL'/>
 The maximum "time to live" of a resource record. "A TTL value is an unsigned
 number, with a minimum value of 0, and a maximum value of 2147483647. That is, a
 maximum of 2^31 - 1. When transmitted, the TTL is encoded in the less
@@ -523,6 +550,7 @@ in a zone file.  The $TTL directive was added to the master file
 format by <xref target="RFC2308"/>.</t>
 
 <t hangText='Class independent:'>
+<iref item='Class independent'/>
 A resource record type whose syntax and semantics are the same for every DNS
 class. A resource record type that is not class independent has different meanings depending on the
 DNS class of the record, or the meaning is undefined for classes other than IN (class 1, the Internet).</t>
@@ -542,6 +570,7 @@ that are specific to the way that the root zone of the public DNS is served.</t>
 <t><list style="hanging">
 
 <t hangText='Resolver:'>
+<iref item='Resolver'/>
 A program "that extract[s] information from name
 servers in response to client requests." (Quoted from <xref target="RFC1034"/>, Section 2.4)
 "The resolver is located on the same machine as the program
@@ -555,6 +584,7 @@ usually referring to some specific type of resolver
 the use of the term depends on understanding the context.</t>
 
 <t hangText='Stub resolver:'>
+<iref item='Stub resolver'/>
 A resolver that cannot perform all resolution
 itself. Stub resolvers generally depend on a recursive resolver to undertake the
 actual resolution function.  Stub resolvers are discussed but never
@@ -562,6 +592,7 @@ fully defined in Section 5.3.1 of <xref target="RFC1034"/>.
 They are fully defined in Section 6.1.3.1 of <xref target="RFC1123"/>.</t>
 
 <t hangText='Iterative mode:'>
+<iref item='Iterative mode'/>
 A resolution mode of a server that receives DNS
 queries and responds with a referral to another server.  Section 2.3 of <xref target="RFC1034"/>
 describes this as "The server refers the client to
@@ -570,6 +601,7 @@ A resolver that works in iterative mode is sometimes called an "iterative
 resolver".</t>
 
 <t hangText='Recursive mode:'>
+<iref item='Recursive mode'/>
 A resolution mode of a server that receives DNS
 queries and either responds to those queries from a local cache or
 sends queries to other servers in order to get the final answers to
@@ -586,22 +618,26 @@ in advance whether the server that one is querying will also perform
 recursion; both terms can be observed in use interchangeably.</t>
 
 <t hangText='Full resolver:'>
+<iref item='Full resolver'/>
 This term is used in <xref target="RFC1035"/>, but it is not defined there. RFC
 1123 defines a "full-service resolver" that may or may not be what was intended
 by "full resolver" in <xref target="RFC1035"/>.
 This term is not properly defined in any RFC.</t>
 
 <t hangText='Full-service resolver:'>
+<iref item='Full-service resolver'/>
 Section 6.1.3.1 of <xref target="RFC1123"/> defines this term
 to mean a resolver that acts in recursive mode with a cache (and meets
 other requirements).</t>
 
 <t hangText='Recursive resolver:'>
+<iref item='Recursive resolver'/>
 A resolver that acts in recursive mode.
 In general, a recursive resolver is expected to cache the answers it receives
 (which would make it a full-service resolver), but some recursive resolvers might not cache.</t>
 
 <t hangText='Priming:'>
+<iref item='Priming'/>
 "The act of finding the list of root servers from a
 configuration that lists some or all of the purported IP addresses of
 some or all of those root servers." (Quoted from <xref target="RFC8109"/>, Section 2.)
@@ -609,6 +645,7 @@ Priming is most often done from a configuration setting that contains a
 list of authoritative servers for the root zone.</t>
 
 <t hangText='Root hints:'>
+<iref item='Root hints'/>
 "Operators who manage a DNS recursive resolver typically need to configure
 a 'root hints file'.
 This file contains the names and IP addresses of the authoritative name servers
@@ -617,10 +654,12 @@ For many pieces of software, this list comes built into the software."
 (Quoted from <xref target="IANA_RootFiles"/>)</t>
 
 <t hangText='Negative caching:'>
+<iref item='Negative caching'/>
 "The storage of knowledge that something does not exist, cannot
 give an answer, or does not give an answer." (Quoted from <xref target="RFC2308"/>, Section 1)</t>
 
 <t hangText='Authoritative server:'>
+<iref item='Authoritative server'/>
 "A server that knows the content of a DNS zone from local knowledge, and thus can answer
 queries about that zone without needing to query other servers." (Quoted from <xref target="RFC2182"/>, Section 2.)
 It is a system that responds to DNS queries with
@@ -632,12 +671,14 @@ authority to that server. Authoritative servers also provide "referrals", usuall
 have the AA bit set to 0 and come with referral data in the Authority and (if needed) the Additional sections.</t>
 
 <t hangText='Authoritative-only server:'>
+<iref item='Authoritative-only server'/>
 A name server that only serves authoritative data and ignores requests for recursion.
 It will "not normally generate any queries of its own.  Instead, it answers non-recursive
 queries from iterative resolvers looking for information in zones it serves."
 (Quoted from <xref target="RFC4697"/>, Section 2.4)</t>
 
 <t hangText='Zone transfer:'>
+<iref item='Zone transfer'/>
 The act of a client requesting a copy of a zone and an authoritative server
 sending the needed information.
 (See <xref target="zones"/> for a description of zones.)
@@ -647,6 +688,7 @@ the IXFR ("Incremental Transfer") mechanism to copy only parts of the zone that 
 Many systems use non-standard methods for zone transfer outside the DNS protocol.</t>
 
 <t hangText='Secondary server:'>
+<iref item='Secondary server'/>
 "An authoritative server which uses zone transfer to retrieve the
 zone" (Quoted from <xref target="RFC1996"/>, Section 2.1).  <xref target="RFC2182"/> describes secondary servers in
 detail.  Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "slave", the
@@ -654,9 +696,11 @@ current common usage has shifted to calling it a "secondary".
 Secondary servers are also discussed in <xref target="RFC1034"/>.</t>
 
 <t hangText='Slave server:'>
+<iref item='Slave server'/>
 See secondary server.</t>
 
 <t hangText='Primary server:'>
+<iref item='Primary server'/>
 "Any authoritative server configured to be the source of zone transfer
 for one or more [secondary] servers" (Quoted from <xref target="RFC1996"/>, Section 2.1) or, more
 specifically, "an authoritative server configured to be the source of AXFR or IXFR data
@@ -666,9 +710,11 @@ to "primary".
 Primary servers are also discussed in <xref target="RFC1034"/>.</t>
 
 <t hangText='Master server:'>
+<iref item='Master server'/>
 See primary server.</t>
 
 <t hangText='Primary master:'>
+<iref item='Primary master'/>
 "The primary master is named in the zone's SOA MNAME field and
 optionally by an NS RR". (Quoted from <xref target="RFC1996"/>, Section 2.1).
 <xref target="RFC2136"/> defines "primary master" as "Master server at the root of the AXFR/IXFR dependency graph. 
@@ -678,10 +724,12 @@ The idea of a primary master is only used by <xref target="RFC2136"/>, and is co
 parts of the DNS.</t>
 
 <t hangText='Stealth server:'>
+<iref item='Stealth server'/>
 This is "like a slave server except not listed in an NS RR for
 the zone." (Quoted from <xref target="RFC1996"/>, Section 2.1)</t>
 
 <t hangText='Hidden master:'>
+<iref item='Hidden master'/>
 A stealth server that is a primary server for zone transfers. "In this arrangement, the
 master name server that processes the updates is unavailable to general hosts on the
 Internet; it is not listed in the NS RRset." (Quoted from
@@ -691,6 +739,7 @@ setups, the name does not appear at all in the public DNS.  A hidden master can 
 secondary server itself.</t>
 
 <t hangText='Forwarding:'>
+<iref item='Forwarding'/>
 The process of one server sending a DNS query with the
 RD bit set to 1 to another server to resolve that query. Forwarding is
 a function of a DNS resolver; it is different than simply blindly
@@ -701,6 +750,7 @@ support. Systems that forward are sometimes called "DNS proxies", but
 that term has not yet been defined (even in <xref target="RFC5625"/>).</t>
 
 <t hangText='Forwarder:'>
+<iref item='Forwarder'/>
 Section 1 of <xref target="RFC2308"/> describes a forwarder as "a
 nameserver used to resolve queries instead of directly using the
 authoritative nameserver chain".  <xref target="RFC2308"/> further says "The
@@ -713,6 +763,7 @@ forwarders often stand between stub resolvers and recursive servers.
 can be a full-service resolver.</t>
 
 <t hangText='Policy-implementing resolver:'>
+<iref item='Policy-implementing resolver'/>
 A resolver acting in recursive mode that changes some of the answers
 that it returns based on policy criteria, such as to prevent access to
 malware sites or objectionable content. In general, a stub resolver has no idea
@@ -723,6 +774,7 @@ with the explicit intention of using it to implement the policies.  In other cas
 policies are imposed without the user of the stub resolver being informed.</t>
 
 <t hangText='Open resolver:'>
+<iref item='Open resolver'/>
 A full-service resolver that accepts and processes queries from any (or nearly any) stub
 resolver. This is sometimes also called a "public resolver", although the term "public resolver"
 is used more with open resolvers that are meant to be open, as compared to the vast majority of open
@@ -730,6 +782,7 @@ resolvers that are probably misconfigured to be open.
 Open resolvers are discussed in <xref target="RFC5358"/></t>
 
 <t hangText='View:'>
+<iref item='View'/>
 A configuration for a DNS server that allows it to provide
 different answers depending on attributes of the query. Typically, views differ
 by the source IP address of a query, but can also be based on the destination IP address,
@@ -740,6 +793,7 @@ than to those "outside" that network.  Views are not a standardized
 part of the DNS, but they are widely implemented in server software.</t>
 
 <t hangText='Passive DNS:'>
+<iref item='Passive DNS'/>
 A mechanism to collect DNS data by storing DNS transactions from name servers.
 Some of these systems also collect the DNS queries associated with the
 responses.
@@ -751,11 +805,13 @@ particular value".
 </t>
 
 <t hangText='Anycast:'>
+<iref item='Anycast'/>
 "The practice of making a particular service address available in multiple, discrete, autonomous
 locations, such that datagrams sent are routed to one of several available locations."
 (Quoted from <xref target="RFC4786"/>, Section 2)</t>
 
 <t hangText='Instance:'>
+<iref item='Instance'/>
 "When anycast routing is used to allow more than one server to have the same IP
 address, each one of those servers is commonly referred to as an 'instance'."
 "An instance of a server, such as a root server, is often referred to as an 'Anycast
@@ -763,6 +819,7 @@ instance'."
 (Quoted from <xref target="RSSAC026" />)</t> 
 
 <t hangText='Split DNS:'>
+<iref item='Split DNS'/>
 "Where a corporate network serves up partly or completely different DNS inside and outside
 its firewall. There are many possible variants on this; the basic point is that the
 correspondence between a given FQDN (fully qualified domain name) and a given IPv4 address
@@ -779,16 +836,19 @@ is no longer universal and stable over long periods."
 <t><list style="hanging">
 
 <t hangText='Zone:'>
+<iref item='Zone'/>
 "Authoritative information is
 organized into units called 'zones', and these zones can be
 automatically distributed to the name servers which provide
 redundant service for the data in a zone." (Quoted from <xref target="RFC1034"/>, Section 2.4)</t>
 
 <t hangText='Child:'>
+<iref item='Child'/>
 "The entity on record that has the delegation of the domain from the
 Parent." (Quoted from <xref target="RFC7344"/>, Section 1.1)</t>
 
 <t hangText='Parent:'>
+<iref item='Parent'/>
 "The domain in which the Child is registered." (Quoted from <xref target="RFC7344"/>, Section 1.1) Earlier,
 "parent name server" was defined in <xref target="RFC0882"/> as "the name server that has authority over the place
 in the domain name space that will hold the new domain".  (Note
@@ -796,6 +856,7 @@ that <xref target="RFC0882"/> was obsoleted by <xref target="RFC1034"/> and <xre
 the relationship between parents and children.</t>
 
 <t hangText='Origin:'>
+<iref item='Origin'/>
 </t>
 <t>(a) "The domain name that appears at the top of a zone (just below the cut
 that separates the zone from its parent).  The name of the zone is the same as the name of the domain
@@ -809,6 +870,7 @@ then a master file line for "www" is in fact an entry for
 "www.example.org.".</t>
 
 <t hangText='Apex:'>
+<iref item='Apex'/>
 The point in the tree at an owner of an SOA and corresponding authoritative NS RRset.
 This is also called the "zone apex".
 <xref target="RFC4033"/> defines it as "the name at the child's side of a zone cut".
@@ -820,6 +882,7 @@ and one can find uses that conflict subtly with this definition.
 These days, the first sense of "origin" (above) and "apex" are often used interchangeably.</t>
 
 <t hangText='Zone cut:'>
+<iref item='Zone cut'/>
 The delimitation point between two zones where the origin
 of one of the zones is the child of the other zone.</t>
 <t>"Zones are delimited by 'zone cuts'.  Each zone cut separates a
@@ -829,6 +892,7 @@ definition.)
 Section 4.2 of <xref target="RFC1034"/> uses "cuts" as 'zone cut'."</t>
 
 <t hangText='Delegation:'>
+<iref item='Delegation'/>
 The process by which a separate zone is created in the
 name space beneath the apex of a given domain.  Delegation happens when an NS
 RRset is added in the parent zone for the child origin. Delegation
@@ -836,6 +900,7 @@ inherently happens at a zone cut.
 The term is also commonly a noun: the new zone that is created by the act of delegating.</t>
 
 <t hangText='Glue records:'>
+<iref item='Glue records'/>
 "[Resource records] which are not part of the authoritative data [of the zone],
 and are address resource records for the [name servers in subzones].  These RRs are only
 necessary if the name server's name is 'below' the cut, and are only used as part of a
@@ -851,6 +916,7 @@ suggests it is intended to apply to the use of glue within the document itself a
 necessarily beyond.</t>
 
 <t hangText='In-bailiwick:'>
+<iref item='In-bailiwick'/>
 An adjective to describe a name server whose name
 is either subordinate to or (rarely) the same as the zone
 origin.  In-bailiwick name servers may have glue records in their parent
@@ -878,6 +944,7 @@ For example, a delegation for "child.example.com" in "example.com" zone may have
 </list></t>
 
 <t hangText='Out-of-bailiwick:'>
+<iref item='Out-of-bailiwick'/>
 The antonym of in-bailiwick.
 An adjective to describe a name server whose name
 is not subordinate to or the same as the zone origin.
@@ -885,6 +952,7 @@ Glue records for out-of-bailiwick name servers are useless.
 </t>
 
 <t hangText='Authoritative data:'>
+<iref item='Authoritative data'/>
 "All of the RRs attached to all of the nodes from the top node of the zone
 down to leaf nodes or nodes above cuts around the bottom edge of the zone." (Quoted from
 <xref target="RFC1034"/>, Section 4.2.1) It is noted that this definition might inadvertently also include any NS records
@@ -895,10 +963,12 @@ authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
 
 <t hangText='Root zone:'>
+<iref item='Root zone'/>
 The zone of a DNS-based tree whose apex is the zero-length label.
 Also sometimes called "the DNS root".</t>
 
 <t hangText='Empty non-terminals (ENT):'>
+<iref item='Empty non-terminals (ENT)'/>
 "Domain names that own no resource records but have subdomains that do."
 (Quoted from <xref target="RFC4592"/>, Section 2.2.2.)
 A typical example is in SRV records: in the name
@@ -906,12 +976,14 @@ A typical example is in SRV records: in the name
 that "_sip._tcp.example.com" has (at least) an SRV RRset.</t>
 
 <t hangText='Delegation-centric zone:'>
+<iref item='Delegation-centric zone'/>
 A zone that consists mostly of delegations to child zones. This term is
 used in contrast to a zone that might have some delegations to child zones, but also has many data
 resource records for the zone itself and/or for child zones.
 The term is used in <xref target="RFC4956"/> and <xref target="RFC5155"/>, but is not defined there.</t>
 
 <t hangText='Wildcard:'>
+<iref item='Wildcard'/>
 <xref target="RFC1034"/> defined "wildcard", but in a way that turned out to be
 confusing to implementers.
 Special treatment is given to RRs with owner names starting with the label "*".  "Such RRs
@@ -920,6 +992,7 @@ are called 'wildcards'. Wildcard RRs can be thought of as instructions for synth
 For an extended discussion of wildcards, including clearer definitions, see <xref target="RFC4592"/>.</t>
 
 <t hangText='Asterisk label:'>
+<iref item='Asterisk label'/>
 "The first octet is the normal label type and length for a 1-octet-long
 label, and the second octet is the ASCII representation
 for the '*' character.
@@ -927,11 +1000,13 @@ A descriptive name of a label equaling that value is an 'asterisk
 label'." (Quoted from <xref target="RFC4592"/>, Section 2.1.1)</t>
 
 <t hangText='Wildcard domain name:'>
+<iref item='Wildcard domain name'/>
 "A 'wildcard domain name' is defined by having its initial (i.e.,
 leftmost or least significant) label be asterisk label."
 (Quoted from <xref target="RFC4592"/>, Section 2.1.1)</t>
 
 <t hangText='Closest encloser:'>
+<iref item='Closest encloser'/>
 "The longest existing ancestor of a name."
 (Quoted from <xref target="RFC5155"/>, Section 1.3)
 An earlier definition is "The node in the zone's tree of existing
@@ -942,17 +1017,20 @@ is a 'label match' and the order of the labels is the same."
 </t>
 
 <t hangText='Closest provable encloser:'>
+<iref item='Closest provable encloser'/>
 "The longest ancestor of a name that can
 be proven to exist.  Note that this is only different from the
 closest encloser in an Opt-Out zone."
 (Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
 
 <t hangText='Next closer name:'>
+<iref item='Next closer name'/>
 "The name one label longer than the closest
 provable encloser of a name."
 (Quoted from <xref target="RFC5155"/>, Section 1.3)</t>
 
 <t hangText='Source of Synthesis:'>
+<iref item='Source of Synthesis'/>
 "The source of synthesis is defined in the context of a query process
 as that wildcard domain name immediately descending from the closest
 encloser, provided that this wildcard domain name exists.
@@ -961,12 +1039,14 @@ name of the form: &lt;asterisk label&gt;.&lt;closest encloser&gt;."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)</t>
 
 <t hangText='Occluded name:'>
+<iref item='Occluded name'/>
 "The addition of a delegation point via dynamic update will render all subordinate
 domain names to be in a limbo, still part of the zone, but not available to the lookup process.  The
 addition of a DNAME resource record has the same impact.  The subordinate names are said to be
 'occluded'." (Quoted from <xref target="RFC5936"/>, Section 3.5)</t>
 
 <t hangText='Fast flux DNS:'>
+<iref item='Fast flux DNS'/>
 This "occurs when a domain is found in DNS using A records to multiple IP addresses,
 each of which has a very short Time-to-Live (TTL) value associated with it.  This means
 that the domain resolves to varying IP addresses over a short period of time."
@@ -977,6 +1057,7 @@ with AAAA records, but such use is not frequently observed on the
 Internet as of this writing.</t>
 
 <t hangText='Reverse DNS, reverse lookup:'>
+<iref item='Reverse DNS, reverse lookup'/>
 "The process of mapping an address to a name is
 generally known as a 'reverse lookup', and the IN-ADDR.ARPA and
 IP6.ARPA zones are said to support the 'reverse DNS'."
@@ -984,11 +1065,13 @@ IP6.ARPA zones are said to support the 'reverse DNS'."
 </t>
 
 <t hangText='Forward lookup:'>
+<iref item='Forward lookup'/>
 "Hostname-to-address translation". (Quoted from 
 <xref target="RFC2133" />, Section 6)
 </t>
 
 <t hangText='arpa: Address and Routing Parameter Area Domain:'>
+<iref item='arpa: Address and Routing Parameter Area Domain'/>
 "The 'arpa' domain was originally established as part of the initial
 deployment of the DNS, to provide a transition mechanism from the
 Host Tables that were common in the ARPANET, as well as a home for
@@ -999,12 +1082,14 @@ reducing confusion with the earlier network name."
 </t>
 
 <t hangText='Infrastructure domain:'>
+<iref item='Infrastructure domain'/>
 A domain whose "role is to
 support the operating infrastructure of the Internet".
 (Quoted from <xref target="RFC3172"/>, Section 2.)
 </t>
 
 <t hangText='Service name:'>
+<iref item='Service name'/>
 "Service names are the unique key in the Service Name and Transport
 Protocol Port Number registry.  This unique symbolic name for a
 service may also be used for other purposes, such as in DNS SRV
@@ -1018,6 +1103,7 @@ records." (Quoted from <xref target="RFC6335"/>, Section 5.)
 <t><list style="hanging">
 
 <t hangText='Registry:'>
+<iref item='Registry'/>
 The administrative operation of a zone that allows registration of names within that
 zone.  People often use this term to refer only to those organizations
 that perform registration in large delegation-centric zones (such as
@@ -1027,22 +1113,26 @@ This definition of "registry" is from a DNS point of view; for some zones, the p
 that determine what can go in the zone are decided by superior zones and not the registry operator.</t>
 
 <t hangText='Registrant:'>
+<iref item='Registrant'/>
 An individual or organization on whose behalf a name in
 a zone is registered by the registry.  In many zones, the registry and
 the registrant may be the same entity, but in TLDs they often are
 not.</t>
 
 <t hangText='Registrar:'>
+<iref item='Registrar'/>
 A service provider that acts as a go-between for
 registrants and registries.  Not all registrations require a
 registrar, though it is common to have registrars involved in
 registrations in TLDs.</t>
 
 <t hangText='EPP:'>
+<iref item='EPP'/>
 The Extensible Provisioning Protocol (EPP), which is commonly used for communication
 of registration information between registries and registrars. EPP is defined in <xref target="RFC5730"/>.</t>
 
 <t hangText='WHOIS:'>
+<iref item='WHOIS'/>
 A protocol specified in <xref target="RFC3912"/>, often used for querying registry databases.
 WHOIS data is frequently used to associate registration data (such as zone management
 contacts) with domain names.
@@ -1051,12 +1141,14 @@ that database may be served by different protocols, particularly RDAP.
 The WHOIS protocol is also used with IP address registry data.</t>
 
 <t hangText='RDAP:'>
+<iref item='RDAP'/>
 The Registration Data Access Protocol, defined in
 <xref target="RFC7480"/>, <xref target="RFC7481"/>, <xref target="RFC7482"/>, <xref target="RFC7483"/>,
 <xref target="RFC7484"/>, and <xref target="RFC7485"/>.
 The RDAP protocol and data format are meant as a replacement for WHOIS.</t>
 
 <t hangText='DNS operator:'>
+<iref item='DNS operator'/>
 An entity responsible for running DNS servers. For a zone's authoritative servers, the registrant
 may act as their own DNS operator, or their registrar may do it on their behalf, or they may use a
 third-party operator.
@@ -1075,6 +1167,7 @@ terms that have caused confusion in the DNS community are highlighted here.</t>
 <t><list style="hanging">
 
 <t hangText='DNSSEC-aware and DNSSEC-unaware:'>
+<iref item='DNSSEC-aware and DNSSEC-unaware'/>
 These two terms, which are used in some RFCs, have not been formally defined.
 However, Section 2 of <xref target="RFC4033"/> defines many types of resolvers and
 validators, including "non-validating security-aware stub resolver", "non-validating
@@ -1084,6 +1177,7 @@ stub resolver", "security-aware name server", "security-aware recursive name ser
 places in DNSSEC-related documents, is also not defined in those RFCs, but is defined below.)</t>
 
 <t hangText='Signed zone:'>
+<iref item='Signed zone'/>
 "A zone whose RRsets are signed and that contains
 properly constructed DNSKEY, Resource Record Signature (RRSIG),
 Next Secure (NSEC), and (optionally) DS records." (Quoted from 
@@ -1100,6 +1194,7 @@ NSEC3 mechanisms used by DNSSEC to provide authenticated denial-of-existence res
 NSEC and NSEC3 are described below.</t>
 
 <t hangText='Unsigned zone:'>
+<iref item='Unsigned zone'/>
 Section 2 of <xref target="RFC4033"/> defines this as "a zone that is not signed". Section 2 of
 <xref target="RFC4035"/> defines this as "A zone that does not include these records [properly constructed DNSKEY,
 Resource Record Signature (RRSIG), Next Secure (NSEC), and (optionally) DS records] according to the
@@ -1110,6 +1205,7 @@ authentication path to the child zone.  In this case, the resolver SHOULD treat 
 it were unsigned."</t>
 
 <t hangText='NSEC:'>
+<iref item='NSEC'/>
 "The NSEC record allows a security-aware resolver to authenticate a negative reply for
 either name or type non-existence with the same mechanisms used to authenticate other DNS replies."
 (Quoted from <xref target="RFC4033"/>, Section 3.2.) In short, an NSEC record provides authenticated denial of
@@ -1120,6 +1216,7 @@ ordering of the zone) that contains authoritative data or a delegation point NS 
 of RR types present at the NSEC RR's owner name." (Quoted from Section 4 of RFC 4034)</t>
 
 <t hangText='NSEC3:'>
+<iref item='NSEC3'/>
 Like the NSEC record, the NSEC3 record also provides authenticated denial of existence; however,
 NSEC3 records mitigate against zone enumeration and support Opt-Out.
 NSEC resource records require associated NSEC3PARAM resource records.
@@ -1130,6 +1227,7 @@ as described by Section 10 of <xref target="RFC4033"/>". This means that some of
 only talk about NSEC records should probably be considered to be talking about both NSEC and NSEC3.</t>
 
 <t hangText='Opt-out:'>
+<iref item='Opt-out'/>
 "The Opt-Out Flag indicates whether this NSEC3 RR may cover unsigned delegations."
 (Quoted from <xref target="RFC5155"/>, Section 3.1.2.1.)
 Opt-out tackles the high costs of securing a delegation to an insecure zone.  When using
@@ -1139,6 +1237,7 @@ RRSIG records. Opt-Out NSEC3 records are not able to prove or deny the existence
 insecure delegations. (Adapted from <xref target="RFC7129"/>, Section 5.1)</t>
 
 <t hangText='Zone enumeration:'>
+<iref item='Zone enumeration'/>
 "The practice of discovering the full content of a zone via successive queries."
 (Quoted from <xref target="RFC5155"/>, Section 1.3.) This is also sometimes called "zone walking".
 Zone enumeration is different from zone content guessing where the guesser uses a large dictionary
@@ -1146,6 +1245,7 @@ of possible labels and sends successive queries for them, or matches the content
 against such a dictionary.</t>
 
 <t hangText='Validation:'>
+<iref item='Validation'/>
 Validation, in the context of DNSSEC, refers to the following:
 
 <list style="symbols">
@@ -1191,6 +1291,7 @@ both DNS keys and data is a matter of local policy, which may extend or even ove
 <t>The term "verification", when used, is usually synonym for "validation".</t>
 
 <t hangText='Validating resolver:'>
+<iref item='Validating resolver'/>
   A security-aware recursive name server, security-aware resolver, or
   security-aware stub resolver that is applying at least one of the
   definitions of validation (above), as appropriate to the resolution
@@ -1202,10 +1303,12 @@ both DNS keys and data is a matter of local policy, which may extend or even ove
   <!-- added in response to issue 18 -->
 
 <t hangText='Key signing key (KSK):'>
+<iref item='Key signing key (KSK)'/>
 DNSSEC keys that "only sign the apex DNSKEY RRset in a zone."(Quoted from
 <xref target="RFC6781"/>, Section 3.1)</t>
 
 <t hangText='Zone signing key (ZSK):'>
+<iref item='Zone signing key (ZSK)'/>
 "DNSSEC keys that can be used to sign all the RRsets in a zone that
 require signatures, other than the apex DNSKEY RRset." (Quoted from <xref target="RFC6781"/>, Section 3.1)
 Note that the roles KSK and ZSK are not mutually exclusive: a single
@@ -1213,6 +1316,7 @@ key can be both KSK and ZSK at the same time.
 Also note that a ZSK is sometimes used to sign the apex DNSKEY RRset.</t>
 
 <t hangText='Combined signing key (CSK):'>
+<iref item='Combined signing key (CSK)'/>
 "In cases where the differentiation between the KSK and ZSK is not made,
 i.e., where keys have the role of both KSK and ZSK, we talk about a Single-Type Signing
 Scheme." (Quoted from <xref target="RFC6781"/>, Section 3.1) This is sometimes called a "combined
@@ -1220,6 +1324,7 @@ signing key" or CSK.  It is operational practice, not protocol, that determines 
 particular key is a ZSK, a KSK, or a CSK.</t>
 
 <t hangText='Secure Entry Point (SEP):'>
+<iref item='Secure Entry Point (SEP)'/>
 A flag in the DNSKEY RDATA that "can be used to distinguish between
 keys that are intended to be used as the secure entry point into the zone when building
 chains of trust, i.e., they are (to be) pointed to by parental DS RRs or configured as a
@@ -1244,6 +1349,7 @@ That definition of the SEP as a key was made obsolete by <xref target="RFC4034"/
 and the definition from <xref target="RFC6781"/> is consistent with <xref target="RFC4034"/>.</t>
 
 <t hangText='Trust anchor:'>
+<iref item='Trust anchor'/>
 "A configured DNSKEY RR or DS RR hash of a DNSKEY RR.  A
 validating security-aware resolver uses this public key or hash as
 a starting point for building the authentication chain to a signed
@@ -1251,22 +1357,26 @@ DNS response." (Quoted from <xref target="RFC4033"/>, Section 2)
 </t>
 
 <t hangText='DNSSEC Policy (DP):'>
+<iref item='DNSSEC Policy (DP)'/>
 A statement that "sets forth the security requirements and
 standards to be implemented for a DNSSEC-signed zone." (Quoted from <xref target="RFC6841"/>,
 Section 2)</t>
 
 <t hangText='DNSSEC Practice Statement (DPS):'>
+<iref item='DNSSEC Practice Statement (DPS)'/>
 "A practices disclosure document that may
 support and be a supplemental document to the DNSSEC Policy (if such exists),
 and it states how the management of a given zone implements procedures and
 controls at a high level." (Quoted from <xref target="RFC6841"/>, Section 2)</t>
 
 <t hangText='Hardware security module (HSM):'>
+<iref item='Hardware security module (HSM)'/>
 A specialized piece of hardware that is used to create keys for signatures and to
 sign messages. In DNSSEC, HSMs are often used to hold the private keys for
 KSKs and ZSKs and to create the RRSIG records at periodic intervals.</t>
 
 <t hangText='Signing software:'>
+<iref item='Signing software'/>
 Authoritative DNS servers that supports DNSSEC often contains software that
 facilitates the creation and maintenance of DNSSEC signatures in zones.
 There is also stand-alone software that can be used to sign a zone regardless
