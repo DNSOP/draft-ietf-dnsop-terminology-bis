@@ -533,7 +533,12 @@ DNS class of the record, or the meaning is undefined for classes other than IN (
 <section anchor="dns-servers-and-clients" title="DNS Servers and Clients">
 
 <t>This section defines the terms used for the systems that act as DNS clients, DNS
-servers, or both.</t>
+servers, or both.
+In the RFCs, DNS servers are sometimes called "name servers", "nameservers",
+or just "servers". There is no formal definition of DNS server, but the RFCs
+generally assume that it is an Internet server that listens for queries
+and sends responses using the DNS protocol defined in <xref target="RFC1035"/>
+and its successors.</t>
 
 <t>For terminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
 That document defines terms such as "root server", "root server operator", and terms
@@ -553,6 +558,12 @@ logical function is called "resolution".  In practice, the term is
 usually referring to some specific type of resolver
 (some of which are defined below), and understanding
 the use of the term depends on understanding the context.</t>
+
+<t>A related term is "resolve", which is not formally defined in <xref target="RFC1034"/>
+or <xref target="RFC1035"/>. An imputed definition might be "asking a question that
+consists of a domain name, class, and type, and receiving some sort of answer".
+Similarly, an imputed definition of "resolution" might be "the answer received
+from resolving".</t>
 
 <t hangText='Stub resolver:'>
 A resolver that cannot perform all resolution
