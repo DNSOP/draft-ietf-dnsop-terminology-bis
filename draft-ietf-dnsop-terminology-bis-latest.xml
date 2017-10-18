@@ -1149,6 +1149,11 @@ derived from insecure delegations) don't require an NSEC3 record or its correspo
 RRSIG records. Opt-Out NSEC3 records are not able to prove or deny the existence of the
 insecure delegations. (Adapted from <xref target="RFC7129"/>, Section 5.1)</t>
 
+<t hangText='Insecure delegation:'>
+<iref item='Insecure delegation'/>
+"A signed name containing a delegation (NS RRset), but lacking a DS RRset,
+signifying a delegation to an unsigned subzone." (Quoted from <xref target="RFC4956"/>, Section 2.)</t>
+
 <t hangText='Zone enumeration:'>
 "The practice of discovering the full content of a zone via successive queries."
 (Quoted from <xref target="RFC5155"/>, Section 1.3.) This is also sometimes called "zone walking".
