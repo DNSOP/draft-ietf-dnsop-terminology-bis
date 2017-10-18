@@ -399,21 +399,62 @@ authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
 <t><list style="hanging">
 
 <t hangText='QNAME'>
-The most commonly-used definition is that the QNAME is a field in
-the Question section of a query.
-"A standard query specifies a target domain name (QNAME), query type
-(QTYPE), and query class (QCLASS) and asks for RRs which match."
-(Quoted from <xref target="RFC1034"/>, Section 3.7.1.)
+The most commonly-used rough definition is that the QNAME is a field in the Question section of a
+query.  "A standard query specifies a target domain name (QNAME), query type (QTYPE), and query
+class (QCLASS) and asks for RRs which match."  (Quoted from <xref target="RFC1034"/>, Section
+3.7.1.).  Strictly speaking, the definition comes from <xref target="RFC1035"/>, Section 4.1.2,
+where the QNAME is defined in respect of the Question Section.  This definition appears to be
+applied consistently: the discussion of inverse queries in section 6.4 refers to the "owner name of
+the query RR and its TTL", because inverse queries populate the Answer Section and leave the
+Question Section empty.  (Inverse queries are deprecated in <xref target="RFC3425"/>, and so
+relevant definitions do not appear in this document.)
 </t>
 
 <t>
-<xref target="RFC2308"/>, however, has an alternate definition that
-puts the QNAME in the answer (or series of answers) instead of the query.
-It defines QNAME as: "...the name in the query section of an answer, or where this
-resolves to a CNAME, or CNAME chain, the data field of the last
-CNAME.  The last CNAME in this sense is that which contains a value
-which does not resolve to another CNAME."
+<xref target="RFC2308"/>, however, has an alternate definition that puts the QNAME in the answer (or
+series of answers) instead of the query. It defines QNAME as: "...the name in the query section of
+an answer, or where this resolves to a CNAME, or CNAME chain, the data field of the last CNAME.  The
+last CNAME in this sense is that which contains a value which does not resolve to another CNAME."
+This definition has a certain internal logic, because of the way CNAME substitution works and the
+definition of CNAME.  If a name server does not find an RRset that matches a query, but it finds the
+same name in the same class with a CNAME record, then the name server "includes the CNAME record in
+the response and restarts the query at the domain name specified in the data field of the CNAME
+record."  (<xref target="RFC1034"/> Section 3.6.2).  This is made explicit in the resolution
+algorithm outlined in Section 4.3.2 of <xref target="RFC1034"/>, which says to "change QNAME to the
+canonical name in the CNAME RR, and go back to step 1" in the case of a CNAME RR.  Since a CNAME
+record explicitly declares that the owner name is canonically named what is in the RDATA, then there
+is a way to view the new name (i.e. the name that was in the RDATA of the CNAME RR) as also being
+the QNAME.
 </t>
+
+<t>
+This creates a kind of confusion, however, because the answer to a query that results in CNAME
+processing contains in the echoed Question Section one QNAME (the name in the original query), and a
+second QNAME that is in the data field of the last CNAME.  The confusion comes from the
+iterative/recursive mode of resolution, which finally returns an answer that need not actually have
+the same owner name as the QNAME contained in the original query.
+</t>
+
+<t>
+To address this potential confusion, it is helpful to distinguish between three meanings:
+<list style="symbols">
+
+<t>
+QNAME (original): The name actually sent in the Question Section in the orignal query, which is
+always echoed in the (final) reply in the Question Section when the QR bit is set to 1.
+</t>
+
+<t>
+QNAME (effective): A name actually resolved, which is either the name originally queried,
+or a name received in a CNAME chain response.
+</t>
+
+<t>
+QNAME (final): The name actually resolved, which is either the name actually queried or else
+the last name in a CNAME chain response.
+</t>
+
+</list></t>
 
 </list></t>
 
@@ -1547,6 +1588,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.2133.xml" ?>
 <?rfc include="reference.RFC.2775.xml" ?>
 <?rfc include="reference.RFC.3172.xml" ?>
+<?rfc include="reference.RFC.3425.xml" ?>
 <?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
 <?rfc include="reference.RFC.4641.xml" ?>
