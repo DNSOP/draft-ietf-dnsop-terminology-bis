@@ -459,14 +459,44 @@ the last name in a CNAME chain response.
 </list></t>
 
 <t>Some of response codes that are defined in <xref target="RFC1035"/> have acquired their own
-shorthand names. Some common response code names that appear without
-reference to the numeric value are "FORMERR", "SERVFAIL", and "NXDOMAIN"
-(the latter of which is also referred to as "Name Error"). All of
-the RCODEs are listed at
+shorthand names.  All of the RCODEs are listed at
 http://www.iana.org/assignments/dns-parameters, although
-that site uses mixed-case capitalization, while most documents use all-caps.</t>
+that site uses mixed-case capitalization, while most documents use all-caps.
+Some of the names are described here, but the official list is in the IANA registry.</t>
 
 <t><list style="hanging">
+
+<t hangText='NOERROR:'>
+<iref item='NOERROR'/>
+"No error condition" (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
+
+<t hangText='FORMERR:'>
+<iref item='FORMERR'/>
+"Format error - The name server was unable to interpret the query." (Quoted from <xref
+target="RFC1035"/>, Section 4.1.1.)</t>
+
+<t hangText='SERVFAIL:'>
+<iref item='SERVFAIL'/>
+"Server failure - The name server was unable to process this query due to a problem with the name
+server." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
+
+<t hangText='NXDOMAIN:'>
+<iref item='NXDOMAIN'/>
+"Name Error - Meaningful only for responses from an authoritative name server, this code signifies
+that the domain name referenced in the query does not exist." (Quoted from <xref target="RFC1035"/>,
+Section 4.1.1.)</t>
+
+<t hangText='NOTIMP:'>
+<iref item='NOTIMP'/>
+"Not Implemented - The name server does not support the requested kind of query." (Quoted from <xref
+target="RFC1035"/>, Section 4.1.1.)</t>
+
+<t hangText='REFUSED:'>
+<iref item='REFUSED'/>
+"Refused - The name server refuses to perform the specified operation for policy reasons.  For
+example, a name server may not wish to provide the information to the particular requester, or a
+name server may not wish to perform a particular operation (e.g., zone transfer) for particular
+data." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
 
 <t hangText='NODATA:'>
 <iref item='NODATA'/>
