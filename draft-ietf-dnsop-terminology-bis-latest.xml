@@ -1216,7 +1216,9 @@ Instead, they are given in examples.
 ns1.example.com'."
 "For example, host ns1.example1.com is a subordinate host of domain example1.com,
 but it is a not a subordinate host of domain example2.com."
-(Quoted from <xref target="RFC3731"/>, Section 1.1.)</t>
+(Quoted from <xref target="RFC3731"/>, Section 1.1.)
+These terms are strictly ways of referring to the relationship standing of two domains
+where one is a subdomain of the other.</t>
 
 </list></t>
 </section>
