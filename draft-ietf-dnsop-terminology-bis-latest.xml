@@ -703,7 +703,8 @@ answer, or a referral to some other server "closer" to the answer.
 
 <t hangText='Iterative query:'>
 <iref item='Iterative query'/>
-Synonym for non-recursive query. This term is used in a number of RFCs though never explicitly
+Synonym for non-recursive query that happens to be a query in a series of recursive queries,
+but that is itself not a recursive query. This term is used in a number of RFCs though never explicitly
 defined.</t>
 
 <t hangText='Iterative resolution:'>
