@@ -519,7 +519,11 @@ Sections 2 and 7 of <xref target="RFC2308"/> describe the types of negative resp
 
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
-Data from the authority section of a non-authoritative answer.
+
+\[\[ This text is being modified in the WG and a changed definition will appear
+in a future draft. \]\]</t>
+
+<t>Data from the authority section of a non-authoritative answer.
 <xref target="RFC1035"/> Section 2.1 defines "authoritative" data. 
 However, referrals at zone cuts (defined in <xref target="zones"/>) are not authoritative. Referrals may be zone
 cut NS resource records and their glue records. 
@@ -828,7 +832,11 @@ See primary server.</t>
 
 <t hangText='Primary master:'>
 <iref item='Primary master'/>
-"The primary master is named in the zone's SOA MNAME field and
+
+<t>\[\[ There is active discussion in the WG of this term. It will be resolved in
+a future version of the draft. \]\]</t>
+
+<t>"The primary master is named in the zone's SOA MNAME field and
 optionally by an NS RR". (Quoted from <xref target="RFC1996"/>, Section 2.1).
 <xref target="RFC2136"/> defines "primary master" as "Master server at the root of the AXFR/IXFR dependency graph. 
 The primary master is named in the zone's SOA MNAME field and optionally by an NS RR.  There is by
