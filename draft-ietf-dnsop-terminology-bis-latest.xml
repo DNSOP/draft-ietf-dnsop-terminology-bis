@@ -718,6 +718,37 @@ A resolver that acts in recursive mode.
 In general, a recursive resolver is expected to cache the answers it receives
 (which would make it a full-service resolver), but some recursive resolvers might not cache.</t>
 
+<t hangText='Recursive query:'>
+<iref item='Recursive query'/>
+A query with the Recursion Desired (RD) bit set to 1 in the header.(See Section 4.1.1 of <xref
+target="RFC1035"/>.) If recursive service is available and is requested by the RD bit in the query,
+the server uses its resolver to answer the query. (See Section 4.3.2 of <xref target="RFC1035"/>.)</t>
+
+<t hangText='Non-recursive query:'>
+<iref item='Non-recursive query'/>
+A query with the Recursion Desired (RD) bit set to 0 in the header. A server can answer
+non-recursive queries using only local information: the response contains either an error, the
+answer, or a referral to some other server "closer" to the answer.
+(See Section 4.3.1 of <xref target="RFC1035"/>.)</t>
+
+<t hangText='Iterative query:'>
+<iref item='Iterative query'/>
+Synonym for non-recursive query that happens to be a query in a series of recursive queries,
+but that is itself not a recursive query. This term is used in a number of RFCs though never explicitly
+defined.</t>
+
+<t hangText='Iterative resolution:'>
+<iref item='Iterative resolution'/>
+A name server may be presented with a query that can only be answered by some other server. The two
+general approaches to dealing with this problem are "recursive", in which the first server pursues
+the query for the client at another server, and "iterative", in which the server refers the client
+to another server and lets the client pursue the query there. (See Section 2.3 of <xref
+target="RFC1034"/>.)</t>
+
+<t>In iterative resolution, the client repeatedly makes non-recursive queries and follows referrals
+and/or aliases. The iterative resolution algorithm is described in Section 5.3.3 of <xref
+target="RFC1034"/>.</t>
+
 <t hangText='Priming:'>
 <iref item='Priming'/>
 "The act of finding the list of root servers from a
