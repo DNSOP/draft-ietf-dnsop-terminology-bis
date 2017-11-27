@@ -833,7 +833,7 @@ See primary server.</t>
 <t hangText='Primary master:'>
 <iref item='Primary master'/>
 
-<t>\[\[ There is active discussion in the WG of this term. It will be resolved in
+\[\[ There is active discussion in the WG of this term. It will be resolved in
 a future version of the draft. \]\]</t>
 
 <t>"The primary master is named in the zone's SOA MNAME field and
