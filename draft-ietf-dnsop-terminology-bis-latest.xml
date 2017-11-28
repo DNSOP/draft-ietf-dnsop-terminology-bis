@@ -291,7 +291,8 @@ This term first appeared in <xref target="RFC0819"/>. In this document, names
 are often written relative to the root.</t>
 <t>The need for the term "fully qualified domain name" comes from the existence
 of partially qualified domain names, which are names where one or more
-of the earliest labels in the ordered list are omitted (for example, "www").
+of the earliest labels in the ordered list are omitted (for example,
+a name of "www" derived from "www.example.net").
 Such relative names are understood only by context.</t>
 
 <t hangText='Host name:'>
