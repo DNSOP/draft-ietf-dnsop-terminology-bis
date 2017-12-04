@@ -844,6 +844,12 @@ definition only one primary master server per zone."
 The idea of a primary master is only used by <xref target="RFC2136"/>, and is considered archaic in other
 parts of the DNS.</t>
 
+<t> ##### PROPOSED NEW TEXT #####:
+The idea of a primary master is only used in <xref target="RFC1996"/> and <xref target="RFC2136"/>, and is considered archaic in other
+parts of the DNS. A modern interpretation of the term "primary master" is a server that is both authoritative for a zone and that gets its updates to the zone from configuration (such as a master file) or from UPDATE transactions.
+#####
+</t>
+
 <t hangText='Stealth server:'>
 <iref item='Stealth server'/>
 This is "like a slave server except not listed in an NS RR for
