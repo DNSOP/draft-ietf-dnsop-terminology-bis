@@ -82,7 +82,8 @@ obsolete RFC 7719. It will also update RFC 2308.</t>
 <section anchor="introduction" title="Introduction">
 
 <t>The Domain Name System (DNS) is a simple query-response protocol whose messages in both directions
-have the same format. (See <xref target="names"/> for a fuller definition.)
+have the same format.
+(<xref target="names"/> gives a definition of "public DNS", which is often what people mean when they say "the DNS".)
 The protocol and message format are defined in <xref target="RFC1034"/>
 and <xref target="RFC1035"/>. These RFCs defined some terms, but later documents defined
 others. Some of the terms from <xref target="RFC1034"/>
@@ -168,10 +169,10 @@ An ordered list of one or more labels.</t>
 
 <t>Note that this is a definition independent of the DNS RFCs, and the definition here
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
-name space" using mathematical trees and their nodes in graph theory, and the definition
-in <xref target="RFC1034"/> has the same practical result as the definition here. Using
+name space" using mathematical trees and their nodes in graph theory, and this definition
+has the same practical result as the definition here. Using
 graph theory, a domain name is a list of labels identifying a portion along one edge of a
-directed acyclic graph. A domain name can be relative to other parts of the tree, or it
+directed acyclic graph. A domain name can be relative to parts of the tree, or it
 can be fully qualified (in which case, it begins at the common root of the graph).</t>
 
 <t>Also note that different IETF and non-IETF documents have used the term "domain name"
@@ -227,7 +228,7 @@ first label in the ordered list is right-most; but in Arabic it may be left-most
 depending on local conventions).</t>
 
 <t>Administration of names -- Administration is specified by delegation (see the
-definition of to "delegation" in <xref target="zones"/>).  Policies for administration of
+definition of "delegation" in <xref target="zones"/>).  Policies for administration of
 the root zone in the global DNS are determined by the names operational community, which
 convenes itself in the Internet Corporation for Assigned Names and Numbers (ICANN).  The
 names operational community selects the IANA Functions Operator for the global DNS root
@@ -258,7 +259,7 @@ Names that use the protocol described in <xref target="RFC1035"/> but that do no
 the global DNS root zone, or names that are otherwise not generally available on the
 Internet but are using the protocol described in <xref target="RFC1035"/>.  A system can
 use both the global DNS and one or more private DNS systems; for example, see "Split DNS"
-in Section 7.</t>
+in <xref target="dns-servers-and-clients"/>.</t>
 
 <t>Note that domain names that do not appear in the DNS, and that are intended never to be
 looked up using the DNS protocol, are not part of the global DNS or a private DNS even
@@ -321,7 +322,7 @@ labels that do not conform to the "preferred name syntax".</t>
 A Top-Level Domain, meaning a zone that is one layer below the
 root, such as "com" or "jp".  There is nothing special, from the point
 of view of the DNS, about TLDs.  Most of them are also
-delegation-centric zones, and there are significant policy issues
+delegation-centric zones (defined in <xref target="zones"/>, and there are significant policy issues
 around their operation.
 TLDs are often divided into sub-groups such as Country Code Top-Level Domains
 (ccTLDs), Generic Top-Level Domains (gTLDs), and others; the
@@ -364,105 +365,16 @@ as 'a CNAME'. This is unfortunate, as 'CNAME' is an abbreviation
 of 'canonical name', and the owner of a CNAME record is an alias,
 not a canonical name." (Quoted from <xref target="RFC2181"/>, Section 10.1.1)</t>
 
-<t hangText='Public suffix:'>
-<iref item='Public suffix'/>
-"A domain that is controlled by a public registry." (Quoted from <xref target="RFC6265"/>, Section 5.3)
-A common definition for this term is a domain under which subdomains can be registered, and on which HTTP cookies
-(<xref target="RFC6265"/>) should not be set.
-There is no indication in a domain name whether it is a public suffix; that  can only be
-determined by outside means.
-In fact, both a domain and a subdomain of that domain can be public suffixes.
-</t>
-<t>There is nothing inherent in a domain name to indicate whether it is
-a public suffix.  One
-resource for identifying public suffixes is the Public Suffix List (PSL)
-maintained by Mozilla (http://publicsuffix.org/).</t>
-<t>For example, at the time this document is published,
-the "com.au" domain is listed as a public suffix in the PSL.
-(Note that this example might change in the future.)</t>
-<t>Note that the term "public suffix" is controversial in the DNS
-community for many reasons, and may be significantly changed in the future. One example of the
-difficulty of calling a domain a public suffix is that designation can change over time as the
-registration policy for the zone changes, such as was the case with the "uk" TLD in 2014.</t>
-
 </list></t>
 </section>
 
-<section anchor="dns-header-and-response-codes" title="DNS Header and Response Codes">
-
-<t>The header of a DNS message is its first 12 octets. Many of the fields and flags in
-the header diagram in Sections 4.1.1 through 4.1.3 of <xref target="RFC1035"/> are referred to by their names
-in that diagram. For example, the response codes are called "RCODEs",
-the data for a record is called the "RDATA", and the
-authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
-
-<t><list style="hanging">
-
-<t hangText='QNAME'>
-The most commonly-used rough definition is that the QNAME is a field in the Question section of a
-query.  "A standard query specifies a target domain name (QNAME), query type (QTYPE), and query
-class (QCLASS) and asks for RRs which match."  (Quoted from <xref target="RFC1034"/>, Section
-3.7.1.).  Strictly speaking, the definition comes from <xref target="RFC1035"/>, Section 4.1.2,
-where the QNAME is defined in respect of the Question Section.  This definition appears to be
-applied consistently: the discussion of inverse queries in section 6.4 refers to the "owner name of
-the query RR and its TTL", because inverse queries populate the Answer Section and leave the
-Question Section empty.  (Inverse queries are deprecated in <xref target="RFC3425"/>, and so
-relevant definitions do not appear in this document.)
-</t>
-
-<t>
-<xref target="RFC2308"/>, however, has an alternate definition that puts the QNAME in the answer (or
-series of answers) instead of the query. It defines QNAME as: "...the name in the query section of
-an answer, or where this resolves to a CNAME, or CNAME chain, the data field of the last CNAME.  The
-last CNAME in this sense is that which contains a value which does not resolve to another CNAME."
-This definition has a certain internal logic, because of the way CNAME substitution works and the
-definition of CNAME.  If a name server does not find an RRset that matches a query, but it finds the
-same name in the same class with a CNAME record, then the name server "includes the CNAME record in
-the response and restarts the query at the domain name specified in the data field of the CNAME
-record."  (<xref target="RFC1034"/> Section 3.6.2).  This is made explicit in the resolution
-algorithm outlined in Section 4.3.2 of <xref target="RFC1034"/>, which says to "change QNAME to the
-canonical name in the CNAME RR, and go back to step 1" in the case of a CNAME RR.  Since a CNAME
-record explicitly declares that the owner name is canonically named what is in the RDATA, then there
-is a way to view the new name (i.e. the name that was in the RDATA of the CNAME RR) as also being
-the QNAME.
-</t>
-
-<t>
-This creates a kind of confusion, however, because the answer to a query that results in CNAME
-processing contains in the echoed Question Section one QNAME (the name in the original query), and a
-second QNAME that is in the data field of the last CNAME.  The confusion comes from the
-iterative/recursive mode of resolution, which finally returns an answer that need not actually have
-the same owner name as the QNAME contained in the original query.
-</t>
-
-<t>
-To address this potential confusion, it is helpful to distinguish between three meanings:
-<list style="symbols">
-
-<t>
-QNAME (original): The name actually sent in the Question Section in the orignal query, which is
-always echoed in the (final) reply in the Question Section when the QR bit is set to 1.
-</t>
-
-<t>
-QNAME (effective): A name actually resolved, which is either the name originally queried,
-or a name received in a CNAME chain response.
-</t>
-
-<t>
-QNAME (final): The name actually resolved, which is either the name actually queried or else
-the last name in a CNAME chain response.
-</t>
-
-</list></t>
-
-</list></t>
+<section anchor="dns-response-codes" title="DNS Response Codes">
 
 <t>Some of response codes that are defined in <xref target="RFC1035"/> have acquired their own
 shorthand names.  All of the RCODEs are listed at
-http://www.iana.org/assignments/dns-parameters, although
+<xref target="IANA_Resource_Registry"/>, although
 that site uses mixed-case capitalization, while most documents use all-caps.
-Some of the names are described here, but the official list is in the IANA registry.</t>
+Some of the common names are described here, but the official list is in the IANA registry.</t>
 
 <t><list style="hanging">
 
@@ -508,6 +420,7 @@ relevant answers in the answer section.  The authority section will
 contain an SOA record, or there will be no NS records there." (Quoted from <xref target="RFC2308"/>, Section 2.2.)
 Note that referrals have a similar format to NODATA replies; <xref target="RFC2308"/>
 explains how to distinguish them.</t>
+
 <t>The term "NXRRSET" is sometimes used as a synonym for NODATA. However, this is a mistake, given
 that NXRRSET is a specific error code defined in <xref target="RFC2136"/>.</t>
 
@@ -516,6 +429,76 @@ that NXRRSET is a specific error code defined in <xref target="RFC2136"/>.</t>
 A response that indicates that a particular RRset does not exist,
 or whose RCODE indicates the nameserver cannot answer.
 Sections 2 and 7 of <xref target="RFC2308"/> describe the types of negative responses in detail.</t>
+
+</list></t>
+
+</section>
+
+<section anchor="dns-transactions" title="DNS Transactions">
+
+<t>The header of a DNS message is its first 12 octets. Many of the fields and flags in
+the header diagram in Sections 4.1.1 through 4.1.3 of <xref target="RFC1035"/> are referred to by their names
+in that diagram. For example, the response codes are called "RCODEs",
+the data for a record is called the "RDATA", and the
+authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
+
+<t><list style="hanging">
+
+<t hangText='QNAME:'>
+<iref item='QNAME'/>
+The most commonly-used rough definition is that the QNAME is a field in the Question section of a
+query.  "A standard query specifies a target domain name (QNAME), query type (QTYPE), and query
+class (QCLASS) and asks for RRs which match."  (Quoted from <xref target="RFC1034"/>, Section
+3.7.1.).  Strictly speaking, the definition comes from <xref target="RFC1035"/>, Section 4.1.2,
+where the QNAME is defined in respect of the Question Section.  This definition appears to be
+applied consistently: the discussion of inverse queries in section 6.4 refers to the "owner name of
+the query RR and its TTL", because inverse queries populate the Answer Section and leave the
+Question Section empty.  (Inverse queries are deprecated in <xref target="RFC3425"/>, and so
+relevant definitions do not appear in this document.)
+</t>
+
+<t>
+<xref target="RFC2308"/>, however, has an alternate definition that puts the QNAME in the answer (or
+series of answers) instead of the query. It defines QNAME as: "...the name in the query section of
+an answer, or where this resolves to a CNAME, or CNAME chain, the data field of the last CNAME.  The
+last CNAME in this sense is that which contains a value which does not resolve to another CNAME."
+This definition has a certain internal logic, because of the way CNAME substitution works and the
+definition of CNAME.  If a name server does not find an RRset that matches a query, but it finds the
+same name in the same class with a CNAME record, then the name server "includes the CNAME record in
+the response and restarts the query at the domain name specified in the data field of the CNAME
+record."  (<xref target="RFC1034"/> Section 3.6.2).  This is made explicit in the resolution
+algorithm outlined in Section 4.3.2 of <xref target="RFC1034"/>, which says to "change QNAME to the
+canonical name in the CNAME RR, and go back to step 1" in the case of a CNAME RR.  Since a CNAME
+record explicitly declares that the owner name is canonically named what is in the RDATA, then there
+is a way to view the new name (i.e. the name that was in the RDATA of the CNAME RR) as also being
+the QNAME.
+</t>
+
+<t>
+This creates a kind of confusion, however, because the answer to a query that results in CNAME
+processing contains in the echoed Question Section one QNAME (the name in the original query), and a
+second QNAME that is in the data field of the last CNAME.  The confusion comes from the
+iterative/recursive mode of resolution, which finally returns an answer that need not actually have
+the same owner name as the QNAME contained in the original query.
+</t>
+
+<t>
+To address this potential confusion, it is helpful to distinguish between three meanings:
+
+<list style="symbols">
+<t>
+QNAME (original): The name actually sent in the Question Section in the orignal query, which is
+always echoed in the (final) reply in the Question Section when the QR bit is set to 1.
+</t>
+<t>
+QNAME (effective): A name actually resolved, which is either the name originally queried,
+or a name received in a CNAME chain response.
+</t>
+<t>
+QNAME (final): The name actually resolved, which is either the name actually queried or else
+the last name in a CNAME chain response.
+</t>
+</list></t>
 
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
@@ -1276,6 +1259,27 @@ third-party operator.
 For some zones, the registry function is performed by the DNS operator plus other entities
 who decide about the allowed contents of the zone.</t>
 
+<t hangText='Public suffix:'>
+<iref item='Public suffix'/>
+"A domain that is controlled by a public registry." (Quoted from <xref target="RFC6265"/>, Section 5.3)
+A common definition for this term is a domain under which subdomains can be registered, and on which HTTP cookies
+(which are described in detail in <xref target="RFC6265"/>) should not be set.
+There is no indication in a domain name whether it is a public suffix; that  can only be
+determined by outside means.
+In fact, both a domain and a subdomain of that domain can be public suffixes.
+</t>
+<t>There is nothing inherent in a domain name to indicate whether it is
+a public suffix.  One
+resource for identifying public suffixes is the Public Suffix List (PSL)
+maintained by Mozilla (http://publicsuffix.org/).</t>
+<t>For example, at the time this document is published,
+the "com.au" domain is listed as a public suffix in the PSL.
+(Note that this example might change in the future.)</t>
+<t>Note that the term "public suffix" is controversial in the DNS
+community for many reasons, and may be significantly changed in the future. One example of the
+difficulty of calling a domain a public suffix is that designation can change over time as the
+registration policy for the zone changes, such as was the case with the "uk" TLD in 2014.</t>
+
 <t hangText='Subordinate and Superordinate:'>
 <iref item='Subordinate'/>
 <iref item='Superordinate'/>
@@ -1751,7 +1755,7 @@ note, however, that this RFC is already obsolete</t>
 <t>"Label" in <xref target="names"/></t>
 <t>"Locally served DNS zone" in <xref target="names"/></t>
 <t>"Naming system" in <xref target="names"/></t>
-<t>"Negative response" in <xref target="dns-header-and-response-codes"/></t>
+<t>"Negative response" in <xref target="dns-response-codes"/></t>
 <t>"Open resolver" in <xref target="dns-servers-and-clients"/></t>
 <t>"Out-of-bailiwick" in <xref target="zones"/></t>
 <t>"Passive DNS" in <xref target="dns-servers-and-clients"/></t>
@@ -1760,7 +1764,7 @@ note, however, that this RFC is already obsolete</t>
 <t>"Priming" in <xref target="dns-servers-and-clients"/></t>
 <t>"Private DNS" in <xref target="names"/></t>
 <t>"Recursive resolver" in <xref target="dns-servers-and-clients"/></t>
-<t>"Referrals" in <xref target="dns-header-and-response-codes"/></t>
+<t>"Referrals" in <xref target="dns-transactions"/></t>
 <t>"Registrant" in <xref target="reg-model"/></t>
 <t>"Registrar" in <xref target="reg-model"/></t>
 <t>"Registry" in <xref target="reg-model"/></t>
@@ -1793,6 +1797,7 @@ and many others in the DNSOP Working Group helped shape RFC 7719.</t>
 <t>Additional people contributed to this document, including: 
 John Dickinson, Bob Harold,
 Peter Koch,
+Martin Hoffmann,
 [[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
 
 </section>
