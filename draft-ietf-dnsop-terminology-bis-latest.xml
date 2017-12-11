@@ -543,7 +543,8 @@ which is an unfortunate misunderstanding.)</t>
 "Master files are text files that contain RRs in text form.  Since the contents of a zone
 can be expressed in the form of a list of RRs a master file is most often used to define a
 zone, though it can be used to list a cache's contents." (<xref target="RFC1035"/>,
-Section 5.)</t>
+Section 5.)
+Master files are sometimes called "zone files".</t>
 
 <t hangText='Presentation format:'>
 <iref item='Presentation format'/>
@@ -667,7 +668,8 @@ queries and responds with a referral to another server.  Section 2.3 of <xref ta
 describes this as "The server refers the client to
 another server and lets the client pursue the query".
 A resolver that works in iterative mode is sometimes called an "iterative
-resolver".</t>
+resolver".
+See also "iterative resolution" later in this section.</t>
 
 <t hangText='Recursive mode:'>
 <iref item='Recursive mode'/>
@@ -741,6 +743,7 @@ target="RFC1034"/>.</t>
 "The act of finding the list of root servers from a
 configuration that lists some or all of the purported IP addresses of
 some or all of those root servers." (Quoted from <xref target="RFC8109"/>, Section 2.)
+In order to operate in recursive mode, a resolver needs to know the address of at least one root server.
 Priming is most often done from a configuration setting that contains a
 list of authoritative servers for the root zone.</t>
 
@@ -751,7 +754,8 @@ a 'root hints file'.
 This file contains the names and IP addresses of the authoritative name servers
 for the root zone, so the software can bootstrap the DNS resolution process. 
 For many pieces of software, this list comes built into the software."
-(Quoted from <xref target="IANA_RootFiles"/>)</t>
+(Quoted from <xref target="IANA_RootFiles"/>)
+This file is often used in priming.</t>
 
 <t hangText='Negative caching:'>
 <iref item='Negative caching'/>
@@ -790,10 +794,12 @@ Many systems use non-standard methods for zone transfer outside the DNS protocol
 <t hangText='Secondary server:'>
 <iref item='Secondary server'/>
 "An authoritative server which uses zone transfer to retrieve the
-zone" (Quoted from <xref target="RFC1996"/>, Section 2.1).  <xref target="RFC2182"/> describes secondary servers in
-detail.  Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "slave", the
+zone" (Quoted from <xref target="RFC1996"/>, Section 2.1). 
+Secondary servers are also discussed in <xref target="RFC1034"/>.
+<xref target="RFC2182"/> describes secondary servers in
+more detail.  Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "slave", the
 current common usage has shifted to calling it a "secondary".
-Secondary servers are also discussed in <xref target="RFC1034"/>.</t>
+</t>
 
 <t hangText='Slave server:'>
 <iref item='Slave server'/>
@@ -804,10 +810,11 @@ See secondary server.</t>
 "Any authoritative server configured to be the source of zone transfer
 for one or more [secondary] servers" (Quoted from <xref target="RFC1996"/>, Section 2.1) or, more
 specifically, "an authoritative server configured to be the source of AXFR or IXFR data
-for one or more [secondary] servers" (Quoted from <xref target="RFC2136"/>).  Although early DNS RFCs
-such as <xref target="RFC1996"/> referred to this as a "master", the current common usage has shifted
-to "primary".
-Primary servers are also discussed in <xref target="RFC1034"/>.</t>
+for one or more [secondary] servers" (Quoted from <xref target="RFC2136"/>).
+Primary servers are also discussed in <xref target="RFC1034"/>.
+Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "master", the current
+common usage has shifted to "primary".
+</t>
 
 <t hangText='Master server:'>
 <iref item='Master server'/>
@@ -849,7 +856,7 @@ RD bit set to 1 to another server to resolve that query. Forwarding is
 a function of a DNS resolver; it is different than simply blindly
 relaying queries.</t>
 <t><xref target="RFC5625"/> does not give a specific definition for forwarding, but
-describes in detail what features a system that forwards need to
+describes in detail what features a system that forwards needs to
 support. Systems that forward are sometimes called "DNS proxies", but
 that term has not yet been defined (even in <xref target="RFC5625"/>).</t>
 
@@ -898,9 +905,7 @@ part of the DNS, but they are widely implemented in server software.</t>
 
 <t hangText='Passive DNS:'>
 <iref item='Passive DNS'/>
-A mechanism to collect DNS data by storing DNS transactions from name servers.
-Some of these systems also collect the DNS queries associated with the
-responses.
+A mechanism to collect DNS data by storing DNS transactions (queries, responses, or both) from name servers.
 Passive DNS databases can be used to answer historical questions about DNS zones
 such as which answers were witnessed at what times in the past.
 Passive DNS databases allow searching of the stored records on keys other than
@@ -1003,6 +1008,17 @@ RRset is added in the parent zone for the child origin. Delegation
 inherently happens at a zone cut.
 The term is also commonly a noun: the new zone that is created by the act of delegating.</t>
 
+<t hangText='Authoritative data:'>
+<iref item='Authoritative data'/>
+"All of the RRs attached to all of the nodes from the top node of the zone
+down to leaf nodes or nodes above cuts around the bottom edge of the zone." (Quoted from
+<xref target="RFC1034"/>, Section 4.2.1) It is noted that this definition might inadvertently also include any NS records
+that appear in the zone, even those that might not truly be authoritative because there are
+identical NS RRs below the zone cut.  This reveals the ambiguity in
+the notion of authoritative data, because the parent-side NS records
+authoritatively indicate the delegation, even though they are not
+themselves authoritative data.</t>
+
 <t hangText='Glue records:'>
 <iref item='Glue records'/>
 "[Resource records] which are not part of the authoritative data [of the zone],
@@ -1055,17 +1071,6 @@ is not subordinate to or the same as the zone origin.
 Glue records for out-of-bailiwick name servers are useless.
 </t>
 
-<t hangText='Authoritative data:'>
-<iref item='Authoritative data'/>
-"All of the RRs attached to all of the nodes from the top node of the zone
-down to leaf nodes or nodes above cuts around the bottom edge of the zone." (Quoted from
-<xref target="RFC1034"/>, Section 4.2.1) It is noted that this definition might inadvertently also include any NS records
-that appear in the zone, even those that might not truly be authoritative because there are
-identical NS RRs below the zone cut.  This reveals the ambiguity in
-the notion of authoritative data, because the parent-side NS records
-authoritatively indicate the delegation, even though they are not
-themselves authoritative data.</t>
-
 <t hangText='Root zone:'>
 <iref item='Root zone'/>
 The zone of a DNS-based tree whose apex is the zero-length label.
@@ -1086,14 +1091,75 @@ used in contrast to a zone that might have some delegations to child zones, but 
 resource records for the zone itself and/or for child zones.
 The term is used in <xref target="RFC4956"/> and <xref target="RFC5155"/>, but is not defined there.</t>
 
+<t hangText='Occluded name:'>
+<iref item='Occluded name'/>
+"The addition of a delegation point via dynamic update will render all subordinate
+domain names to be in a limbo, still part of the zone, but not available to the lookup process.  The
+addition of a DNAME resource record has the same impact.  The subordinate names are said to be
+'occluded'." (Quoted from <xref target="RFC5936"/>, Section 3.5)</t>
+
+<t hangText='Fast flux DNS:'>
+<iref item='Fast flux DNS'/>
+This "occurs when a domain is found in DNS using A records to multiple IP addresses,
+each of which has a very short Time-to-Live (TTL) value associated with it.  This means
+that the domain resolves to varying IP addresses over a short period of time."
+(Quoted from <xref target="RFC6561"/>, Section 1.1.5, with typo corrected)
+It is often used to deliver malware. Because the addresses change so rapidly, it is difficult to
+ascertain all the hosts.  It should be noted that the technique also works
+with AAAA records, but such use is not frequently observed on the
+Internet as of this writing.</t>
+
+<t hangText='Reverse DNS, reverse lookup:'>
+<iref item='Reverse DNS, reverse lookup'/>
+"The process of mapping an address to a name is
+generally known as a 'reverse lookup', and the IN-ADDR.ARPA and
+IP6.ARPA zones are said to support the 'reverse DNS'."
+(Quoted from <xref target="RFC5855"/>, Section 1)
+</t>
+
+<t hangText='Forward lookup:'>
+<iref item='Forward lookup'/>
+"Hostname-to-address translation". (Quoted from 
+<xref target="RFC2133" />, Section 6)
+</t>
+
+<t hangText='arpa: Address and Routing Parameter Area Domain:'>
+<iref item='arpa: Address and Routing Parameter Area Domain'/>
+"The 'arpa' domain was originally established as part of the initial
+deployment of the DNS, to provide a transition mechanism from the
+Host Tables that were common in the ARPANET, as well as a home for
+the IPv4 reverse mapping domain.  During 2000, the abbreviation was
+redesignated to 'Address and Routing Parameter Area' in the hope of
+reducing confusion with the earlier network name."
+(Quoted from <xref target="RFC3172"/>, Section 2.)
+.arpa is an "infrastructure domain",
+a domain whose "role is to
+support the operating infrastructure of the Internet".
+(Quoted from <xref target="RFC3172"/>, Section 2.)
+</t>
+
+<t hangText='Service name:'>
+<iref item='Service name'/>
+"Service names are the unique key in the Service Name and Transport
+Protocol Port Number registry.  This unique symbolic name for a
+service may also be used for other purposes, such as in DNS SRV
+records." (Quoted from <xref target="RFC6335"/>, Section 5.)
+</t>
+
+</list></t>
+
+<section anchor="wildcards" title="Wildcards">
+<t><list style="hanging">
+
 <t hangText='Wildcard:'>
 <iref item='Wildcard'/>
 <xref target="RFC1034"/> defined "wildcard", but in a way that turned out to be
 confusing to implementers.
+For an extended discussion of wildcards, including clearer definitions, see <xref target="RFC4592"/>.
 Special treatment is given to RRs with owner names starting with the label "*".  "Such RRs
 are called 'wildcards'. Wildcard RRs can be thought of as instructions for synthesizing RRs."
 (Quoted from <xref target="RFC1034"/>, Section 4.3.3)
-For an extended discussion of wildcards, including clearer definitions, see <xref target="RFC4592"/>.</t>
+</t>
 
 <t hangText='Asterisk label:'>
 <iref item='Asterisk label'/>
@@ -1142,65 +1208,9 @@ encloser, provided that this wildcard domain name exists.
 name of the form: &lt;asterisk label&gt;.&lt;closest encloser&gt;."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)</t>
 
-<t hangText='Occluded name:'>
-<iref item='Occluded name'/>
-"The addition of a delegation point via dynamic update will render all subordinate
-domain names to be in a limbo, still part of the zone, but not available to the lookup process.  The
-addition of a DNAME resource record has the same impact.  The subordinate names are said to be
-'occluded'." (Quoted from <xref target="RFC5936"/>, Section 3.5)</t>
-
-<t hangText='Fast flux DNS:'>
-<iref item='Fast flux DNS'/>
-This "occurs when a domain is found in DNS using A records to multiple IP addresses,
-each of which has a very short Time-to-Live (TTL) value associated with it.  This means
-that the domain resolves to varying IP addresses over a short period of time."
-(Quoted from <xref target="RFC6561"/>, Section 1.1.5, with typo corrected)
-It is often used to deliver malware. Because the addresses change so rapidly, it is difficult to
-ascertain all the hosts.  It should be noted that the technique also works
-with AAAA records, but such use is not frequently observed on the
-Internet as of this writing.</t>
-
-<t hangText='Reverse DNS, reverse lookup:'>
-<iref item='Reverse DNS, reverse lookup'/>
-"The process of mapping an address to a name is
-generally known as a 'reverse lookup', and the IN-ADDR.ARPA and
-IP6.ARPA zones are said to support the 'reverse DNS'."
-(Quoted from <xref target="RFC5855"/>, Section 1)
-</t>
-
-<t hangText='Forward lookup:'>
-<iref item='Forward lookup'/>
-"Hostname-to-address translation". (Quoted from 
-<xref target="RFC2133" />, Section 6)
-</t>
-
-<t hangText='arpa: Address and Routing Parameter Area Domain:'>
-<iref item='arpa: Address and Routing Parameter Area Domain'/>
-"The 'arpa' domain was originally established as part of the initial
-deployment of the DNS, to provide a transition mechanism from the
-Host Tables that were common in the ARPANET, as well as a home for
-the IPv4 reverse mapping domain.  During 2000, the abbreviation was
-redesignated to 'Address and Routing Parameter Area' in the hope of
-reducing confusion with the earlier network name."
-(Quoted from <xref target="RFC3172"/>, Section 2.)
-</t>
-
-<t hangText='Infrastructure domain:'>
-<iref item='Infrastructure domain'/>
-A domain whose "role is to
-support the operating infrastructure of the Internet".
-(Quoted from <xref target="RFC3172"/>, Section 2.)
-</t>
-
-<t hangText='Service name:'>
-<iref item='Service name'/>
-"Service names are the unique key in the Service Name and Transport
-Protocol Port Number registry.  This unique symbolic name for a
-service may also be used for other purposes, such as in DNS SRV
-records." (Quoted from <xref target="RFC6335"/>, Section 5.)
-</t>
-
 </list></t>
+</section>
+
 </section>
 
 <section anchor="reg-model" title="Registration Model">
@@ -1283,7 +1293,7 @@ registration policy for the zone changes, such as was the case with the "uk" TLD
 <t hangText='Subordinate and Superordinate:'>
 <iref item='Subordinate'/>
 <iref item='Superordinate'/>
-These terms are introduced in <xref target="RFC3731"/> but not defined there.
+These terms are introduced in <xref target="RFC3731"/> for use in the registration model, but not defined there.
 Instead, they are given in examples.
 "For example, domain name 'example.com' has a superordinate relationship to host name
 ns1.example.com'."
@@ -1389,7 +1399,7 @@ against such a dictionary.</t>
 
 <t hangText='Validation:'>
 <iref item='Validation'/>
-Validation, in the context of DNSSEC, refers to the following:
+Validation, in the context of DNSSEC, refers to one of the following:
 
 <list style="symbols">
 
@@ -1454,8 +1464,6 @@ DNSSEC keys that "only sign the apex DNSKEY RRset in a zone."(Quoted from
 <iref item='Zone signing key (ZSK)'/>
 "DNSSEC keys that can be used to sign all the RRsets in a zone that
 require signatures, other than the apex DNSKEY RRset." (Quoted from <xref target="RFC6781"/>, Section 3.1)
-Note that the roles KSK and ZSK are not mutually exclusive: a single
-key can be both KSK and ZSK at the same time.
 Also note that a ZSK is sometimes used to sign the apex DNSKEY RRset.</t>
 
 <t hangText='Combined signing key (CSK):'>
@@ -1516,11 +1524,11 @@ controls at a high level." (Quoted from <xref target="RFC6841"/>, Section 2)</t>
 <iref item='Hardware security module (HSM)'/>
 A specialized piece of hardware that is used to create keys for signatures and to
 sign messages. In DNSSEC, HSMs are often used to hold the private keys for
-KSKs and ZSKs and to create the RRSIG records at periodic intervals.</t>
+KSKs and ZSKs and to create the signatures used in RRSIG records at periodic intervals.</t>
 
 <t hangText='Signing software:'>
 <iref item='Signing software'/>
-Authoritative DNS servers that supports DNSSEC often contains software that
+Authoritative DNS servers that support DNSSEC often contain software that
 facilitates the creation and maintenance of DNSSEC signatures in zones.
 There is also stand-alone software that can be used to sign a zone regardless
 of whether the authoritative server itself supports signing. Sometimes
