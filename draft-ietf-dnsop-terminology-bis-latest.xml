@@ -1059,6 +1059,13 @@ the notion of authoritative data, because the parent-side NS records
 authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
 
+<t hangText='Lame delegation:'>
+<iref item='Lame delegation'/>
+"A lame delegations exists when a nameserver is delegated responsibility for providing nameservice
+for a zone (via NS records) but is not performing nameservice for that zone (usually because it is
+not set up as a primary or secondary for the zone)."
+(Definition from <xref target="RFC1912"/>, Section 2.8)</t>
+
 <t hangText='Glue records:'>
 <iref item='Glue records'/>
 "[Resource records] which are not part of the authoritative data [of the zone],
@@ -1696,6 +1703,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.1034.xml" ?>
 <?rfc include="reference.RFC.1035.xml" ?>
 <?rfc include="reference.RFC.1123.xml" ?>
+<?rfc include="reference.RFC.1912.xml" ?>
 <?rfc include="reference.RFC.1996.xml" ?>
 <?rfc include="reference.RFC.2136.xml" ?>
 <?rfc include="reference.RFC.2181.xml" ?>
