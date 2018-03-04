@@ -833,9 +833,6 @@ See primary server.</t>
 <t hangText='Primary master:'>
 <iref item='Primary master'/>
 
-\[\[ There is active discussion in the WG of this term. It will be resolved in
-a future version of the draft. \]\]</t>
-
 <t>"The primary master is named in the zone's SOA MNAME field and
 optionally by an NS RR". (Quoted from <xref target="RFC1996"/>, Section 2.1).
 <xref target="RFC2136"/> defines "primary master" as "Master server at the root of the AXFR/IXFR dependency graph. 
@@ -844,11 +841,9 @@ definition only one primary master server per zone."
 The idea of a primary master is only used by <xref target="RFC2136"/>, and is considered archaic in other
 parts of the DNS.</t>
 
-<t> ##### PROPOSED NEW TEXT #####:
-The idea of a primary master is only used in <xref target="RFC1996"/> and <xref target="RFC2136"/>, and is considered archaic in other
-parts of the DNS. A modern interpretation of the term "primary master" is a server that is both authoritative for a zone and that gets its updates to the zone from configuration (such as a master file) or from UPDATE transactions.
-#####
-</t>
+<t>The idea of a primary master is only used in <xref target="RFC1996"/> and <xref target="RFC2136"/>.
+A modern interpretation of the term "primary master" is a server that is both authoritative for a zone
+and that gets its updates to the zone from configuration (such as a master file) or from UPDATE transactions.</t>
 
 <t hangText='Stealth server:'>
 <iref item='Stealth server'/>
