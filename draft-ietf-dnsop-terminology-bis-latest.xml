@@ -504,21 +504,54 @@ the last name in a CNAME chain response.
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
 
-\[\[ This text is being modified in the WG and a changed definition will appear
-in a future draft. \]\]</t>
 
-<t>Data from the authority section of a non-authoritative answer.
-<xref target="RFC1035"/> Section 2.1 defines "authoritative" data. 
-However, referrals at zone cuts (defined in <xref target="zones"/>) are not authoritative. Referrals may be zone
-cut NS resource records and their glue records. 
-NS records on the parent side of a zone cut are an authoritative delegation,
-but are normally not treated as authoritative data.  In
-general, a referral is a way for a server to send an answer saying
-that the server does not know the answer, but knows where the query
-should be directed in order to get an answer.  Historically, many
-authoritative servers answered with a referral to the root zone when
-queried for a name for which they were not authoritative, but this
-practice has declined.</t>
+<t hangText='Referrals:'>
+<iref item='Referrals'/>
+A type of response in which a server, signalling that it is not
+(completely) authoritative for an answer, provides the querying
+resolver with an alternative place to send its query.  Referrals can
+be partial.</t>
+
+<t>A referral arises when a server is not performing recursive service
+while answering a query.  It appears in step 3(b) of the algorithm in
+<xref target="RFC1034" />, Section 4.3.2.</t>
+
+<t>There are two types of referral response.  The first is a downward
+referral (sometimes described as "delegation response"), where the
+server is authoritative for some portion of the QNAME.  The authority
+section RRset's RDATA contains the name servers specified at the
+referred-to zone cut.  In normal DNS operation, this kind of response
+is required in order to find names beneath a delegation.  The bare
+use of "referral" means this kind of referral, and many people believe
+that this is the only legitimate kind of referral in the DNS.</t>
+
+<t>The second is an upward referral (sometimes described as "root
+referral"), where the server is not authoritative for any portion of
+the QNAME.  When this happens, the referred-to zone in the authority
+section is usually the root zone (.).  In normal DNS operation, this
+kind of response is not required for resolution or for correctly
+answering any query.  There is no requirement that any server send
+upward referrals.  Some people regard upward referrals as a sign of a
+misconfiguration or error.  Upward referrals always need some sort of
+qualifier (such as "upward" or "root"), and are never identified by
+the bare word "referral".</t>
+
+<t>A response that has only a referral contains an empty answer
+section.  It contains the NS RRset for the referred-to zone in the
+authority section.  It may contain RRs that provide addresses in the
+additional section.  The AA bit is clear.</t>
+
+<t>In the case where the query matches an alias, and the server is not
+authoritative for the target of the alias but it is authoritative for
+some name above the target of the alias, the resolution algorithm will
+produce a response that contains both the authoritative answer for the
+alias, and also a referral.  Such a partial answer and referral
+response has data in the answer section.  It has the NS RRset for the
+referred-to zone in the authority section.  It may contain RRs that
+provide addresses in the additional section.  The AA bit is set,
+because the first name in the answer section matches the QNAME and the
+server is authoritative for that answer (see <xref target="RFC1035"/>,
+Section 4.1.1).</t>
 
 </list></t>
 </section>
