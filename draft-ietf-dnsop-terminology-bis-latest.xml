@@ -630,12 +630,17 @@ before the source of the information should again be consulted". (Quoted from
 record may be cached before it should be discarded". (Quoted from <xref target="RFC1035"/>,
 Section 4.1.3).  Despite being defined for a resource record, the TTL of every
 resource record in an RRset is required to be the same (<xref target="RFC2181"/>, Section 5.2).</t>
+
 <t>The reason that the TTL is the maximum time to live is that a cache operator
 might decide to shorten the time to live for operational purposes, such as if
-there is a policy to disallow TTL values over a certain number. Also, if a value
-is flushed from the cache when its value is still positive, the value effectively
-becomes zero. Some servers are known to ignore the TTL on some RRsets (such as when the authoritative data
-has a very short TTL) even though this is against the advice in RFC 1035.</t>
+there is a policy to disallow TTL values over a certain number.
+Some servers are known to ignore the TTL on some RRsets (such as when the authoritative data
+has a very short TTL) even though this is against the advice in RFC 1035.
+An RRset can be flushed from the cache before the end of the TTL interval,
+at which point the value of the TTL becomes unknown because the RRset
+with which it was associated no longer exists.
+</t>
+
 <t>There is also the concept of a "default TTL" for a zone, which can be a configuration
 parameter in the server software. This is often expressed by a default for the
 entire server, and a default for a zone using the $TTL directive
