@@ -642,6 +642,12 @@ A resource record type whose syntax and semantics are the same for every DNS
 class. A resource record type that is not class independent has different meanings depending on the
 DNS class of the record, or the meaning is undefined for classes other than IN (class 1, the Internet).</t>
 
+<t hangText='Address records:'>
+<iref item='Address records'/>
+Records whose type is A or AAAA. 
+<xref target="RFC2181"/> informally defines these as "(A, AAAA, etc)".
+Note that new types of address records could be defined in the future.</t>
+
 </list></t>
 </section>
 
@@ -1060,6 +1066,7 @@ necessary if the name server's name is 'below' the cut, and are only used as par
 referral response." Without glue "we could be faced with the situation where the NS RRs
 tell us that in order to learn a name server's address, we should contact the server using
 the address we wish to learn." (Definition from <xref target="RFC1034"/>, Section 4.2.1)</t>
+
 <t>A later definition is that glue "includes any record in a zone file that is not properly
 part of that zone, including nameserver records of delegated sub-zones (NS records),
 address records that accompany those NS records (A, AAAA, etc), and any other stray data
