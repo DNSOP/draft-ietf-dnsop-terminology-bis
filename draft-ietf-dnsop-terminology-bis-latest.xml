@@ -15,13 +15,6 @@
      obsoletes="7719" updates="2308"
 >
 
-<!--
-##### Notes for things to do before finishing the draft go here######
-
-Need to check the examples in "public suffix".
-
--->
-
 <front>
 <title abbrev="DNS Terminology">DNS Terminology</title>
 
@@ -503,10 +496,6 @@ the last name in a CNAME chain response.
 
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
-
-
-<t hangText='Referrals:'>
-<iref item='Referrals'/>
 A type of response in which a server, signalling that it is not
 (completely) authoritative for an answer, provides the querying
 resolver with an alternative place to send its query.  Referrals can
@@ -624,6 +613,7 @@ maximum of 2^31 - 1. When transmitted, the TTL is encoded in the less
 significant 31 bits of the 32 bit TTL field, with the most significant, or sign,
 bit set to zero." (Quoted from <xref target="RFC2181"/>, Section 8) (Note that <xref target="RFC1035"/>
 erroneously stated that this is a signed integer; that was fixed by <xref target="RFC2181"/>.)</t>
+
 <t>The TTL "specifies the time interval that the resource record may be cached
 before the source of the information should again be consulted". (Quoted from
 <xref target="RFC1035"/>, Section 3.2.1) Also: "the time interval (in seconds) that the resource
@@ -638,8 +628,7 @@ Some servers are known to ignore the TTL on some RRsets (such as when the author
 has a very short TTL) even though this is against the advice in RFC 1035.
 An RRset can be flushed from the cache before the end of the TTL interval,
 at which point the value of the TTL becomes unknown because the RRset
-with which it was associated no longer exists.
-</t>
+with which it was associated no longer exists.</t>
 
 <t>There is also the concept of a "default TTL" for a zone, which can be a configuration
 parameter in the server software. This is often expressed by a default for the
@@ -852,8 +841,7 @@ specifically, "an authoritative server configured to be the source of AXFR or IX
 for one or more [secondary] servers" (Quoted from <xref target="RFC2136"/>).
 Primary servers are also discussed in <xref target="RFC1034"/>.
 Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "master", the current
-common usage has shifted to "primary".
-</t>
+common usage has shifted to "primary".</t>
 
 <t hangText='Master server:'>
 <iref item='Master server'/>
@@ -861,8 +849,7 @@ See primary server.</t>
 
 <t hangText='Primary master:'>
 <iref item='Primary master'/>
-
-<t>"The primary master is named in the zone's SOA MNAME field and
+"The primary master is named in the zone's SOA MNAME field and
 optionally by an NS RR". (Quoted from <xref target="RFC1996"/>, Section 2.1).
 <xref target="RFC2136"/> defines "primary master" as "Master server at the root of the AXFR/IXFR dependency graph. 
 The primary master is named in the zone's SOA MNAME field and optionally by an NS RR.  There is by
@@ -950,8 +937,7 @@ Passive DNS databases can be used to answer historical questions about DNS zones
 such as which answers were witnessed at what times in the past.
 Passive DNS databases allow searching of the stored records on keys other than
 just the name and type, such as "find all names which have A records of a
-particular value".
-</t>
+particular value".</t>
 
 <t hangText='Anycast:'>
 <iref item='Anycast'/>
@@ -1094,14 +1080,14 @@ zone (using the first of the definitions of "glue records" in the definition abo
 
 <list style="symbols">
 
-<t>In-domain -- an adjective to describe a name server whose name is either
+<t>In-domain: an adjective to describe a name server whose name is either
 subordinate to or (rarely) the same as the owner name of the NS resource records.
 An in-domain name server name MUST have glue records or name resolution fails.
 For example, a delegation for "child.example.com" may have "in-domain" name
 server name "ns.child.example.com".
 </t>
 
-<t>Sibling domain: -- a name server's name that is either subordinate to or
+<t>Sibling domain: a name server's name that is either subordinate to or
 (rarely) the same as the zone origin and not subordinate to or the same as the
 owner name of the NS resource records.
 Glue records for sibling domains are allowed, but not necessary.
@@ -1210,6 +1196,7 @@ records." (Quoted from <xref target="RFC6335"/>, Section 5.)
 </t>
 
 </list></t>
+</section>
 
 <section anchor="wildcards" title="Wildcards">
 <t><list style="hanging">
@@ -1272,8 +1259,6 @@ name of the form: &lt;asterisk label&gt;.&lt;closest encloser&gt;."
 (Quoted from <xref target="RFC4592"/>, Section 3.3.1)</t>
 
 </list></t>
-</section>
-
 </section>
 
 <section anchor="reg-model" title="Registration Model">
@@ -1341,13 +1326,16 @@ There is no indication in a domain name whether it is a public suffix; that  can
 determined by outside means.
 In fact, both a domain and a subdomain of that domain can be public suffixes.
 </t>
+
 <t>There is nothing inherent in a domain name to indicate whether it is
 a public suffix.  One
 resource for identifying public suffixes is the Public Suffix List (PSL)
 maintained by Mozilla (http://publicsuffix.org/).</t>
+
 <t>For example, at the time this document is published,
 the "com.au" domain is listed as a public suffix in the PSL.
 (Note that this example might change in the future.)</t>
+
 <t>Note that the term "public suffix" is controversial in the DNS
 community for many reasons, and may be significantly changed in the future. One example of the
 difficulty of calling a domain a public suffix is that designation can change over time as the
@@ -1516,7 +1504,6 @@ both DNS keys and data is a matter of local policy, which may extend or even ove
   target="dns-servers-and-clients" />), "validating resolver" is a
   context-sensitive term.
 </t>
-  <!-- added in response to issue 18 -->
 
 <t hangText='Key signing key (KSK):'>
 <iref item='Key signing key (KSK)'/>
