@@ -494,6 +494,11 @@ the last name in a CNAME chain response.
 </t>
 </list></t>
 
+<t>Note that, because the definition in <xref target="RFC2308"/> is actually for a different
+concept than what was in <xref target="RFC1034"/>, it would have be better if
+<xref target="RFC2308"/> had used a different name for that concept. In general use today,
+QNAME almost always means what is defined above as "QNAME (original)".</t>
+
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
 A type of response in which a server, signalling that it is not
