@@ -943,9 +943,10 @@ part of the DNS, but they are widely implemented in server software.</t>
 
 <t hangText='Passive DNS:'>
 <iref item='Passive DNS'/>
-A mechanism to collect DNS data by storing DNS transactions (queries, responses, or both) from name servers.
-Passive DNS databases can be used to answer historical questions about DNS zones
-such as which answers were witnessed at what times in the past.
+A mechanism to collect DNS data by storing DNS responses from name servers. Some of these systems
+also collect the DNS queries associated with the responses, although doing so raises some privacy
+concerns. Passive DNS databases can be used to answer historical questions about DNS zones such as
+which values were present at a given time in the past, or when a name was spotted first.  
 Passive DNS databases allow searching of the stored records on keys other than
 just the name and type, such as "find all names which have A records of a
 particular value".</t>
