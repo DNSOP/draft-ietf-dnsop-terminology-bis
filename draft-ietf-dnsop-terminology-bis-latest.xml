@@ -973,6 +973,13 @@ correspondence between a given FQDN (fully qualified domain name) and a given IP
 is no longer universal and stable over long periods."
 (Quoted from <xref target="RFC2775"/>, Section 3.8)</t>
 
+<t hangText='Privacy-enabling DNS server:'>
+<iref item='Privacy-enabling DNS server'/>
+"A DNS server that implements
+DNS over TLS <xref target="RFC7858"/> and may optionally implement DNS over DTLS
+<xref target="RFC8094"/>."
+(Quoted from <xref target="RFC8310"/>, Section 2)</t>
+
 </list></t>
 </section>
 
@@ -1728,6 +1735,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6891.xml" ?>
 <?rfc include="reference.RFC.7344.xml" ?>
 <?rfc include="reference.RFC.7719.xml" ?>
+<?rfc include="reference.RFC.8310.xml" ?>
 
 </references>
 
@@ -1774,6 +1782,8 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.7483.xml" ?>
 <?rfc include="reference.RFC.7484.xml" ?> 
 <?rfc include="reference.RFC.7485.xml" ?>
+<?rfc include="reference.RFC.7858.xml" ?>
+<?rfc include="reference.RFC.8094.xml" ?>
 <?rfc include="reference.RFC.8109.xml" ?>
 
 <reference anchor="RSSAC026" target="https://www.icann.org/en/system/files/files/rssac-026-14mar17-en.pdf">
