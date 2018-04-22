@@ -563,8 +563,16 @@ A set of resource records with the same label, class and type, but with differen
 data. (Definition from <xref target="RFC2181"/>)  Also spelled RRSet in some documents. As a clarification,
 "same label" in this definition means "same owner name".
 In addition, <xref target="RFC2181"/> states that "the TTLs of all RRs in an RRSet must be the same".
-(This definition is definitely not the same as "the response one gets to a query for QTYPE=ANY",
-which is an unfortunate misunderstanding.)</t>
+</t>
+
+<t>>Note that RRSIG resource records do not match this definition.
+<xref target="RFC4035"/> says:
+"An RRset MAY have multiple RRSIG RRs associated with it. Note that
+as RRSIG RRs are closely tied to the RRsets whose signatures they
+contain, RRSIG RRs, unlike all other DNS RR types, do not form
+RRsets. In particular, the TTL values among RRSIG RRs with a common
+owner name do not follow the RRset rules described in <xref target="RFC2181"/>."
+</t>
 
 <t hangText='Master file:'>
 <iref item='Master file'/>
