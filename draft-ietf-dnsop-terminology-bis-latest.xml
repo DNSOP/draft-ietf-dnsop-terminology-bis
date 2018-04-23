@@ -967,11 +967,18 @@ instance'."
 
 <t hangText='Split DNS:'>
 <iref item='Split DNS'/>
-"Where a corporate network serves up partly or completely different DNS inside and outside
-its firewall. There are many possible variants on this; the basic point is that the
-correspondence between a given FQDN (fully qualified domain name) and a given IPv4 address
-is no longer universal and stable over long periods."
-(Quoted from <xref target="RFC2775"/>, Section 3.8)</t>
+<iref item='Split-horizon DNS'/>
+<iref item='Views'/>
+"Split DNS" and "split-horizon DNS" and "views" have long been used in the DNS community without
+formal definition. In general, they refer to situations in which
+DNS servers that are authoritative for a particular set of domains
+provide partly or completely different answers in those domains depending
+on the source of the query. The effect of this is that a domain name that
+is notionally globally unique nevertheless has different meanings for
+different network users.</t>
+
+<t><xref target="RFC2775"/>, Section 3.8 gives a different definition that is not
+widely used.</t>
 
 </list></t>
 </section>
