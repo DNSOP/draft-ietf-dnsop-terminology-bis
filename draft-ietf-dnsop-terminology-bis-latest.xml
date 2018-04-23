@@ -930,10 +930,25 @@ is used more with open resolvers that are meant to be open, as compared to the v
 resolvers that are probably misconfigured to be open.
 Open resolvers are discussed in <xref target="RFC5358"/></t>
 
+<t hangText='Split DNS:'>
+<iref item='Split DNS'/>
+<iref item='Split-horizon DNS'/>
+The terms "split DNS" and "split-horizon DNS" have long been used in the DNS community without
+formal definition. In general, they refer to situations in which
+DNS servers that are authoritative for a particular set of domains
+provide partly or completely different answers in those domains depending
+on the source of the query. The effect of this is that a domain name that
+is notionally globally unique nevertheless has different meanings for
+different network users. This can sometimes be configured as a "view"
+configuration, described below.</t>
+
+<t><xref target="RFC2775"/>, Section 3.8 gives a different definition that is not
+widely used.</t>
+
 <t hangText='View:'>
 <iref item='View'/>
 A configuration for a DNS server that allows it to provide
-different answers depending on attributes of the query. Typically, views differ
+different answers depending on attributes of the query, such as for "split DNS". Typically, views differ
 by the source IP address of a query, but can also be based on the destination IP address,
 the type of query (such as AXFR), whether it is recursive, and so on.
 Views are often used to
@@ -964,21 +979,6 @@ address, each one of those servers is commonly referred to as an 'instance'."
 "An instance of a server, such as a root server, is often referred to as an 'Anycast
 instance'."
 (Quoted from <xref target="RSSAC026" />)</t> 
-
-<t hangText='Split DNS:'>
-<iref item='Split DNS'/>
-<iref item='Split-horizon DNS'/>
-"Split DNS" and "split-horizon DNS" have long been used in the DNS community without
-formal definition. In general, they refer to situations in which
-DNS servers that are authoritative for a particular set of domains
-provide partly or completely different answers in those domains depending
-on the source of the query. The effect of this is that a domain name that
-is notionally globally unique nevertheless has different meanings for
-different network users.
-(Recent versions of BIND have a "views" function that has many features including split DNS.)</t>
-
-<t><xref target="RFC2775"/>, Section 3.8 gives a different definition that is not
-widely used.</t>
 
 </list></t>
 </section>
