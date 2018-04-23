@@ -1594,8 +1594,9 @@ and the definition from <xref target="RFC6781"/> is consistent with <xref target
 "A configured DNSKEY RR or DS RR hash of a DNSKEY RR.  A
 validating security-aware resolver uses this public key or hash as
 a starting point for building the authentication chain to a signed
-DNS response." (Quoted from <xref target="RFC4033"/>, Section 2)
-</t>
+DNS response. In general, a validating resolver will have to
+obtain the initial values of its trust anchors via some secure or
+trusted means outside the DNS protocol." (Quoted from <xref target="RFC4033"/>, Section 2)</t>
 
 <t hangText='DNSSEC Policy (DP):'>
 <iref item='DNSSEC Policy (DP)'/>
