@@ -1572,6 +1572,10 @@ a starting point for building the authentication chain to a signed
 DNS response." (Quoted from <xref target="RFC4033"/>, Section 2)
 </t>
 
+<t>DNSSEC allows a system to have many trust anchors.
+Also, this definition does not prescribe way how implementation of DNSSEC
+validation builds authentication chain.</t>
+
 <t hangText='DNSSEC Policy (DP):'>
 <iref item='DNSSEC Policy (DP)'/>
 A statement that "sets forth the security requirements and
