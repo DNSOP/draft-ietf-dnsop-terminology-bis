@@ -968,14 +968,14 @@ instance'."
 <t hangText='Split DNS:'>
 <iref item='Split DNS'/>
 <iref item='Split-horizon DNS'/>
-<iref item='Views'/>
-"Split DNS" and "split-horizon DNS" and "views" have long been used in the DNS community without
+"Split DNS" and "split-horizon DNS" have long been used in the DNS community without
 formal definition. In general, they refer to situations in which
 DNS servers that are authoritative for a particular set of domains
 provide partly or completely different answers in those domains depending
 on the source of the query. The effect of this is that a domain name that
 is notionally globally unique nevertheless has different meanings for
-different network users.</t>
+different network users.
+(Recent versions of BIND have a "views" function that has many features including split DNS.)</t>
 
 <t><xref target="RFC2775"/>, Section 3.8 gives a different definition that is not
 widely used.</t>
