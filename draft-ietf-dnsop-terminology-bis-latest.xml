@@ -194,8 +194,8 @@ length may be 0 octets, and it is called the "root" or "root label".
 A domain name in the global DNS has a maximum total length of 255
 octets in the wire format; the root represents one octet for this
 calculation.
-(<xref target="RFC6762"/> disagrees with this description of what is
-included in the 255 octets.)
+(Multicast DNS <xref target="RFC6762"/> allows names up to 255 bytes plus a terminating zero byte
+based on a different interpretation of RFC 1035 and what is included in the 255 octets.)
 </t>
 
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
@@ -260,6 +260,14 @@ in <xref target="dns-servers-and-clients"/>.</t>
 <t>Note that domain names that do not appear in the DNS, and that are intended never to be
 looked up using the DNS protocol, are not part of the global DNS or a private DNS even
 though they are domain names.</t>
+
+<t hangText='Multicast DNS:'>
+<iref item='Multicast DNS'/>
+"Multicast DNS (mDNS) provides the ability to perform DNS-like operations on the local link in the
+absence of any conventional Unicast DNS server.  In addition, Multicast DNS designates a portion of
+the DNS namespace to be free for local use, without the need to pay any annual fee, and without the
+need to set up delegations or otherwise configure a conventional DNS server to answer for those
+names." Quoted from <xref target="RFC6762"/>, Abstract)</t>
 
 <t hangText='Locally served DNS zone:'>
 <iref item='Locally served DNS zone'/>
@@ -768,12 +776,6 @@ non-recursive queries using only local information: the response contains either
 answer, or a referral to some other server "closer" to the answer.
 (See Section 4.3.1 of <xref target="RFC1035"/>.)</t>
 
-<t hangText='Iterative query:'>
-<iref item='Iterative query'/>
-Synonym for non-recursive query that happens to be a query in a series of queries,
-but that is itself not a recursive query. This term is used in a number of RFCs though never explicitly
-defined.</t>
-
 <t hangText='Iterative resolution:'>
 <iref item='Iterative resolution'/>
 A name server may be presented with a query that can only be answered by some other server. The two
@@ -965,7 +967,8 @@ particular value".</t>
 "The practice of making a particular service address available in multiple, discrete, autonomous
 locations, such that datagrams sent are routed to one of several available locations."
 (Quoted from <xref target="RFC4786"/>, Section 2)
-Using anycast means that the same IP destination address can route to different locations.</t>
+See <xref target="RFC4786"/> for more detail on Anycast and other terms that are
+specific to its use.</t>
 
 <t hangText='Instance:'>
 <iref item='Instance'/>
@@ -1212,7 +1215,7 @@ reducing confusion with the earlier network name."
 a domain whose "role is to
 support the operating infrastructure of the Internet".
 (Quoted from <xref target="RFC3172"/>, Section 2.)
-The abbreviation earlier stood for "Advanced Research Projects Agency".
+See <xref target="RFC3172"/> for more history of this name.
 </t>
 
 <t hangText='Service name:'>
