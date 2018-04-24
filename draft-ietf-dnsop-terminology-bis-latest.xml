@@ -57,7 +57,7 @@
 
 <abstract>
 
-<t>The DNS is defined in literally dozens of different RFCs. The terminology used
+<t>The domain name system (DNS) is defined in literally dozens of different RFCs. The terminology used
 by implementers and developers of DNS protocols, and by operators of DNS systems,
 has sometimes changed in the decades since the DNS was first defined. This document
 gives current definitions for many of the terms used in the DNS in a single
@@ -193,7 +193,10 @@ in the ordered list is 0 octets long; it is the only label whose
 length may be 0 octets, and it is called the "root" or "root label".
 A domain name in the global DNS has a maximum total length of 255
 octets in the wire format; the root represents one octet for this
-calculation.</t>
+calculation.
+(Multicast DNS <xref target="RFC6762"/> allows names up to 255 bytes plus a terminating zero byte
+based on a different interpretation of RFC 1035 and what is included in the 255 octets.)
+</t>
 
 <t>Format of names -- Names in the global DNS are domain names. There are three formats:
 wire format,  presentation format, and common display.</t>
@@ -217,7 +220,7 @@ rarely done. For example, in common display format, a fully-qualified domain nam
 non-root labels is usually shown as "example.tld" instead of "example.tld.". Names in the
 common display format are normally written such that the directionality of the writing
 system presents labels by decreasing distance from the root (so, in both English and C the
-first label in the ordered list is right-most; but in Arabic it may be left-most,
+root or TLD label in the ordered list is right-most; but in Arabic it may be left-most,
 depending on local conventions).</t>
 
 <t>Administration of names -- Administration is specified by delegation (see the
@@ -257,6 +260,14 @@ in <xref target="dns-servers-and-clients"/>.</t>
 <t>Note that domain names that do not appear in the DNS, and that are intended never to be
 looked up using the DNS protocol, are not part of the global DNS or a private DNS even
 though they are domain names.</t>
+
+<t hangText='Multicast DNS:'>
+<iref item='Multicast DNS'/>
+"Multicast DNS (mDNS) provides the ability to perform DNS-like operations on the local link in the
+absence of any conventional Unicast DNS server.  In addition, Multicast DNS designates a portion of
+the DNS namespace to be free for local use, without the need to pay any annual fee, and without the
+need to set up delegations or otherwise configure a conventional DNS server to answer for those
+names." Quoted from <xref target="RFC6762"/>, Abstract)</t>
 
 <t hangText='Locally served DNS zone:'>
 <iref item='Locally served DNS zone'/>
@@ -299,7 +310,8 @@ outlined in <xref target="RFC0952"/>, and it is likely that the term followed
 informally from the definition there.  Over time, the definition seems
 to have shifted. "Host name" is often meant to be a domain name that follows
 the rules in Section 3.5 of <xref target="RFC1034"/>, the "preferred name
-syntax". Note that any label in a domain name can contain any octet
+syntax" (that is, every character in each label are a letter,
+a digit, or a hyphen). Note that any label in a domain name can contain any octet
 value; hostnames are generally considered to be domain names where
 every label follows the rules in the "preferred name syntax", with the
 amendment that labels can start with ASCII digits (this amendment
@@ -674,6 +686,11 @@ generally assume that it is an Internet server that listens for queries
 and sends responses using the DNS protocol defined in <xref target="RFC1035"/>
 and its successors.</t>
 
+<t>It is important to note that the terms "DNS server" and "name server" require context in order to
+understand the services being provided. Both authoritative servers and recursive resolvers are often
+called "DNS servers" and "name servers" even though they serve different roles (and may be part of
+the same software package).</t>
+
 <t>For terminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
 That document defines terms such as "root server", "root server operator", and terms
 that are specific to the way that the root zone of the public DNS is served.</t>
@@ -753,7 +770,7 @@ recursive resolver and an iterative resolver.</t>
 
 <t hangText='Recursive query:'>
 <iref item='Recursive query'/>
-A query with the Recursion Desired (RD) bit set to 1 in the header.(See Section 4.1.1 of <xref
+A query with the Recursion Desired (RD) bit set to 1 in the header. (See Section 4.1.1 of <xref
 target="RFC1035"/>.) If recursive service is available and is requested by the RD bit in the query,
 the server uses its resolver to answer the query. (See Section 4.3.2 of <xref target="RFC1035"/>.)</t>
 
@@ -764,17 +781,11 @@ non-recursive queries using only local information: the response contains either
 answer, or a referral to some other server "closer" to the answer.
 (See Section 4.3.1 of <xref target="RFC1035"/>.)</t>
 
-<t hangText='Iterative query:'>
-<iref item='Iterative query'/>
-Synonym for non-recursive query that happens to be a query in a series of recursive queries,
-but that is itself not a recursive query. This term is used in a number of RFCs though never explicitly
-defined.</t>
-
 <t hangText='Iterative resolution:'>
 <iref item='Iterative resolution'/>
 A name server may be presented with a query that can only be answered by some other server. The two
 general approaches to dealing with this problem are "recursive", in which the first server pursues
-the query for the client at another server, and "iterative", in which the server refers the client
+the query on behalf of the client at another server, and "iterative", in which the server refers the client
 to another server and lets the client pursue the query there. (See Section 2.3 of <xref
 target="RFC1034"/>.)</t>
 
@@ -903,7 +914,7 @@ Internet; it is not listed in the NS RRset." (Quoted from
 <xref target="RFC6781"/>, Section 3.4.3).  An earlier RFC, <xref target="RFC4641"/>, said
 that the hidden master's name "appears in the SOA RRs MNAME field", although in some
 setups, the name does not appear at all in the public DNS.  A hidden master can also be a
-secondary server itself.</t>
+secondary server for the zone itself.</t>
 
 <t hangText='Forwarding:'>
 <iref item='Forwarding'/>
@@ -988,7 +999,9 @@ particular value".</t>
 <iref item='Anycast'/>
 "The practice of making a particular service address available in multiple, discrete, autonomous
 locations, such that datagrams sent are routed to one of several available locations."
-(Quoted from <xref target="RFC4786"/>, Section 2)</t>
+(Quoted from <xref target="RFC4786"/>, Section 2)
+See <xref target="RFC4786"/> for more detail on Anycast and other terms that are
+specific to its use.</t>
 
 <t hangText='Instance:'>
 <iref item='Instance'/>
@@ -1082,8 +1095,9 @@ The term is also commonly a noun: the new zone that is created by the act of del
 <iref item='Authoritative data'/>
 "All of the RRs attached to all of the nodes from the top node of the zone
 down to leaf nodes or nodes above cuts around the bottom edge of the zone." (Quoted from
-<xref target="RFC1034"/>, Section 4.2.1) It is noted that this definition might inadvertently also include any NS records
-that appear in the zone, even those that might not truly be authoritative because there are
+<xref target="RFC1034"/>, Section 4.2.1)
+Note that this definition might inadvertently also cause any NS records
+that appear in the zone to be included, even those that might not truly be authoritative because there are
 identical NS RRs below the zone cut.  This reveals the ambiguity in
 the notion of authoritative data, because the parent-side NS records
 authoritatively indicate the delegation, even though they are not
@@ -1117,7 +1131,7 @@ necessarily beyond.</t>
 <iref item='In-bailiwick'/>
 <iref item='Out-of-bailiwick'/>
 "In-bailiwick" is an adjective to describe a name server whose name
-is either subordinate to or (rarely) the same as the origin
+is either a subdomain of or (rarely) the same as the origin
 of the zone that contains the delegation to the name server.
 In-bailiwick name servers may have glue records in their parent
 zone (using the first of the definitions of "glue records" in the definition above).
@@ -1200,7 +1214,8 @@ This "occurs when a domain is found in DNS using A records to multiple IP addres
 each of which has a very short Time-to-Live (TTL) value associated with it.  This means
 that the domain resolves to varying IP addresses over a short period of time."
 (Quoted from <xref target="RFC6561"/>, Section 1.1.5, with typo corrected)
-It is often used to deliver malware. Because the addresses change so rapidly, it is difficult to
+In addition to having legitimate uses, fast flux DNS can used to deliver malware.
+Because the addresses change so rapidly, it is difficult to
 ascertain all the hosts.  It should be noted that the technique also works
 with AAAA records, but such use is not frequently observed on the
 Internet as of this writing.</t>
@@ -1232,6 +1247,7 @@ reducing confusion with the earlier network name."
 a domain whose "role is to
 support the operating infrastructure of the Internet".
 (Quoted from <xref target="RFC3172"/>, Section 2.)
+See <xref target="RFC3172"/> for more history of this name.
 </t>
 
 <t hangText='Service name:'>
@@ -1367,7 +1383,7 @@ who decide about the allowed contents of the zone.</t>
 <t hangText='Public suffix:'>
 <iref item='Public suffix'/>
 "A domain that is controlled by a public registry." (Quoted from <xref target="RFC6265"/>, Section 5.3)
-A common definition for this term is a domain under which subdomains can be registered, and on which HTTP cookies
+A common definition for this term is a domain under which subdomains can be registered by third parties, and on which HTTP cookies
 (which are described in detail in <xref target="RFC6265"/>) should not be set.
 There is no indication in a domain name whether it is a public suffix; that  can only be
 determined by outside means.
@@ -1801,6 +1817,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6303.xml" ?>
 <?rfc include="reference.RFC.6335.xml" ?>
 <?rfc include="reference.RFC.6365.xml" ?>
+<?rfc include="reference.RFC.6762.xml" ?>
 <?rfc include="reference.RFC.7129.xml" ?>
 <?rfc include="reference.RFC.7480.xml" ?>
 <?rfc include="reference.RFC.7481.xml" ?>
