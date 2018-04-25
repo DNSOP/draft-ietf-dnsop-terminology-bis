@@ -242,7 +242,7 @@ target="IANA_Resource_Registry"/>.</t>
 of resource records (see the definition of "RRset" in <xref target="rrs"/>).  Some names
 do not themselves have data associated with them in the DNS, but "appear" in the DNS
 anyway because they form part of a longer name that does have data associated with it (see
-the defintion of "empty non-terminals" in <xref target="zones"/>).</t>
+the definition of "empty non-terminals" in <xref target="zones"/>).</t>
 
 <t>Protocol for getting data from a name -- The protocol described in <xref
 target="RFC1035"/>.</t>
@@ -493,7 +493,7 @@ To address this potential confusion, it is helpful to distinguish between three 
 
 <list style="symbols">
 <t>
-QNAME (original): The name actually sent in the Question Section in the orignal query, which is
+QNAME (original): The name actually sent in the Question Section in the original query, which is
 always echoed in the (final) reply in the Question Section when the QR bit is set to 1.
 </t>
 <t>
@@ -513,7 +513,7 @@ QNAME almost always means what is defined above as "QNAME (original)".</t>
 
 <t hangText='Referrals:'>
 <iref item='Referrals'/>
-A type of response in which a server, signalling that it is not
+A type of response in which a server, signaling that it is not
 (completely) authoritative for an answer, provides the querying
 resolver with an alternative place to send its query.  Referrals can
 be partial.</t>
@@ -1136,7 +1136,7 @@ of the zone that contains the delegation to the name server.
 In-bailiwick name servers may have glue records in their parent
 zone (using the first of the definitions of "glue records" in the definition above).
 (The term "bailiwick" means the district or territory where a bailiff or policeman has
-jusrisdiction.)</t>
+jurisdiction.)</t>
 
 <t>"In-bailiwick" names are divided into two type of name server names:
 "in-domain" names and "sibling domain" names.
@@ -1600,7 +1600,7 @@ that are used as ZSKs, while in those cases where a distinction between a KSK an
 SEP flag is only a hint, and its presence or absence may not be used to disqualify a given
 DNSKEY RR from use as a KSK or ZSK during validation.</t>
 
-<t>The original defintion of SEPs was in <xref target="RFC3757"/>. That definition
+<t>The original definition of SEPs was in <xref target="RFC3757"/>. That definition
 clearly indicated that the SEP was a key, not just a bit in the key. The
 abstract of <xref target="RFC3757"/> says:
 "With the Delegation Signer (DS) resource record (RR), the concept of
