@@ -110,7 +110,7 @@ defined for them.</t>
 
 <t>Other organizations sometimes define DNS-related terms their own way.
 For example, the W3C defines "domain" at
-https://specs.webplatform.org/url/webspecs/develop/.
+&lt;https://url.spec.whatwg.org/&gt;.
 The Root Server System Advisory Committee (RSSAC) has a good
 lexicon <xref target="RSSAC026"/>.
 </t>
