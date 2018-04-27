@@ -267,7 +267,11 @@ though they are domain names.</t>
 absence of any conventional Unicast DNS server.  In addition, Multicast DNS designates a portion of
 the DNS namespace to be free for local use, without the need to pay any annual fee, and without the
 need to set up delegations or otherwise configure a conventional DNS server to answer for those
-names." Quoted from <xref target="RFC6762"/>, Abstract)</t>
+names." Quoted from <xref target="RFC6762"/>, Abstract)
+Although it uses a compatible wire format, mDNS is strictly speaking a different protocol than DNS.
+Also, where the above quote says "a portion of the DNS namespace", it would be clearer to say "a
+portion of the domain name space"  The names in mDNS are not intended to be looked up in the
+DNS.</t>
 
 <t hangText='Locally served DNS zone:'>
 <iref item='Locally served DNS zone'/>
@@ -402,7 +406,7 @@ server." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
 <iref item='NXDOMAIN'/>
 "Name Error - Meaningful only for responses from an authoritative name server, this code signifies
 that the domain name referenced in the query does not exist." (Quoted from <xref target="RFC1035"/>,
-Section 4.1.1.)</t>
+Section 4.1.1.)  <xref target="RFC2308"/> established NXDOMAIN as a synonym for Name Error.</t>
 
 <t hangText='NOTIMP:'>
 <iref item='NOTIMP'/>
@@ -577,7 +581,7 @@ data. (Definition from <xref target="RFC2181"/>)  Also spelled RRSet in some doc
 In addition, <xref target="RFC2181"/> states that "the TTLs of all RRs in an RRSet must be the same".
 </t>
 
-<t>>Note that RRSIG resource records do not match this definition.
+<t>Note that RRSIG resource records do not match this definition.
 <xref target="RFC4035"/> says:
 "An RRset MAY have multiple RRSIG RRs associated with it. Note that
 as RRSIG RRs are closely tied to the RRsets whose signatures they
@@ -665,7 +669,9 @@ format by <xref target="RFC2308"/>.</t>
 <iref item='Class independent'/>
 A resource record type whose syntax and semantics are the same for every DNS
 class. A resource record type that is not class independent has different meanings depending on the
-DNS class of the record, or the meaning is undefined for classes other than IN (class 1, the Internet).</t>
+DNS class of the record, or the meaning is undefined for some class.
+Most resorece record types are defined for class 1 (IN, the Internet),
+but many are undefined for other classes.</t>
 
 <t hangText='Address records:'>
 <iref item='Address records'/>
@@ -765,7 +771,7 @@ A resolver that acts in recursive mode.
 In general, a recursive resolver is expected to cache the answers it receives
 (which would make it a full-service resolver), but some recursive resolvers might not cache.</t>
 
-<t><xref target="RFC4697"/> tried to differentiate the difference between a
+<t><xref target="RFC4697"/> tried to differentiate between a
 recursive resolver and an iterative resolver.</t>
 
 <t hangText='Recursive query:'>
@@ -968,11 +974,10 @@ DNS servers that are authoritative for a particular set of domains
 provide partly or completely different answers in those domains depending
 on the source of the query. The effect of this is that a domain name that
 is notionally globally unique nevertheless has different meanings for
-different network users. This can sometimes be configured as a "view"
+different network users. This can sometimes be the result of a "view"
 configuration, described below.</t>
 
-<t><xref target="RFC2775"/>, Section 3.8 gives a different definition that is not
-widely used.</t>
+<t><xref target="RFC2775"/>, Section 3.8 gives a related definition that is too specific to be generally useful.</t>
 
 <t hangText='View:'>
 <iref item='View'/>
@@ -1078,10 +1083,10 @@ These days, the first sense of "origin" (above) and "apex" are often used interc
 The delimitation point between two zones where the origin
 of one of the zones is the child of the other zone.</t>
 <t>"Zones are delimited by 'zone cuts'.  Each zone cut separates a
-'child' zone (below the cut) from a 'parent' zone (above the cut).
+'child' zone (below the cut) from a 'parent' zone (above the cut)."
 (Quoted from <xref target="RFC2181"/>, Section 6; note that this is barely an ostensive
 definition.)
-Section 4.2 of <xref target="RFC1034"/> uses "cuts" as 'zone cut'."</t>
+Section 4.2 of <xref target="RFC1034"/> uses "cuts" instead of "zone cut".</t>
 
 <t hangText='Delegation:'>
 <iref item='Delegation'/>
@@ -1929,7 +1934,8 @@ John Dickinson,
 Mark Andrews,
 Martin Hoffmann,
 Paul Vixie,
-Peter Koch, 
+Peter Koch,
+Duane Wessels
 [[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
 
 </section>
