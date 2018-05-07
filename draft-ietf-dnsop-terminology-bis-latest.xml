@@ -267,7 +267,7 @@ though they are domain names.</t>
 absence of any conventional Unicast DNS server.  In addition, Multicast DNS designates a portion of
 the DNS namespace to be free for local use, without the need to pay any annual fee, and without the
 need to set up delegations or otherwise configure a conventional DNS server to answer for those
-names." Quoted from <xref target="RFC6762"/>, Abstract)
+names." (Quoted from <xref target="RFC6762"/>, Abstract)
 Although it uses a compatible wire format, mDNS is strictly speaking a different protocol than DNS.
 Also, where the above quote says "a portion of the DNS namespace", it would be clearer to say "a
 portion of the domain name space"  The names in mDNS are not intended to be looked up in the
@@ -314,7 +314,7 @@ outlined in <xref target="RFC0952"/>, and it is likely that the term followed
 informally from the definition there.  Over time, the definition seems
 to have shifted. "Host name" is often meant to be a domain name that follows
 the rules in Section 3.5 of <xref target="RFC1034"/>, the "preferred name
-syntax" (that is, every character in each label are a letter,
+syntax" (that is, every character in each label is a letter,
 a digit, or a hyphen). Note that any label in a domain name can contain any octet
 value; hostnames are generally considered to be domain names where
 every label follows the rules in the "preferred name syntax", with the
@@ -694,7 +694,7 @@ and its successors.</t>
 
 <t>It is important to note that the terms "DNS server" and "name server" require context in order to
 understand the services being provided. Both authoritative servers and recursive resolvers are often
-called "DNS servers" and "name servers" even though they serve different roles (and may be part of
+called "DNS servers" and "name servers" even though they serve different roles (but may be part of
 the same software package).</t>
 
 <t>For terminology specific to the public DNS root server system, see <xref target="RSSAC026"/>.
@@ -748,7 +748,7 @@ queries and either responds to those queries from a local cache or
 sends queries to other servers in order to get the final answers to
 the original queries. Section 2.3 of <xref target="RFC1034"/> describes this as "The
 first server pursues the query for the client at another server".
-Section 4.3.1 of of <xref target="RFC1034"/> says "in \[recursive\]
+Section 4.3.1 of of <xref target="RFC1034"/> says "in [recursive]
 mode the name server acts in the role of a resolver and
 returns either an error or the answer, but never referrals."
 That same section also says "The recursive mode occurs when a query with RD set arrives at a server
