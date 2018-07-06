@@ -4,10 +4,6 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 ]>
 
-<!-- ###############################################
-NEED TO UPDATE THE Definitions First Defined in this Document SECTION
-################################################ -->
-
 <?rfc toc="yes"?>
 <?rfc tocdepth="4"?>
 <?rfc sortrefs="yes"?>
@@ -1111,7 +1107,7 @@ the notion of authoritative data, because the parent-side NS records
 authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
 
-<t><xref target="RFC4022"/>, Section 2, defines "Authoritative RRset" which is related
+<t><xref target="RFC4033"/>, Section 2, defines "Authoritative RRset" which is related
 to authoritative data bu has a more precise definition.</t>
 
 <t hangText='Lame delegation:'>
@@ -1880,9 +1876,11 @@ note, however, that this RFC is already obsolete</t>
 
 <list style="symbols">
 
+
 <t>"Alias" in <xref target="names"/></t>
 <t>"Apex" in <xref target="zones"/></t>
 <t>"arpa" in <xref target="zones"/></t>
+<t>"Bailiwick" in <xref target="zones"/></t>
 <t>"Class independent" in <xref target="rrs"/></t>
 <t>"Delegation-centric zone" in <xref target="zones"/></t>
 <t>"Delegation" in <xref target="zones"/></t>
@@ -1897,10 +1895,12 @@ note, however, that this RFC is already obsolete</t>
 <t>"Host name" in <xref target="names"/></t>
 <t>"IDN" in <xref target="names"/></t>
 <t>"In-bailiwick" in <xref target="zones"/></t>
+<t>"Iterative resolution" in <xref target="dns-servers-and-clients"/></t>
 <t>"Label" in <xref target="names"/></t>
 <t>"Locally served DNS zone" in <xref target="names"/></t>
 <t>"Naming system" in <xref target="names"/></t>
 <t>"Negative response" in <xref target="dns-response-codes"/></t>
+<t>"Non-recursive query" in <xref target="dns-servers-and-clients"/></t>
 <t>"Open resolver" in <xref target="dns-servers-and-clients"/></t>
 <t>"Out-of-bailiwick" in <xref target="zones"/></t>
 <t>"Passive DNS" in <xref target="dns-servers-and-clients"/></t>
@@ -1916,7 +1916,10 @@ note, however, that this RFC is already obsolete</t>
 <t>"Root zone" in <xref target="zones"/></t>
 <t>"Secure Entry Point (SEP)" in <xref target="dnssec-general"/></t>
 <t>"Signing software" in <xref target="dnssec-general"/></t>
+<t>"Split DNS" in <xref target="dns-servers-and-clients"/></t>
 <t>"Stub resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Subordinate" in <xref target="wildcards"/></t>
+<t>"Superordinate" in <xref target="wildcards"/></t>
 <t>"TLD" in <xref target="names"/></t>
 <t>"Validating resolver" in <xref target="dnssec-general"/></t>
 <t>"Validation" in <xref target="dnssec-general"/></t>
