@@ -404,7 +404,7 @@ server." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
 
 <t hangText='NXDOMAIN:'>
 <iref item='NXDOMAIN'/>
-"Name Error - Meaningful only for responses from an authoritative name server, this code signifies
+"Name Error - This code signifies
 that the domain name referenced in the query does not exist." (Quoted from <xref target="RFC1035"/>,
 Section 4.1.1.)  <xref target="RFC2308"/> established NXDOMAIN as a synonym for Name Error.</t>
 
@@ -707,10 +707,7 @@ that are specific to the way that the root zone of the public DNS is served.</t>
 <iref item='Resolver'/>
 A program "that extract[s] information from name
 servers in response to client requests." (Quoted from <xref target="RFC1034"/>, Section 2.4)
-"The resolver is located on the same machine as the program
-that requests the resolver's services, but it may need to consult name servers on
-other hosts."
-(Quoted from <xref target="RFC1034"/>, Section 5.1) A resolver performs
+A resolver performs
 queries for a name, type, and class, and receives answers.  The
 logical function is called "resolution".  In practice, the term is
 usually referring to some specific type of resolver
@@ -853,7 +850,9 @@ have the AA bit set to 0 and come with referral data in the Authority and (if ne
 A name server that only serves authoritative data and ignores requests for recursion.
 It will "not normally generate any queries of its own.  Instead, it answers non-recursive
 queries from iterative resolvers looking for information in zones it serves."
-(Quoted from <xref target="RFC4697"/>, Section 2.4)</t>
+(Quoted from <xref target="RFC4697"/>, Section 2.4)
+In this case, "ignores requests for recursion" means "responds to requests for
+recursion with responses indicating that recursion was not performed".</t>
 
 <t hangText='Zone transfer:'>
 <iref item='Zone transfer'/>
@@ -959,8 +958,8 @@ policies are imposed without the user of the stub resolver being informed.</t>
 
 <t hangText='Open resolver:'>
 <iref item='Open resolver'/>
-A full-service resolver that accepts and processes queries from any (or nearly any) stub
-resolver. This is sometimes also called a "public resolver", although the term "public resolver"
+A full-service resolver that accepts and processes queries from any (or nearly any) client.
+This is sometimes also called a "public resolver", although the term "public resolver"
 is used more with open resolvers that are meant to be open, as compared to the vast majority of open
 resolvers that are probably misconfigured to be open.
 Open resolvers are discussed in <xref target="RFC5358"/></t>
@@ -1107,6 +1106,9 @@ identical NS RRs below the zone cut.  This reveals the ambiguity in
 the notion of authoritative data, because the parent-side NS records
 authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
+
+<t><xref target="RFC4033"/>, Section 2, defines "Authoritative RRset" which is related
+to authoritative data but has a more precise definition.</t>
 
 <t hangText='Lame delegation:'>
 <iref item='Lame delegation'/>
@@ -1492,7 +1494,7 @@ of RR types present at the NSEC RR's owner name." (Quoted from Section 4 of RFC 
 <iref item='NSEC3'/>
 Like the NSEC record, the NSEC3 record also provides authenticated denial of existence; however,
 NSEC3 records mitigate against zone enumeration and support Opt-Out.
-NSEC resource records require associated NSEC3PARAM resource records.
+NSEC3 resource records require associated NSEC3PARAM resource records.
 NSEC3 and NSEC3PARAM resource records are defined in <xref target="RFC5155"/>.</t>
 
 <t>Note that <xref target="RFC6840"/> says that <xref target="RFC5155"/> "is now considered part of the DNS Security Document Family
@@ -1874,9 +1876,11 @@ note, however, that this RFC is already obsolete</t>
 
 <list style="symbols">
 
+
 <t>"Alias" in <xref target="names"/></t>
 <t>"Apex" in <xref target="zones"/></t>
 <t>"arpa" in <xref target="zones"/></t>
+<t>"Bailiwick" in <xref target="zones"/></t>
 <t>"Class independent" in <xref target="rrs"/></t>
 <t>"Delegation-centric zone" in <xref target="zones"/></t>
 <t>"Delegation" in <xref target="zones"/></t>
@@ -1891,10 +1895,12 @@ note, however, that this RFC is already obsolete</t>
 <t>"Host name" in <xref target="names"/></t>
 <t>"IDN" in <xref target="names"/></t>
 <t>"In-bailiwick" in <xref target="zones"/></t>
+<t>"Iterative resolution" in <xref target="dns-servers-and-clients"/></t>
 <t>"Label" in <xref target="names"/></t>
 <t>"Locally served DNS zone" in <xref target="names"/></t>
 <t>"Naming system" in <xref target="names"/></t>
 <t>"Negative response" in <xref target="dns-response-codes"/></t>
+<t>"Non-recursive query" in <xref target="dns-servers-and-clients"/></t>
 <t>"Open resolver" in <xref target="dns-servers-and-clients"/></t>
 <t>"Out-of-bailiwick" in <xref target="zones"/></t>
 <t>"Passive DNS" in <xref target="dns-servers-and-clients"/></t>
@@ -1910,7 +1916,10 @@ note, however, that this RFC is already obsolete</t>
 <t>"Root zone" in <xref target="zones"/></t>
 <t>"Secure Entry Point (SEP)" in <xref target="dnssec-general"/></t>
 <t>"Signing software" in <xref target="dnssec-general"/></t>
+<t>"Split DNS" in <xref target="dns-servers-and-clients"/></t>
 <t>"Stub resolver" in <xref target="dns-servers-and-clients"/></t>
+<t>"Subordinate" in <xref target="wildcards"/></t>
+<t>"Superordinate" in <xref target="wildcards"/></t>
 <t>"TLD" in <xref target="names"/></t>
 <t>"Validating resolver" in <xref target="dnssec-general"/></t>
 <t>"Validation" in <xref target="dnssec-general"/></t>
