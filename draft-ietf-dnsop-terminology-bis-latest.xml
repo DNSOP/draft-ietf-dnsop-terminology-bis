@@ -1108,7 +1108,7 @@ authoritatively indicate the delegation, even though they are not
 themselves authoritative data.</t>
 
 <t><xref target="RFC4033"/>, Section 2, defines "Authoritative RRset" which is related
-to authoritative data bu has a more precise definition.</t>
+to authoritative data but has a more precise definition.</t>
 
 <t hangText='Lame delegation:'>
 <iref item='Lame delegation'/>
