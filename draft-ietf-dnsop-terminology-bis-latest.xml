@@ -1143,14 +1143,21 @@ necessarily beyond.</t>
 <t hangText='Bailiwick:'>
 <iref item='In-bailiwick'/>
 <iref item='Out-of-bailiwick'/>
-"In-bailiwick" is an adjective to describe a name server whose name
+
+"In-bailiwick" is an adjective indicating that a domain name is
+a subdomain of or (rarely) the same as another domain name.
+"Out-of-bailiwick" is the antonym of in-bailiwick.
+(The term "bailiwick" means the district or territory where a bailiff or policeman has
+jurisdiction.)</t>
+
+<t>
+"In-bailiwick" and "out-of-bailiwick" are usually used for name servers' names.
+"In-bailiwick" name server is a name server whose name
 is either a subdomain of or (rarely) the same as the origin
 of the zone that contains the delegation to the name server.
 In-bailiwick name servers may have glue records in their parent
 zone (using the first of the definitions of "glue records" in the definition above).
-(The term "bailiwick" means the district or territory where a bailiff or policeman has
-jurisdiction.)</t>
-
+</t>
 <t>"In-bailiwick" names are divided into two type of name server names:
 "in-domain" names and "sibling domain" names.
 
@@ -1173,8 +1180,8 @@ For example, a delegation for "child.example.com" in "example.com" zone may have
 
 </list></t>
 
-<t>"Out-of-bailiwick" is the antonym of in-bailiwick.
-An adjective to describe a name server whose name
+<t>
+"Out-of-bailiwick" name server is a name server whose name
 is not subordinate to or the same as the zone origin.
 Glue records for out-of-bailiwick name servers are useless.
 
