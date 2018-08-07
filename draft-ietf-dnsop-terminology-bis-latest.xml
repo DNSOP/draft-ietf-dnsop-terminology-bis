@@ -169,7 +169,7 @@ presentation format".</t>
 
 <t hangText='Label:'>
 <iref item='Label'/>
-An ordered list of zero or more octets which makes up a portion of a domain name.
+An ordered list of zero or more octets that makes up a portion of a domain name.
 Using graph theory, a label identifies one node in a portion of the graph of all possible
 domain names.</t>
 
@@ -836,7 +836,7 @@ give an answer, or does not give an answer." (Quoted from <xref target="RFC2308"
 <iref item='NS'/>
 "A server that knows the content of a DNS zone from local knowledge, and thus can answer
 queries about that zone without needing to query other servers." (Quoted from <xref target="RFC2182"/>, Section 2.)
-An authoritative server is named in the NS ("name server") record in the parent zone.
+An authoritative server is named in the NS ("name server") record in a zone.
 
 It is a system that responds to DNS queries with
 information about zones for which it has been configured to answer
