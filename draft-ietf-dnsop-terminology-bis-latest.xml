@@ -25,16 +25,9 @@
 </address>
 </author>
 <author initials="A." surname="Sullivan" fullname="Andrew Sullivan">
-<organization>Oracle</organization>
+<organization> </organization>
 <address>
-<postal>
-<street>100 Milverton Drive</street>
-<city>Mississauga</city>
-<region>ON</region>
-<code>L5R 4H1</code>
-<country>Canada</country>
-</postal>
-<email>andrew.s.sullivan@oracle.com</email>
+<email>ajs@anvilwalrusden.com</email>
 </address>
 </author>
 <author initials="K." surname="Fujiwara" fullname="Kazunori Fujiwara">
@@ -230,7 +223,7 @@ convenes itself in the Internet Corporation for Assigned Names and Numbers (ICAN
 names operational community selects the IANA Functions Operator for the global DNS root
 zone. At the time this document is published, that operator is Public Technical
 Identifiers (PTI).
-(See &lt;https://pti.icann.org/&gt: for more information about PTI operating the IANA Functions.)
+(See &lt;https://pti.icann.org/&gt; for more information about PTI operating the IANA Functions.)
 The name servers that serve the root zone are provided by independent
 root operators. Other zones in the global DNS have their own policies for
 administration.</t>
@@ -628,6 +621,7 @@ Often appears in the term "owner name".</t>
 
 <t hangText='SOA field names:'>
 <iref item='SOA field names'/>
+<iref item='SOA'/>
 DNS documents, including the definitions here, often refer to the fields in the
 RDATA of an SOA resource record by field name.
 "SOA" stands for "start of a zone of authority".
@@ -839,6 +833,7 @@ give an answer, or does not give an answer." (Quoted from <xref target="RFC2308"
 
 <t hangText='Authoritative server:'>
 <iref item='Authoritative server'/>
+<iref item='NS'/>
 "A server that knows the content of a DNS zone from local knowledge, and thus can answer
 queries about that zone without needing to query other servers." (Quoted from <xref target="RFC2182"/>, Section 2.)
 An authoritative server is named in the NS ("name server") record in the parent zone.
