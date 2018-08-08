@@ -25,16 +25,9 @@
 </address>
 </author>
 <author initials="A." surname="Sullivan" fullname="Andrew Sullivan">
-<organization>Oracle</organization>
+<organization> </organization>
 <address>
-<postal>
-<street>100 Milverton Drive</street>
-<city>Mississauga</city>
-<region>ON</region>
-<code>L5R 4H1</code>
-<country>Canada</country>
-</postal>
-<email>andrew.s.sullivan@oracle.com</email>
+<email>ajs@anvilwalrusden.com</email>
 </address>
 </author>
 <author initials="K." surname="Fujiwara" fullname="Kazunori Fujiwara">
@@ -176,7 +169,7 @@ presentation format".</t>
 
 <t hangText='Label:'>
 <iref item='Label'/>
-An ordered list of zero or more octets and which makes up a portion of a domain name.
+An ordered list of zero or more octets that makes up a portion of a domain name.
 Using graph theory, a label identifies one node in a portion of the graph of all possible
 domain names.</t>
 
@@ -229,7 +222,9 @@ the root zone in the global DNS are determined by the names operational communit
 convenes itself in the Internet Corporation for Assigned Names and Numbers (ICANN).  The
 names operational community selects the IANA Functions Operator for the global DNS root
 zone. At the time this document is published, that operator is Public Technical
-Identifiers (PTI). The name servers that serve the root zone are provided by independent
+Identifiers (PTI).
+(See &lt;https://pti.icann.org/&gt; for more information about PTI operating the IANA Functions.)
+The name servers that serve the root zone are provided by independent
 root operators. Other zones in the global DNS have their own policies for
 administration.</t>
 
@@ -626,8 +621,11 @@ Often appears in the term "owner name".</t>
 
 <t hangText='SOA field names:'>
 <iref item='SOA field names'/>
+<iref item='SOA'/>
 DNS documents, including the definitions here, often refer to the fields in the
-RDATA of an SOA resource record by field name. Those fields are defined in Section 3.3.13 of <xref target="RFC1035"/>.
+RDATA of an SOA resource record by field name.
+"SOA" stands for "start of a zone of authority".
+Those fields are defined in Section 3.3.13 of <xref target="RFC1035"/>.
 The names (in the order they appear in the SOA RDATA) are MNAME, RNAME, SERIAL, REFRESH, RETRY,
 EXPIRE, and MINIMUM.
 Note that the meaning of MINIMUM field is updated in Section 4 of <xref target="RFC2308"/>; the new definition
@@ -835,8 +833,11 @@ give an answer, or does not give an answer." (Quoted from <xref target="RFC2308"
 
 <t hangText='Authoritative server:'>
 <iref item='Authoritative server'/>
+<iref item='NS'/>
 "A server that knows the content of a DNS zone from local knowledge, and thus can answer
 queries about that zone without needing to query other servers." (Quoted from <xref target="RFC2182"/>, Section 2.)
+An authoritative server is named in the NS ("name server") record in a zone.
+
 It is a system that responds to DNS queries with
 information about zones for which it has been configured to answer
 with the AA flag in the response header set to 1. It is a server that has authority over one or
@@ -864,6 +865,10 @@ the AXFR ("Authoritative Transfer") mechanism to copy the full zone (described i
 the IXFR ("Incremental Transfer") mechanism to copy only parts of the zone that have changed (described in <xref target="RFC1995"/>).
 Many systems use non-standard methods for zone transfer outside the DNS protocol.</t>
 
+<t hangText='Slave server:'>
+<iref item='Slave server'/>
+See "Secondary server".</t>
+
 <t hangText='Secondary server:'>
 <iref item='Secondary server'/>
 "An authoritative server which uses zone transfer to retrieve the
@@ -874,9 +879,9 @@ more detail.  Although early DNS RFCs such as <xref target="RFC1996"/> referred 
 current common usage has shifted to calling it a "secondary".
 </t>
 
-<t hangText='Slave server:'>
-<iref item='Slave server'/>
-See secondary server.</t>
+<t hangText='Master server:'>
+<iref item='Master server'/>
+See "Primary server".</t>
 
 <t hangText='Primary server:'>
 <iref item='Primary server'/>
@@ -887,10 +892,6 @@ for one or more [secondary] servers" (Quoted from <xref target="RFC2136"/>).
 Primary servers are also discussed in <xref target="RFC1034"/>.
 Although early DNS RFCs such as <xref target="RFC1996"/> referred to this as a "master", the current
 common usage has shifted to "primary".</t>
-
-<t hangText='Master server:'>
-<iref item='Master server'/>
-See primary server.</t>
 
 <t hangText='Primary master:'>
 <iref item='Primary master'/>
