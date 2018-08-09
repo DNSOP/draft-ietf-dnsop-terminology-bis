@@ -353,7 +353,7 @@ example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn
 <t hangText='Alias:'>
 <iref item='Alias'/>
 The owner of a CNAME resource record, or a subdomain of the owner of a
-DNAME resource record. See also "canonical name".</t>
+DNAME resource record (DNAME records are defined in <xref target="RFC6672"/>). See also "canonical name".</t>
 
 <t hangText='Canonical name:'>
 <iref item='Canonical name'/>
@@ -668,7 +668,7 @@ format by <xref target="RFC2308"/>.</t>
 A resource record type whose syntax and semantics are the same for every DNS
 class. A resource record type that is not class independent has different meanings depending on the
 DNS class of the record, or the meaning is undefined for some class.
-Most resorece record types are defined for class 1 (IN, the Internet),
+Most resource record types are defined for class 1 (IN, the Internet),
 but many are undefined for other classes.</t>
 
 <t hangText='Address records:'>
@@ -1832,6 +1832,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6303.xml" ?>
 <?rfc include="reference.RFC.6335.xml" ?>
 <?rfc include="reference.RFC.6365.xml" ?>
+<?rfc include="reference.RFC.6672.xml" ?>
 <?rfc include="reference.RFC.6762.xml" ?>
 <?rfc include="reference.RFC.7129.xml" ?>
 <?rfc include="reference.RFC.7480.xml" ?>
