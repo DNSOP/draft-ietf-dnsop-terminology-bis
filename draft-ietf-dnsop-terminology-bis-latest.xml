@@ -480,7 +480,7 @@ the QNAME.
 </t>
 
 <t>
-This creates a kind of confusion, however, because the answer to a query that results in CNAME
+This creates a kind of confusion, however, because the response to a query that results in CNAME
 processing contains in the echoed Question Section one QNAME (the name in the original query), and a
 second QNAME that is in the data field of the last CNAME.  The confusion comes from the
 iterative/recursive mode of resolution, which finally returns an answer that need not actually have
@@ -706,7 +706,7 @@ that are specific to the way that the root zone of the public DNS is served.</t>
 A program "that extract[s] information from name
 servers in response to client requests." (Quoted from <xref target="RFC1034"/>, Section 2.4)
 A resolver performs
-queries for a name, type, and class, and receives answers.  The
+queries for a name, type, and class, and receives responses.  The
 logical function is called "resolution".  In practice, the term is
 usually referring to some specific type of resolver
 (some of which are defined below), and understanding
@@ -714,8 +714,8 @@ the use of the term depends on understanding the context.</t>
 
 <t>A related term is "resolve", which is not formally defined in <xref target="RFC1034"/>
 or <xref target="RFC1035"/>. An imputed definition might be "asking a question that
-consists of a domain name, class, and type, and receiving some sort of answer".
-Similarly, an imputed definition of "resolution" might be "the answer received
+consists of a domain name, class, and type, and receiving some sort of response".
+Similarly, an imputed definition of "resolution" might be "the response received
 from resolving".</t>
 
 <t hangText='Stub resolver:'>
@@ -982,7 +982,7 @@ configuration, described below.</t>
 <t hangText='View:'>
 <iref item='View'/>
 A configuration for a DNS server that allows it to provide
-different answers depending on attributes of the query, such as for "split DNS". Typically, views differ
+different responses depending on attributes of the query, such as for "split DNS". Typically, views differ
 by the source IP address of a query, but can also be based on the destination IP address,
 the type of query (such as AXFR), whether it is recursive, and so on.
 Views are often used to
