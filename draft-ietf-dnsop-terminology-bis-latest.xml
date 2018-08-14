@@ -56,8 +56,7 @@ has sometimes changed in the decades since the DNS was first defined. This docum
 gives current definitions for many of the terms used in the DNS in a single
 document.</t>
 
-<t>This document will be the successor to RFC 7719, and thus will
-obsolete RFC 7719. It will also update RFC 2308.</t>
+<t>This document obsoletes RFC 7719 and updates RFC 2308.</t>
 
 </abstract>
 
@@ -102,7 +101,7 @@ are commonly talked about in the DNS community but that never had terms
 defined for them.</t>
 
 <t>Other organizations sometimes define DNS-related terms their own way.
-For example, the W3C defines "domain" at
+For example, the WHATWG defines "domain" at
 &lt;https://url.spec.whatwg.org/&gt;.
 The Root Server System Advisory Committee (RSSAC) has a good
 lexicon <xref target="RSSAC026"/>.
@@ -121,6 +120,12 @@ guess at current practices, and is not meant to indicate that other
 capitalization styles are wrong or archaic.
 In some cases, multiple styles of capitalization are used for the same term due to quoting
 from different RFCs.</t>
+
+<t>Readers should note that grouping of the terms by theme makes it essentially impossible
+for someone not already familiar with the DNS to learn about the DNS by reading this document
+from front to back. Instead, skipping around may be the only way to get enough context to
+understand some of the definitions. This document has an index that might be useful for
+readers who are attempting to learn the DNS by reading this document.</t>
 
 </section>
 
@@ -277,7 +282,7 @@ that are locally served zones.
 Resolution of names through locally served zones may result in ambiguous results.
 For example, the same name may resolve to different results in different locally served DNS
 zone contexts.
-The context through which a locally served zone may be explicit, for example, as defined in 
+The context for a locally served DNS zone may be explicit, for example, as defined in 
 <xref target="RFC6303"/>, or implicit, as defined by local DNS administration and not known to the
 resolution client.</t>
 
@@ -506,7 +511,7 @@ the last name in a CNAME chain response.
 </list></t>
 
 <t>Note that, because the definition in <xref target="RFC2308"/> is actually for a different
-concept than what was in <xref target="RFC1034"/>, it would have be better if
+concept than what was in <xref target="RFC1034"/>, it would have been better if
 <xref target="RFC2308"/> had used a different name for that concept. In general use today,
 QNAME almost always means what is defined above as "QNAME (original)".</t>
 
@@ -605,7 +610,7 @@ The extension mechanisms for DNS, defined in <xref
 target="RFC6891"/>. Sometimes called "EDNS0" or "EDNS(0)"
 to indicate the version number. EDNS allows DNS clients and servers to specify message
 sizes larger than the original 512 octet limit, to expand the response code space, and
-potentially to carry additional options that affect the handling of a DNS query.</t>
+to carry additional options that affect the handling of a DNS query.</t>
 
 <t hangText='OPT:'>
 <iref item='OPT'/>
@@ -1349,7 +1354,7 @@ that perform registration in large delegation-centric zones (such as
 TLDs); but formally, whoever decides what data goes into a zone is the
 registry for that zone.
 This definition of "registry" is from a DNS point of view; for some zones, the policies
-that determine what can go in the zone are decided by superior zones and not the registry operator.</t>
+that determine what can go in the zone are decided by zones that are superordinate and not the registry operator.</t>
 
 <t hangText='Registrant:'>
 <iref item='Registrant'/>
