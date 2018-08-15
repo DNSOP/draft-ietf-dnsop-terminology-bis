@@ -1871,6 +1871,8 @@ position as to whether they need to be reconciled.</t>
 
 <t>Forwarder in <xref target="RFC2308"/></t>
 
+<t>QNAME in <xref target="RFC2308"/></t>
+
 <t>Secure Entry Point (SEP) in <xref target="RFC3757"/>;
 note, however, that this RFC is already obsolete</t>
 
