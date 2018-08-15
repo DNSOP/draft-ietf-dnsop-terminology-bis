@@ -1952,7 +1952,8 @@ Paul Ebersman, David Lawrence, Matthijs Mekking, Casey Deccio, Bob Harold, Ed Le
 John Klensin, David Black,
 and many others in the DNSOP Working Group helped shape RFC 7719.</t>
 
-<t>Additional people contributed to this document, including: 
+<t>Most of the major changes between RFC 7719 and this document came from
+active discussion on the DNSOP WG. Specific people who contributed material to this document include: 
 Bob Harold,
 Dick Franks,
 Evan Hunt,
@@ -1961,8 +1962,12 @@ Mark Andrews,
 Martin Hoffmann,
 Paul Vixie,
 Peter Koch,
-Duane Wessels
-[[ MORE NAMES WILL APPEAR HERE AS FOLKS CONTRIBUTE]].</t>
+Duane Wessels,
+Allison Mankin, 
+Giovane Moura,
+Roni Even,
+Dan Romascanu, and
+Vladmir Cunat.</t>
 
 </section>
 
