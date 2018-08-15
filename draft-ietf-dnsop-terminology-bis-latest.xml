@@ -121,9 +121,10 @@ capitalization styles are wrong or archaic.
 In some cases, multiple styles of capitalization are used for the same term due to quoting
 from different RFCs.</t>
 
-<t>Readers should note that grouping of the terms by theme makes it essentially impossible
-for someone not already familiar with the DNS to learn about the DNS by reading this document
-from front to back. Instead, skipping around may be the only way to get enough context to
+<t>Readers should note that the terms in this document are grouped by topic.
+Someone who is not already familiar with the DNS can probably not
+learn about the DNS from scratch by reading this document from front to back. 
+Instead, skipping around may be the only way to get enough context to
 understand some of the definitions. This document has an index that might be useful for
 readers who are attempting to learn the DNS by reading this document.</t>
 
