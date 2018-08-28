@@ -187,7 +187,7 @@ target="RFC1035"/>, although the term "global DNS" has not been defined before n
 
 <t>Composition of names -- A name in the global DNS has one or more
 labels.  The length of each label is between 0 and 63 octets
-inclusive. In a fully-qualified domain name, the first label
+inclusive. In a fully-qualified domain name, the last label
 in the ordered list is 0 octets long; it is the only label whose
 length may be 0 octets, and it is called the "root" or "root label".
 A domain name in the global DNS has a maximum total length of 255
