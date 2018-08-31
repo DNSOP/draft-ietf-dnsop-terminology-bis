@@ -455,6 +455,14 @@ authoritative answer bit is often called "the AA flag" or "the AA bit".</t>
 
 <t><list style="hanging">
 
+<t hangText='Class:'>
+<iref item='Class'/>
+A class "identifies a protocol family or instance of a protocol" (Quoted from <xref
+target="RFC1034"/>, Section 3.6).
+"The DNS tags all data with a class as well as the type, so that we can allow parallel use
+of different formats for data of type address."
+(Quoted from <xref target="RFC1034"/>, Section 2.2).
+
 <t hangText='QNAME:'>
 <iref item='QNAME'/>
 The most commonly-used rough definition is that the QNAME is a field in the Question section of a
@@ -1944,8 +1952,7 @@ note, however, that this RFC is already obsolete</t>
 
 <section anchor="acknowledgements" title="Acknowledgements" numbered="no">
 
-<t>The following is the Acknowledgements for RFC 7719. Additional acknowledgements may
-be added as this draft is worked on.</t>
+<t>The following is the Acknowledgements for RFC 7719.</t>
 
 <t>The authors gratefully acknowledge all of the authors of DNS-related RFCs that proceed
 this one. Comments from Tony Finch, Stephane Bortzmeyer, Niall O'Reilly,
