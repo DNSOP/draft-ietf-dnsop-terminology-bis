@@ -342,7 +342,7 @@ division is a matter of policy, and beyond the scope of this document.</t>
 <t hangText='IDN:'>
 <iref item='IDN'/>
 The common abbreviation for "Internationalized Domain Name". The IDNA protocol is the standard
-mechanism for handling domain names with non-ASCII characters in applications in the DNS. The current standard,
+mechanism for handling domain names with non-ASCII characters in applications in the DNS. The current standard at the time of this writing,
 normally called "IDNA2008", is defined in <xref target="RFC5890"/>, <xref target="RFC5891"/>, <xref target="RFC5892"/>,
 <xref target="RFC5893"/>, and <xref target="RFC5894"/>.
 These documents define many IDN-specific terms such as "LDH label", "A-label", and "U-label".
