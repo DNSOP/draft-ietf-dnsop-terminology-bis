@@ -630,7 +630,7 @@ It is used by EDNS.</t>
 
 <t hangText='Owner:'>
 <iref item='Owner'/>
-The domain name where a RR is found (<xref target="RFC1034"/>, Section 3.6).
+"The domain name where a RR is found" (Quoted from <xref target="RFC1034"/>, Section 3.6).
 Often appears in the term "owner name".</t>
 
 <t hangText='SOA field names:'>
