@@ -462,6 +462,9 @@ target="RFC1034"/>, Section 3.6).
 "The DNS tags all data with a class as well as the type, so that we can allow parallel use
 of different formats for data of type address."
 (Quoted from <xref target="RFC1034"/>, Section 2.2).
+In practice, the class for nearly every query is "IN".
+There are some queries for "CH", but they are usually for the purposes of
+information about the server itself rather than for a different type of address.
 </t>
 
 <t hangText='QNAME:'>
