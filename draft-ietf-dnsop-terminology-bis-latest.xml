@@ -162,10 +162,12 @@ An ordered list of one or more labels.</t>
 <t>Note that this is a definition independent of the DNS RFCs, and the definition here
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
 name space" using mathematical trees and their nodes in graph theory, and this definition
-has the same practical result as the definition here. Using
-graph theory, a domain name is a list of labels identifying a portion along one edge of a
-directed acyclic graph. A domain name can be relative to parts of the tree, or it
-can be fully qualified (in which case, it begins at the common root of the graph).</t>
+has the same practical result as the definition here. Any path of a directed acyclic graph
+can be represented by a domain name consisting of the labels of its nodes, ordered by
+decreasing distance from the root(s) (which is the normal convention within the DNS,
+including this document). A domain name whose last label identifies a root of the graph is
+fully qualified; other domain names whose labels form a strict prefix of a fully qualified
+domain name are relative to its first omitted node.</t>
 
 <t>Also note that different IETF and non-IETF documents have used the term "domain name"
 in many different ways. It is common for earlier documents to use "domain name" to mean
@@ -301,8 +303,8 @@ This term first appeared in <xref target="RFC0819"/>. In this document, names
 are often written relative to the root.</t>
 <t>The need for the term "fully qualified domain name" comes from the existence
 of partially qualified domain names, which are names where one or more
-of the earliest labels in the ordered list are omitted (for example,
-a name of "www" derived from "www.example.net").
+of the last labels in the ordered list are omitted (for example,
+a domain name of "www" relative to "example.net" identifies "www.example.net").
 Such relative names are understood only by context.</t>
 
 <t hangText='Host name:'>
