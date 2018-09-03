@@ -355,7 +355,7 @@ and <xref target="RFC6055"/> has a much more extensive discussion of IDNs, inclu
 seeing if the subdomain's name ends with the containing domain's name." (Quoted
 from <xref target="RFC1034"/>, Section 3.1). For
 example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn.mmm.example.com" are subdomains of "example.com".
-Note that the comparisons here are done on full labels; that is,
+Note that the comparisons here are done on whole labels; that is,
 "ooo.example.com" is not a subdomain of "oo.example.com".</t>
 
 <t hangText='Alias:'>
