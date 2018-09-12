@@ -493,7 +493,7 @@ This definition has a certain internal logic, because of the way CNAME substitut
 definition of CNAME.  If a name server does not find an RRset that matches a query, but it finds the
 same name in the same class with a CNAME record, then the name server "includes the CNAME record in
 the response and restarts the query at the domain name specified in the data field of the CNAME
-record."  (<xref target="RFC1034"/> Section 3.6.2).  This is made explicit in the resolution
+record."  (Quoted from <xref target="RFC1034"/> Section 3.6.2).  This is made explicit in the resolution
 algorithm outlined in Section 4.3.2 of <xref target="RFC1034"/>, which says to "change QNAME to the
 canonical name in the CNAME RR, and go back to step 1" in the case of a CNAME RR.  Since a CNAME
 record explicitly declares that the owner name is canonically named what is in the RDATA, then there
@@ -611,7 +611,7 @@ owner name do not follow the RRset rules described in <xref target="RFC2181"/>."
 <iref item='Master file'/>
 "Master files are text files that contain RRs in text form.  Since the contents of a zone
 can be expressed in the form of a list of RRs a master file is most often used to define a
-zone, though it can be used to list a cache's contents." (<xref target="RFC1035"/>,
+zone, though it can be used to list a cache's contents." (Quoted from <xref target="RFC1035"/>,
 Section 5.)
 Master files are sometimes called "zone files".</t>
 
@@ -1158,7 +1158,7 @@ the address we wish to learn." (Definition from <xref target="RFC1034"/>, Sectio
 <t>A later definition is that glue "includes any record in a zone file that is not properly
 part of that zone, including nameserver records of delegated sub-zones (NS records),
 address records that accompany those NS records (A, AAAA, etc), and any other stray data
-that might appear" (<xref target="RFC2181"/>, Section 5.4.1).  Although glue is sometimes used today
+that might appear" (Quoted from <xref target="RFC2181"/>, Section 5.4.1).  Although glue is sometimes used today
 with this wider definition in mind, the context surrounding the <xref target="RFC2181"/> definition
 suggests it is intended to apply to the use of glue within the document itself and not
 necessarily beyond.</t>
@@ -1587,11 +1587,11 @@ third definition above.
 <xref target="RFC4033"/>, Section
 2, describes the chain linking trust anchor to DNS data as the "authentication chain".  A
 response is considered to be authentic if "all RRsets in the Answer and Authority sections
-of the response [are considered] to be authentic" (<xref target="RFC4035"/>).  DNS data or
+of the response [are considered] to be authentic" (Quoted from <xref target="RFC4035"/>).  DNS data or
 responses deemed to be authentic or validated have a security status of "secure" (<xref
 target="RFC4035"/>, Section 4.3; <xref target="RFC4033"/>, Section 5).  "Authenticating
 both DNS keys and data is a matter of local policy, which may extend or even override the
-[DNSSEC] protocol extensions" (<xref target="RFC4033"/>, Section 3.1).</t>
+[DNSSEC] protocol extensions" (Quoted from <xref target="RFC4033"/>, Section 3.1).</t>
 
 <t>The term "verification", when used, is usually synonym for "validation".</t>
 
@@ -1608,7 +1608,7 @@ both DNS keys and data is a matter of local policy, which may extend or even ove
 
 <t hangText='Key signing key (KSK):'>
 <iref item='Key signing key (KSK)'/>
-DNSSEC keys that "only sign the apex DNSKEY RRset in a zone."(Quoted from
+DNSSEC keys that "only sign the apex DNSKEY RRset in a zone." (Quoted from
 <xref target="RFC6781"/>, Section 3.1)</t>
 
 <t hangText='Zone signing key (ZSK):'>
