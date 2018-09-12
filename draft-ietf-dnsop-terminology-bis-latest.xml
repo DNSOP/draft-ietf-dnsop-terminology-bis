@@ -136,7 +136,7 @@ readers who are attempting to learn the DNS by reading this document.</t>
 <t hangText='Naming system:'>
 <iref item='Naming system'/>
 A naming system associates names with data. Naming systems have many significant facets
-that help differentiate them. Some commonly-identified facets include:
+that help differentiate them from each other. Some commonly-identified facets include:
 
 <list style="symbols">
 <t>Composition of names</t>
@@ -356,7 +356,9 @@ and <xref target="RFC6055"/> has a much more extensive discussion of IDNs, inclu
 "A domain is a subdomain of another domain if it is contained within that domain.  This relationship can be tested by
 seeing if the subdomain's name ends with the containing domain's name." (Quoted
 from <xref target="RFC1034"/>, Section 3.1). For
-example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn.mmm.example.com" are subdomains of "example.com".</t>
+example, in the host name "nnn.mmm.example.com", both "mmm.example.com" and "nnn.mmm.example.com" are subdomains of "example.com".
+Note that the comparisons here are done on whole labels; that is,
+"ooo.example.com" is not a subdomain of "oo.example.com".</t>
 
 <t hangText='Alias:'>
 <iref item='Alias'/>
@@ -762,9 +764,7 @@ checking that both RA and RD are set in the reply."</t>
 server side (which is what answers the query) and a resolver side
 (which performs the resolution function).  Systems operating
 in this mode are commonly called "recursive servers".  Sometimes they
-are called "recursive resolvers".  While strictly the difference
-between these is that one of them sends queries to another recursive
-server and the other does not, in practice it is not possible to know
+are called "recursive resolvers".  In practice it is not possible to know
 in advance whether the server that one is querying will also perform
 recursion; both terms can be observed in use interchangeably.</t>
 
@@ -1661,7 +1661,7 @@ controls at a high level." (Quoted from <xref target="RFC6841"/>, Section 2)</t>
 <t hangText='Hardware security module (HSM):'>
 <iref item='Hardware security module (HSM)'/>
 A specialized piece of hardware that is used to create keys for signatures and to
-sign messages. In DNSSEC, HSMs are often used to hold the private keys for
+sign messages without ever disclosing the private key. In DNSSEC, HSMs are often used to hold the private keys for
 KSKs and ZSKs and to create the signatures used in RRSIG records at periodic intervals.</t>
 
 <t hangText='Signing software:'>
