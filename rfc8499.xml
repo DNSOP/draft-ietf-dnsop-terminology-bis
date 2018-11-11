@@ -52,7 +52,7 @@
 the title) for use on https://www.rfc-editor.org/search.
 -->
 
-<keyword>example</keyword>
+<keyword>vocabulary, domain name system</keyword>
 
 <!--[rfced] There is one instance of a keyword from BCP 14;
 apparently it is not in text quoted from another document, so
@@ -64,7 +64,7 @@ Section 7:
    An in-domain name server name MUST
    have glue records or name resolution fails.
 -->
-
+<!--[authors] We changed that MUST to "needs to", and removed the BCP14 boilerplate -->
 
 <abstract>
 
@@ -113,13 +113,14 @@ Original:
    <https://url.spec.whatwg.org/>.  The Root Server System Advisory
    Committee (RSSAC) has a good lexicon [RSSAC026].
 -->
+<!--[authors] Agree; fixed below -->
 
 <t>The Domain Name System (DNS) is a simple query-response protocol
 whose messages in both directions have the same format.  (<xref
 target="names"/> gives a definition of "public DNS", which is often
 what people mean when they say "the DNS".)  The protocol and message
 format are defined in <xref target="RFC1034"/> and <xref
-target="RFC1035"/>. These RFCs defined some terms, but later documents
+target="RFC1035"/>. These RFCs defined some terms, and later documents
 defined others. Some of the terms from <xref target="RFC1034"/> and
 <xref target="RFC1035"/> have somewhat different meanings now than
 they did in 1987.</t>
@@ -144,11 +145,19 @@ Original:
    Some of the definitions differ from earlier RFCs, and those
    differences are noted.
 -->
+<!--[authors] Agree; fixed above -->
 
-<t>This document contains a collection of a wide variety of DNS-related terms. Some of
+<t>This document contains a collection of a wide variety of DNS-related terms, organized loosely by topic. Some of
    them have been precisely defined in earlier RFCs, some have been
    loosely defined in earlier RFCs, and some are not defined in an
    earlier RFC at all.</t>
+
+<t>Other organizations sometimes define DNS-related terms their own way.
+For example, the WHATWG defines "domain" at
+&lt;https://url.spec.whatwg.org/&gt;.
+The Root Server System Advisory Committee (RSSAC) has a good
+lexicon <xref target="RSSAC026"/>.
+</t>
 
 <t>Most of the definitions listed here represent the consensus definition of the DNS
 community -- both protocol developers and operators. Some of the definitions
@@ -165,18 +174,6 @@ are interpreted quite differently by different DNS experts. Further, some terms
 that are defined in early DNS RFCs now have definitions that are generally agreed to, but
 that are different from the original definitions.
 Therefore, this document is a substantial revision to <xref target="RFC7719"/>.</t>
-
-<t>The terms are
-organized loosely by topic. Some definitions are for new terms for things that
-are commonly talked about in the DNS community but that never had terms
-defined for them.</t>
-
-<t>Other organizations sometimes define DNS-related terms their own way.
-For example, the WHATWG defines "domain" at
-&lt;https://url.spec.whatwg.org/&gt;.
-The Root Server System Advisory Committee (RSSAC) has a good
-lexicon <xref target="RSSAC026"/>.
-</t>
 
 <t>Note that there is no single consistent definition of "the DNS". It can be considered to be some
 combination of the following: a commonly used naming scheme for objects on the Internet; a distributed database representing
@@ -198,15 +195,8 @@ learn about the DNS from scratch by reading this document from front to back.
 Instead, skipping around may be the only way to get enough context to
 understand some of the definitions. This document has an index that might be useful for
 readers who are attempting to learn the DNS by reading this document.</t>
-<section title="Requirements Language">
- <t>
-    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
-    NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
-    "MAY", and "OPTIONAL" in this document are to be interpreted as
-    described in BCP&nbsp;14 <xref target="RFC2119"/> <xref target="RFC8174"/> 
-    when, and only when, they appear in all capitals, as shown here.
-        </t>
-</section>
+
+<!--[authors] Changed in AUTH48 to remove the BCP14 boilerplate -->
 </section>
 
 <section anchor="names" title="Names">
@@ -243,7 +233,9 @@ RFCs"?  RFCs 1034 and 1035?  If so, perhaps this should be
 mentioned on first use (i.e., "hereafter referred to as "the DNS
 RFCs").
 -->
-<t>Note that this is a definition independent of the DNS RFCs, and the definition here
+<!--[authors] Fixed below -->
+
+<t>Note that this is a definition independent of <xref target="RFC1034"/> and <xref target="RFC1035"/>, and the definition here
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
 name space" using mathematical trees and their nodes in graph theory, and that definition
 has the same practical result as the definition here. Any path of a directed acyclic graph
@@ -382,8 +374,9 @@ zone may be explicit, for example, as defined in [RFC6303], or
 implicit, as defined by local DNS administration and not known to
 the resolution client.
 -->
-The context for a locally served DNS zone may be explicit, for example, as defined in 
-<xref target="RFC6303"/>, or implicit, as defined by local DNS administration and not known to the
+<!--[authors] Fixed below -->
+The context for a locally served DNS zone may be explicit, such as those that are defined in 
+<xref target="RFC6303"/>, or implicit, such as those defined by local DNS administration and not known to the
 resolution client.</t>
 
 <t hangText='Fully-Qualified Domain Name (FQDN):'>
@@ -434,10 +427,11 @@ in Section 3.5 of [RFC1034]; these rules are also known as the
 "preferred name syntax" (that is, every character in each label is a
 letter, a digit, or a hyphen).
 -->
+<!--[authors] Fixed below -->
 Over time, the definition seems
 to have shifted. "Host name" is often meant to be a domain name that follows
-the rules in Section 3.5 of <xref target="RFC1034"/>, the "preferred name
-syntax" (that is, every character in each label is a letter,
+the rules in Section 3.5 of <xref target="RFC1034"/>, which is also called the "preferred name
+syntax". (In that syntax, every character in each label is a letter,
 a digit, or a hyphen). Note that any label in a domain name can contain any octet
 value; hostnames are generally considered to be domain names where
 every label follows the rules in the "preferred name syntax", with the
@@ -548,6 +542,7 @@ Current:
       [RFC2181], Section 10.1.1.  The quoted text has been changed from
       "label" to "owner".)
 --> 
+<!--[authors] Your change above is fine -->
 
 </section>
 
@@ -1547,7 +1542,8 @@ policeman has jurisdiction.)
 
 <t>In-domain: a modifier to describe a name server whose name is either
 subordinate to or (rarely) the same as the owner name of the NS resource records.
-An in-domain name server name MUST have glue records or name resolution fails.
+An in-domain name server name needs to have glue records or name resolution fails.
+<!--[authors] Changed in AUTH48 -->
 For example, a delegation for "child.example.com" may have "in-domain" name
 server name "ns.child.example.com".
 </t>
@@ -2220,7 +2216,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.1123.xml" ?>
 <?rfc include="reference.RFC.1912.xml" ?>
 <?rfc include="reference.RFC.1996.xml" ?>
-<?rfc include="reference.RFC.2119.xml" ?>
+<!--[authors] Changed in AUTH48 to remove 2119-->
 <?rfc include="reference.RFC.2136.xml" ?>
 <?rfc include="reference.RFC.2181.xml" ?>
 <?rfc include="reference.RFC.2182.xml" ?>
@@ -2242,7 +2238,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.6891.xml" ?>
 <?rfc include="reference.RFC.7344.xml" ?>
 <?rfc include="reference.RFC.7719.xml" ?>
-<?rfc include="reference.RFC.8174.xml" ?>
+<!--[authors] Changed in AUTH48 to remove 8174-->
 <?rfc include="reference.RFC.8310.xml" ?>
 
 </references>
