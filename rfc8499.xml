@@ -557,8 +557,8 @@ Current:
 shorthand names.  All of the RCODEs are listed at
 <xref target="IANA_Resource_Registry"/>, although
 that list uses mixed-case capitalization, while most documents use all caps.
-Some of the common names for values defined in <xref target="RFC1035"/> are described in this section,
-as are an additional RCODE and general definition.
+Some of the common names for values defined in <xref target="RFC1035"/> are described in this section.
+This section also an additional RCODE and general definition.
 The official list of all RCODEs is in the IANA registry.</t>
 
 <!--[rfced] We have the following questions regarding Section 3 "DNS
@@ -646,7 +646,7 @@ server" in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 <t hangText='NXDOMAIN:'>
 <iref item='NXDOMAIN'/>
 This RCODE appears as "Name Error [...] this code signifies that the domain name
-referenced in the query does not exist." in Section 4.1.1 of <xref target="RFC1035"/>.</t>
+referenced in the query does not exist." in Section 4.1.1 of <xref target="RFC1035"/>.
 <xref target="RFC2308"/> established NXDOMAIN as a synonym for Name Error.</t>
 
 <t hangText='NOTIMP:'>
