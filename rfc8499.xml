@@ -235,7 +235,7 @@ RFCs").
 -->
 <!--[authors] Fixed below -->
 
-<t>Note that this is a definition independent of <xref target="RFC1034"/> and <xref target="RFC1035"/>, and the definition here
+<t>Note that this is a definition independent of the DNS RFCs (<xref target="RFC1034"/> and <xref target="RFC1035"/>), and the definition here
 also applies to systems other than the DNS. <xref target="RFC1034"/> defines the "domain
 name space" using mathematical trees and their nodes in graph theory, and that definition
 has the same practical result as the definition here. Any path of a directed acyclic graph
@@ -375,8 +375,8 @@ implicit, as defined by local DNS administration and not known to
 the resolution client.
 -->
 <!--[authors] Fixed below -->
-The context for a locally served DNS zone may be explicit, such as those that are defined in 
-<xref target="RFC6303"/>, or implicit, such as those defined by local DNS administration and not known to the
+The context for a locally served DNS zone may be explicit, such as those that are listed in 
+<xref target="RFC6303"/> and <xref target="7793"/>, or implicit, such as those defined by local DNS administration and not known to the
 resolution client.</t>
 
 <t hangText='Fully-Qualified Domain Name (FQDN):'>
@@ -2367,6 +2367,7 @@ Perhaps:
 <?rfc include="reference.RFC.7484.xml" ?> 
 <?rfc include="reference.RFC.7485.xml" ?>
 <?rfc include="reference.RFC.7858.xml" ?>
+<?rfc include="reference.RFC.7793.xml" ?>
 <?rfc include="reference.RFC.8094.xml" ?>
 <?rfc include="reference.RFC.8109.xml" ?>
 
