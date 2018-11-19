@@ -558,7 +558,7 @@ shorthand names.  All of the RCODEs are listed at
 <xref target="IANA_Resource_Registry"/>, although
 that list uses mixed-case capitalization, while most documents use all caps.
 Some of the common names for values defined in <xref target="RFC1035"/> are described in this section.
-This section also an additional RCODE and general definition.
+This section also includes an additional RCODE and a general definition.
 The official list of all RCODEs is in the IANA registry.</t>
 
 <!--[rfced] We have the following questions regarding Section 3 "DNS
