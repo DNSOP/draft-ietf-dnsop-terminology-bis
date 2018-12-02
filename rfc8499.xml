@@ -573,7 +573,9 @@ Current:
 shorthand names.  All of the RCODEs are listed at
 <xref target="IANA_Resource_Registry"/>, although
 that list uses mixed-case capitalization, while most documents use all caps.
-Some of the common names are described here, but the official list is in the IANA registry.</t>
+Some of the common names for values defined in <xref target="RFC1035"/> are described in this section.
+This section also includes an additional RCODE and a general definition.
+The official list of all RCODEs is in the IANA registry.</t>
 
 <!--[rfced] We have the following questions regarding Section 3 "DNS
 Response Codes":
@@ -629,39 +631,50 @@ Perhaps:
       Name Error.
 -->
 
+<!--[authors] 
+
+a) See the change above
+
+b) No, and this was confirmed by the WG during the discussion of the document.
+
+c) Agree, changed below.
+
+d) Agree, changed below.
+
+ -->
+
+
 <t><list style="hanging">
 
 <t hangText='NOERROR:'>
 <iref item='NOERROR'/>
-"No error condition" (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
+This RCODE appears as "No error condition" in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 
 <t hangText='FORMERR:'>
 <iref item='FORMERR'/>
-"Format error - The name server was unable to interpret the query." (Quoted from <xref
-target="RFC1035"/>, Section 4.1.1.)</t>
+This RCODE appears as "Format error - The name server was unable to interpret the query" in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 
 <t hangText='SERVFAIL:'>
 <iref item='SERVFAIL'/>
-"Server failure - The name server was unable to process this query due to a problem with the name
-server." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
+This RCODE appears as "Server failure - The name server was unable to process this query due to a problem with the name
+server" in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 
 <t hangText='NXDOMAIN:'>
 <iref item='NXDOMAIN'/>
-"Name Error - This code signifies
-that the domain name referenced in the query does not exist." (Quoted from <xref target="RFC1035"/>,
-Section 4.1.1.)  <xref target="RFC2308"/> established NXDOMAIN as a synonym for Name Error.</t>
+This RCODE appears as "Name Error [...] this code signifies that the domain name
+referenced in the query does not exist." in Section 4.1.1 of <xref target="RFC1035"/>.
+<xref target="RFC2308"/> established NXDOMAIN as a synonym for Name Error.</t>
 
 <t hangText='NOTIMP:'>
 <iref item='NOTIMP'/>
-"Not Implemented - The name server does not support the requested kind of query." (Quoted from <xref
-target="RFC1035"/>, Section 4.1.1.)</t>
+This RCODE appears as "Not Implemented - The name server does not support the requested kind of query" in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 
 <t hangText='REFUSED:'>
 <iref item='REFUSED'/>
-"Refused - The name server refuses to perform the specified operation for policy reasons.  For
+This RCODE appears as "Refused - The name server refuses to perform the specified operation for policy reasons.  For
 example, a name server may not wish to provide the information to the particular requester, or a
 name server may not wish to perform a particular operation (e.g., zone transfer) for particular
-data." (Quoted from <xref target="RFC1035"/>, Section 4.1.1.)</t>
+data." in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 
 <t hangText='NODATA:'>
 <iref item='NODATA'/>
@@ -691,8 +704,8 @@ Sections 2 and 7 of <xref target="RFC2308"/> describe the types of negative resp
 <section anchor="dns-transactions" title="DNS Transactions">
 
 <t>The header of a DNS message is its first 12 octets. Many of the fields and flags in
-the header diagram in Sections 4.1.1 through 4.1.3 of <xref target="RFC1035"/> are referred to by their names
-in that diagram.
+the diagrams in Sections 4.1.1 through 4.1.3 of <xref target="RFC1035"/> are referred to by their names
+in each diagram.
 
 <!--[rfced] Should this be singular "diagram"?  Is this a single
 diagram split across sections?  Or should this be updated to
@@ -703,6 +716,7 @@ Original:
    fields and flags in the header diagram in Sections 4.1.1 through
    4.1.3 of [RFC1035] are referred to by their names in that diagram.
 -->
+<!--[authors] Fixed above -->
 
 For example, the response codes are called "RCODEs",
 the data for a record is called the "RDATA", and the
@@ -719,9 +733,9 @@ target="RFC1034"/>, Section 3.6).
 "The DNS tags all data with a class as well as the type, so that we can allow parallel use
 of different formats for data of type address."  (Quoted from <xref target="RFC1034"/>, Section 2.2.).
 <!--End DNE text -->
-In practice, the class for nearly every query is "IN".
+In practice, the class for nearly every query is "IN" (the Internet).
 
-There are some queries for "CH", but they are usually for the purposes of
+There are some queries for "CH" (the Chaos class), but they are usually for the purposes of
 information about the server itself rather than for a different type of address.
 
 <!--[rfced] Later in the document, "IN" is expanded.  Would it be
@@ -734,6 +748,7 @@ Original:
 Perhaps:
    In practice, the class for nearly every query is "IN" (the Internet).
 -->
+<!--[authors] Fixed above -->
 
 </t>
 
@@ -842,7 +857,7 @@ that this is the only legitimate kind of referral in the DNS.</t>
 <t>The second is an upward referral (sometimes described as "root
 referral"), where the server is not authoritative for any portion of
 the QNAME.  When this happens, the referred-to zone in the authority
-section is usually the root zone (.).
+section is usually the root zone (".").
 
 <!--[rfced] Please confirm the use of (.) in this sentence is 
 intentional. We see root zone (".") is used in RFC 7720.
@@ -855,6 +870,7 @@ Perhaps:
   When this happens, the referred-to zone in the
   authority section is usually the root zone ("."). 
 -->
+<!--[authors] Fixed above -->
 In normal DNS operation, this
 kind of response is not required for resolution or for correctly
 answering any query.  There is no requirement that any server send
@@ -1005,6 +1021,7 @@ The $TTL directive was added to the master file format by [RFC2308].
 Perhaps:
 The $TTL TTL directive was added to the master file format by [RFC2308].
 -->
+<!--[authors] No, the use of "$TTL TTL directive" is a bug in 2308. It was correct in 2308 in other places. -->
 
 <t hangText='Class independent:'>
 <iref item='Class independent'/>
@@ -1119,7 +1136,7 @@ recursive resolver and an iterative resolver.</t>
 <iref item='Recursive query'/>
 A query with the Recursion Desired (RD) bit set to 1 in the header. (See Section 4.1.1 of <xref
 target="RFC1035"/>.) If recursive service is available and is requested by the RD bit in the query,
-the server uses its resolver to answer the query. (See Section 4.3.2 of <xref target="RFC1035"/>.)</t>
+the server uses its resolver to answer the query. (See Section 4.3.2 of <xref target="RFC1034"/>.)</t>
 
 <!--[rfced] We do not see a Section 4.3.2 in RFC 1035.  Please review
 this citation for accuracy. Perhaps RFC 1034 was intended?
@@ -1154,13 +1171,14 @@ Perhaps:
       error, the answer, or a referral to some other server "closer" to
       the answer.  (See Section 4.3.1 of [RFC1034].)
 -->
+<!--[authors] Fixed above and below.  -->
 
 <t hangText='Non-recursive query:'>
 <iref item='Non-recursive query'/>
 A query with the Recursion Desired (RD) bit set to 0 in the header. A server can answer
 non-recursive queries using only local information: the response contains either an error, the
 answer, or a referral to some other server "closer" to the answer.
-(See Section 4.3.1 of <xref target="RFC1035"/>.)</t>
+(See Section 4.3.1 of <xref target="RFC1034"/>.)</t>
 
 <t hangText='Iterative resolution:'>
 <iref item='Iterative resolution'/>
