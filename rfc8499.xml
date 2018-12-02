@@ -65,6 +65,19 @@ Section 7:
    have glue records or name resolution fails.
 -->
 
+<!--[authors] Note in AUTH48:
+The use of periods near the end of "(Quoted from RFC NNNN, Section X.Y)"
+is quite inconsistent throughout the document. It was probably inconsisten
+in what we gave you, but it should probably be made regular throughout.
+Our preference would be:
+   (Quoted from RFC NNNN, Section X.Y)
+Not:
+   (Quoted from RFC NNNN, Section X.Y.)
+Not:
+   (Quoted from RFC NNNN, Section X.Y).
+Not:
+   (Quoted from RFC NNNN, Section X.Y.).
+-->
 
 <abstract>
 
@@ -350,6 +363,7 @@ though they are domain names.</t>
 
 <t hangText='Multicast DNS (mDNS):'>
 <iref item='Multicast DNS'/>
+<iref item='mDNS'/> <!--[authors] Added in AUTH48 -->
 
 <!--Begin DNE text -->
 "Multicast DNS (mDNS) provides the ability to perform DNS-like operations on the local link in the
@@ -464,6 +478,7 @@ TLDs are often divided into sub-groups such as Country Code Top-Level Domains
 division is a matter of policy and beyond the scope of this document.</t>
 
 <t hangText='Internationalized Domain Name (IDN):'>
+<iref item='Internationalized Domain Name'/> <!--[authors] Added in AUTH48 -->
 <iref item='IDN'/>
 The Internationalized Domain Names for Applications (IDNA) protocol is
 the standard mechanism for handling domain names with non-ASCII
@@ -512,12 +527,13 @@ concept of "canonical form".</t>
   <iref item='CNAME'/>
   <!--Begin DNE-->
  
-   "It has been traditional to refer to the [owner] of a CNAME record as "a
-   CNAME".  This is unfortunate, as "CNAME" is an abbreviation of
-   "canonical name", and the [owner] of a CNAME record is most certainly
+   "It has been traditional to refer to the [owner] of a CNAME record as 'a
+   CNAME'.  This is unfortunate, as 'CNAME' is an abbreviation of
+   'canonical name', and the [owner] of a CNAME record is most certainly
    not a canonical name."  
-
    <!--End DNE text -->
+<!--[authors] Changed in AUTH48. In only this quotation, our use of single quotes in the quotation
+was changed to double-quotes. We have changed this back to match the usage in the rest of the document. -->
 
 (Quoted from <xref target="RFC2181"/>, Section 10.1.1. The quoted
 text has been changed from "label" to "owner".)</t></list></t>
@@ -872,7 +888,8 @@ Section 4.1.1).</t>
 
 <t hangText='RR:'>
 <iref item='RR'/>
-An abbreviation for resource record.  (See <xref target="RFC1034"/>, Section 3.6.)</t>
+An acronym for resource record.  (See <xref target="RFC1034"/>, Section 3.6.)</t>
+<!--[authors] Changed in AUTH48; this is a stet from the previous wording. It really is an acronym, not an abbreviation of a single word. -->
 
 <t hangText='RRset:'>
 <iref item='RRset'/>
