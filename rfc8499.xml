@@ -682,7 +682,7 @@ data." in Section 4.1.1 of <xref target="RFC1035"/>.</t>
 the given class, but [there] are no records of the given type.  A NODATA
 response has to be inferred from the answer." (Quoted from <xref target="RFC2308"/>, Section 1.)
 "NODATA is indicated by an answer with the RCODE set to NOERROR and no
-relevant answers in the answer section.  The authority section will
+relevant answers in the Answer section.  The authority section will
 contain an SOA record, or there will be no NS records there." (Quoted from <xref target="RFC2308"/>, Section 2.2.)
 Note that referrals have a similar format to NODATA replies; <xref target="RFC2308"/>
 explains how to distinguish them.</t>
@@ -766,7 +766,7 @@ Section 4.1.2, where the QNAME is defined in respect of the Question
 Section.  This definition appears to be applied consistently: the
 discussion of inverse queries in Section 6.4.1 refers to the "owner name
 of the query RR and its TTL", because inverse queries populate the
-Answer Section and leave the Question Section empty.  (Inverse queries
+Answer section and leave the Question section empty.  (Inverse queries
 are deprecated in <xref target="RFC3425"/>; thus, relevant
 definitions do not appear in this document.)
 </t>
@@ -814,8 +814,8 @@ between three meanings:
 
 <list style="symbols">
 <t>
-QNAME (original): The name actually sent in the Question Section in the original query, which is
-always echoed in the (final) reply in the Question Section when the QR bit is set to 1.
+QNAME (original): The name actually sent in the Question section in the original query, which is
+always echoed in the (final) reply in the Question section when the QR bit is set to 1.
 </t>
 <t>
 QNAME (effective): A name actually resolved, which is either the name originally queried
@@ -881,7 +881,7 @@ the word "referral".</t>
 
 <t>A response that has only a referral contains an empty answer
 section.  It contains the NS RRset for the referred-to zone in the
-authority section.  It may contain RRs that provide addresses in the
+Authority section.  It may contain RRs that provide addresses in the
 additional section.  The AA bit is clear.</t>
 
 <t>In the case where the query matches an alias, and the server is not
@@ -889,10 +889,10 @@ authoritative for the target of the alias but is authoritative for
 some name above the target of the alias, the resolution algorithm will
 produce a response that contains both the authoritative answer for the
 alias and a referral.  Such a partial answer and referral
-response has data in the answer section.  It has the NS RRset for the
-referred-to zone in the authority section.  It may contain RRs that
+response has data in the Answer section.  It has the NS RRset for the
+referred-to zone in the Authority section.  It may contain RRs that
 provide addresses in the additional section.  The AA bit is set,
-because the first name in the answer section matches the QNAME and the
+because the first name in the Answer section matches the QNAME and the
 server is authoritative for that answer (see <xref target="RFC1035"/>,
 Section 4.1.1).</t>
 
@@ -1204,6 +1204,8 @@ Original:
       not be what was intended by "full resolver" in [RFC1035].  This
       term is not properly defined in any RFC.
 -->
+<!--[authors] The WG could not come up with a consensus definition, so no change here. -->
+
 <t hangText='Full resolver:'>
 <iref item='Full resolver'/>
 This term is used in <xref target="RFC1035"/>, but it is not defined there. RFC
@@ -1672,7 +1674,7 @@ IP6.ARPA zones are said to support the 'reverse DNS'."
 <t hangText='Forward lookup:'>
 <iref item='Forward lookup'/>
 "Hostname-to-address translation". (Quoted from 
-<xref target="RFC2133" />, Section 6)
+<xref target="RFC3493" />, Section 6)
 
 </t>
 
@@ -1749,6 +1751,8 @@ From RFC 4592, Section 2.1.1:
    long label, and the second octet is the ASCII representation [RFC20]
    for the '*' character.
 -->
+
+<!--[authors] Your changed version is fine. -->
   
 "A 'wildcard domain name' is defined by having its initial (i.e.,
 leftmost or least significant) label be asterisk label."
@@ -1878,12 +1882,12 @@ registration policy for the zone changes, such as was the case with the "uk" TLD
 <t hangText='Subordinate and Superordinate:'>
 <iref item='Subordinate'/>
 <iref item='Superordinate'/>
-These terms are introduced in <xref target="RFC3731"/> for use in the registration model, but not defined there.
+These terms are introduced in <xref target="RFC5731"/> for use in the registration model, but not defined there.
 Instead, they are given in examples.
 "For example, domain name 'example.com' has a superordinate relationship to host name
 ns1.example.com'...  For example, host ns1.example1.com is a subordinate host of domain example1.com,
 but it is a not a subordinate host of domain example2.com."
-(Quoted from <xref target="RFC3731"/>, Section 1.1.)
+(Quoted from <xref target="RFC5731"/>, Section 1.1.)
 These terms are strictly ways of referring to the relationship standing of two domains
 where one is a subdomain of the other.</t>
 
@@ -2130,7 +2134,7 @@ signing software can support particular HSMs as part of the signing process.</t>
 
 <t>A validating resolver can determine that a response is in one of four states:
 secure, insecure, bogus, or indeterminate. These states are defined in
-<xref target="RFC4033"/> and <xref target="RFC4035"/>, although the two definitions differ a bit.
+<xref target="RFC4033"/> and <xref target="RFC4035"/>, although the definitions in the two documents differ a bit.
 
 <!--[rfced] May we clarify this text as follows? Specifically, 
 "two definitions" is changed to "the definitions in the two documents",
@@ -2153,7 +2157,9 @@ Perhaps:
    documents, and takes no position as to whether they need to be
    reconciled.
 -->
-This document makes no effort to reconcile the two definitions, and takes no
+<!--[authors] Fixed above and below -->
+
+This document makes no effort to reconcile the definitions in the two documents, and takes no
 position as to whether they need to be reconciled.</t>
 
 <!--Begin DNE text -->
@@ -2260,7 +2266,6 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.2181.xml" ?>
 <?rfc include="reference.RFC.2182.xml" ?>
 <?rfc include="reference.RFC.2308.xml" ?>
-<?rfc include="reference.RFC.3731.xml" ?>
 <?rfc include="reference.RFC.4033.xml" ?>
 <?rfc include="reference.RFC.4034.xml" ?>
 <?rfc include="reference.RFC.4035.xml" ?>
@@ -2268,6 +2273,7 @@ position as to whether they need to be reconciled.</t>
 <?rfc include="reference.RFC.5155.xml" ?>
 <?rfc include="reference.RFC.5358.xml" ?>
 <?rfc include="reference.RFC.5730.xml" ?>
+<?rfc include="reference.RFC.5731.xml" ?>
 <?rfc include="reference.RFC.5855.xml" ?>
 <?rfc include="reference.RFC.5936.xml" ?>
 <?rfc include="reference.RFC.6561.xml" ?>
@@ -2375,10 +2381,16 @@ Perhaps:
       RFC is already obsolete (see [RFC4033], [RFC4034], and [RFC4035]).
 -->
 
-<?rfc include="reference.RFC.2133.xml" ?>
+<!--[authors]
+We changed 2133 to 3493 in the text and in the reference list. 
+We changed 3731 to 5731 in the text and in the reference list.
+We have changed the definition of SEP to point to RFC 4034.
+-->
+
 <?rfc include="reference.RFC.2775.xml" ?>
 <?rfc include="reference.RFC.3172.xml" ?>
 <?rfc include="reference.RFC.3425.xml" ?>
+<?rfc include="reference.RFC.3493.xml" ?>
 <?rfc include="reference.RFC.3757.xml" ?>
 <?rfc include="reference.RFC.3912.xml" ?>
 <?rfc include="reference.RFC.4641.xml" ?>
@@ -2432,7 +2444,8 @@ Perhaps:
 <t>QNAME in <xref target="RFC2308"/></t>
 
 <t>Secure Entry Point (SEP) in <xref target="RFC3757"/>;
-note, however, that this RFC is already obsolete</t>
+note, however, that this RFC is already obsolete
+by <xref target="RFC4033"/>.</t>
 
 </list></t>
 
@@ -2539,6 +2552,7 @@ Current variations:
 (Quoted from [RFC5855], Section 1).
 (Quoted from [RFC5855], Section 1.).
 -->
+<!--[authors] See our suggestion at the top of the file -->
 
 <!-- [rfced] Terminology questions:
 
@@ -2555,6 +2569,9 @@ b) Per author feedback regarding RFC 7719, we have updated to use
 "Fully-Qualified Domain Name" (with the hyphen).  Please let us know any
 objections.
 -->
+<!--[authors] For the section names, when quoting, leave them alone. For others,
+we have changed them to "Initialcap section" throughout. As for hyphenating "fully-qualified,
+your changes are fine because they are consistent. -->
 
 </section>
 
